@@ -51,58 +51,11 @@
 				color: white;
 			}
 			
-			.logo-circle {
+			.logo img {
 				width: 60px;
 				height: 60px;
-				border: 3px solid white;
 				border-radius: 50%;
-				background: #000;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				position: relative;
-				overflow: hidden;
-			}
-			
-			.logo-inner {
-				width: 50px;
-				height: 50px;
-				background: #000;
-				border-radius: 50%;
-				position: relative;
-			}
-			
-			.logo-dragon {
-				position: absolute;
-				top: 8px;
-				left: 8px;
-				width: 20px;
-				height: 20px;
-				background: white;
-				border-radius: 50% 50% 50% 0;
-				transform: rotate(-45deg);
-			}
-			
-			.logo-yin-yang {
-				position: absolute;
-				bottom: 8px;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 24px;
-				height: 12px;
-				background: white;
-				border-radius: 12px 12px 0 0;
-			}
-			
-			.logo-yin-yang::after {
-				content: '';
-				position: absolute;
-				top: 6px;
-				left: 6px;
-				width: 6px;
-				height: 6px;
-				background: #000;
-				border-radius: 50%;
+				object-fit: cover;
 			}
 			
 			.logo-text {
@@ -485,12 +438,7 @@
 		<header class="header">
 			<div class="nav-container">
 				<a href="#" class="logo">
-					<div class="logo-circle">
-						<div class="logo-inner">
-							<div class="logo-dragon"></div>
-							<div class="logo-yin-yang"></div>
-						</div>
-					</div>
+					<img src="/logo.jpg" alt="Västerås Tai-Nui Club Logo" />
 					<span class="logo-text">VÄSTERÅS TAI-NUI CLUB</span>
 				</a>
 				<nav>
@@ -666,12 +614,7 @@
 		<footer class="footer">
 			<div class="container">
 				<div class="footer-logo">
-					<div class="logo-circle" style="width: 80px; height: 80px; margin: 0 auto 1rem;">
-						<div class="logo-inner" style="width: 70px; height: 70px;">
-							<div class="logo-dragon" style="top: 12px; left: 12px; width: 28px; height: 28px;"></div>
-							<div class="logo-yin-yang" style="bottom: 12px; width: 32px; height: 16px; border-radius: 16px 16px 0 0;"></div>
-						</div>
-					</div>
+					<img src="/logo.jpg" alt="Västerås Tai-Nui Club Logo" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 1rem; display: block;" />
 					<h3 style="text-align: center; margin-bottom: 2rem; color: #dc2626;">VÄSTERÅS TAI-NUI CLUB</h3>
 				</div>
 				<div class="footer-content">
