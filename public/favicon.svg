@@ -1,6 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .favicon-text { font-family: Arial, sans-serif; font-weight: bold; font-size: 6px; fill: white; }
+    </style>
+  </defs>
+  
+  <!-- Background circle -->
   <circle cx="32" cy="32" r="30" fill="black"/>
   <circle cx="32" cy="32" r="30" fill="none" stroke="white" stroke-width="2"/>
+  
+  <!-- Text around the circle -->
+  <text x="32" y="12" text-anchor="middle" class="favicon-text">WESTERAS</text>
+  <text x="32" y="52" text-anchor="middle" class="favicon-text">TAI-NUI CLUB</text>
   
   <!-- Dragon -->
   <circle cx="20" cy="20" r="6" fill="white"/>
