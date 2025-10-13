@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .logo-text { font-family: Arial, sans-serif; font-weight: bold; font-size: 12px; fill: white; }
+      .logo-circle { fill: none; stroke: white; stroke-width: 4; }
+      .logo-bg { fill: black; }
+      .logo-dragon { fill: white; }
+      .logo-yin-yang { fill: white; }
+    </style>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" class="logo-bg"/>
+  
+  <!-- Outer border -->
+  <circle cx="100" cy="100" r="95" class="logo-circle"/>
+  
+  <!-- Text around the circle -->
+  <text x="100" y="30" text-anchor="middle" class="logo-text">WESTERAS</text>
+  <text x="100" y="170" text-anchor="middle" class="logo-text">TAI-NUI CLUB</text>
+  
+  <!-- Dragon (simplified) -->
+  <circle cx="60" cy="60" r="15" class="logo-dragon"/>
+  <circle cx="55" cy="55" r="3" fill="black"/>
+  
+  <!-- Yin-Yang (simplified) -->
+  <path d="M100 130 A20 20 0 0 1 100 170 A20 20 0 0 1 100 130" class="logo-yin-yang"/>
+  <circle cx="100" cy="150" r="8" fill="black"/>
+  <circle cx="100" cy="150" r="3" fill="white"/>
+</svg>
