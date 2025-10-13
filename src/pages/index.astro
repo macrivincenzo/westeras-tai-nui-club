@@ -1,0 +1,523 @@
+---
+---
+
+<html lang="sv">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Träna Wushu Sanda, MMA & Submission Wrestling i Västerås. Kinesisk full-contact kampsport, MMA och submission wrestling - den ultimata helkroppsträningen för kropp och sinne." />
+		<title>Västerås Tai-Nui Club - Wushu Sanda, MMA & Submission Wrestling</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				line-height: 1.6;
+				color: #333;
+				background-color: #fff;
+			}
+			
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+			
+			/* Hero Section */
+			.hero {
+				background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+				color: white;
+				padding: 100px 0;
+				text-align: center;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.hero::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+				opacity: 0.3;
+			}
+			
+			.hero-content {
+				position: relative;
+				z-index: 2;
+			}
+			
+			.hero h1 {
+				font-size: 3.5rem;
+				font-weight: 800;
+				margin-bottom: 1rem;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+			}
+			
+			.hero .subtitle {
+				font-size: 1.3rem;
+				margin-bottom: 2rem;
+				opacity: 0.9;
+				max-width: 800px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.hero .description {
+				font-size: 1.1rem;
+				margin-bottom: 3rem;
+				opacity: 0.8;
+			}
+			
+			.cta-buttons {
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			
+			.btn {
+				padding: 15px 30px;
+				border: none;
+				border-radius: 5px;
+				font-size: 1.1rem;
+				font-weight: 600;
+				text-decoration: none;
+				display: inline-block;
+				transition: all 0.3s ease;
+				cursor: pointer;
+			}
+			
+			.btn-primary {
+				background: #dc2626;
+				color: white;
+			}
+			
+			.btn-primary:hover {
+				background: #b91c1c;
+				transform: translateY(-2px);
+			}
+			
+			.btn-secondary {
+				background: transparent;
+				color: white;
+				border: 2px solid white;
+			}
+			
+			.btn-secondary:hover {
+				background: white;
+				color: black;
+			}
+			
+			/* Section Styles */
+			.section {
+				padding: 80px 0;
+			}
+			
+			.section h2 {
+				font-size: 2.5rem;
+				text-align: center;
+				margin-bottom: 3rem;
+				color: #1a1a1a;
+			}
+			
+			.section h3 {
+				font-size: 1.8rem;
+				margin-bottom: 1rem;
+				color: #dc2626;
+			}
+			
+			.section p {
+				font-size: 1.1rem;
+				margin-bottom: 1.5rem;
+				color: #666;
+			}
+			
+			/* Introduction Section */
+			.intro {
+				background: #f8f9fa;
+			}
+			
+			.intro-content {
+				text-align: center;
+				max-width: 800px;
+				margin: 0 auto;
+			}
+			
+			.rating {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				background: #fff;
+				padding: 10px 20px;
+				border-radius: 25px;
+				margin-top: 2rem;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			}
+			
+			.stars {
+				color: #fbbf24;
+				font-size: 1.2rem;
+			}
+			
+			/* Why Train Section */
+			.why-train {
+				background: white;
+			}
+			
+			.features-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 3rem;
+				margin-top: 3rem;
+			}
+			
+			.feature {
+				text-align: center;
+				padding: 2rem;
+				border-radius: 10px;
+				background: #f8f9fa;
+				transition: transform 0.3s ease;
+			}
+			
+			.feature:hover {
+				transform: translateY(-5px);
+			}
+			
+			.feature-icon {
+				font-size: 3rem;
+				margin-bottom: 1rem;
+			}
+			
+			/* Martial Arts Section */
+			.martial-arts {
+				background: #1a1a1a;
+				color: white;
+			}
+			
+			.martial-arts h2,
+			.martial-arts h3 {
+				color: white;
+			}
+			
+			.martial-arts p {
+				color: #ccc;
+			}
+			
+			.martial-arts-content {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+			
+			/* Target Audience Section */
+			.target-audience {
+				background: white;
+			}
+			
+			.audience-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+			
+			.audience-card {
+				background: #f8f9fa;
+				padding: 2rem;
+				border-radius: 10px;
+				border-left: 4px solid #dc2626;
+			}
+			
+			.audience-card h4 {
+				font-size: 1.3rem;
+				margin-bottom: 1rem;
+				color: #1a1a1a;
+			}
+			
+			/* Social Proof Section */
+			.social-proof {
+				background: #f8f9fa;
+				text-align: center;
+			}
+			
+			/* Contact Section */
+			.contact {
+				background: white;
+			}
+			
+			.contact-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 3rem;
+				margin-top: 3rem;
+			}
+			
+			.contact-card {
+				background: #f8f9fa;
+				padding: 2rem;
+				border-radius: 10px;
+				text-align: center;
+			}
+			
+			.contact-icon {
+				font-size: 2rem;
+				margin-bottom: 1rem;
+			}
+			
+			/* Final CTA Section */
+			.final-cta {
+				background: #1a1a1a;
+				color: white;
+				text-align: center;
+			}
+			
+			.final-cta h2 {
+				color: white;
+			}
+			
+			.final-cta p {
+				color: #ccc;
+			}
+			
+			/* Footer */
+			.footer {
+				background: #000;
+				color: white;
+				padding: 3rem 0;
+				text-align: center;
+			}
+			
+			.footer-content {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 2rem;
+				margin-bottom: 2rem;
+			}
+			
+			.footer h4 {
+				margin-bottom: 1rem;
+				color: #dc2626;
+			}
+			
+			.footer a {
+				color: #ccc;
+				text-decoration: none;
+			}
+			
+			.footer a:hover {
+				color: white;
+			}
+			
+			/* Responsive Design */
+			@media (max-width: 768px) {
+				.hero h1 {
+					font-size: 2.5rem;
+				}
+				
+				.hero .subtitle {
+					font-size: 1.1rem;
+				}
+				
+				.cta-buttons {
+					flex-direction: column;
+					align-items: center;
+				}
+				
+				.btn {
+					width: 100%;
+					max-width: 300px;
+				}
+				
+				.section h2 {
+					font-size: 2rem;
+				}
+				
+				.features-grid,
+				.audience-grid,
+				.contact-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="container">
+				<div class="hero-content">
+					<h1>Träna Wushu Sanda, MMA & Submission Wrestling i Västerås</h1>
+					<p class="subtitle">Kinesisk full-contact kampsport, MMA och submission wrestling - den ultimata helkroppsträningen för kropp och sinne. Västerås Tai-Nui Club med nästan 50 års erfarenhet sedan 1976.</p>
+					<p class="description">Ingen erfarenhet krävs. Alla åldrar välkomna. Din första lektion är alltid gratis.</p>
+					<div class="cta-buttons">
+						<a href="#contact" class="btn btn-primary">Prova på Gratis</a>
+						<a href="#schedule" class="btn btn-secondary">Se Träningstider</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Introduction Section -->
+		<section class="section intro">
+			<div class="container">
+				<div class="intro-content">
+					<h2>Västerås Tai-Nui Club</h2>
+					<p>Hos oss tränar du Wushu Sanda, MMA och submission wrestling - en komplett kampsportsutbildning som kombinerar slag, sparkar, brottning och markstrid. Effektiv träning som ger resultat, oavsett om du vill bli starkare eller lära dig självförsvar.</p>
+					<p>Alla nivåer välkomna. Ingen erfarenhet krävs.</p>
+					<div class="rating">
+						<span class="stars">⭐⭐⭐⭐⭐</span>
+						<span>5,0 stjärnor på Google - Västerås äldsta kampsportsklubb</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Why Train Section -->
+		<section class="section why-train">
+			<div class="container">
+				<h2>Varför Träna Kampsport Hos Oss?</h2>
+				<div class="features-grid">
+					<div class="feature">
+						<div class="feature-icon">🥊</div>
+						<h3>Helkroppsträning</h3>
+						<p>Bygg styrka, kondition och explosivitet. Kombinationen av slagträning, brottning och markstrid - varje träning är unik.</p>
+					</div>
+					<div class="feature">
+						<div class="feature-icon">🛡</div>
+						<h3>Praktiskt Självförsvar</h3>
+						<p>Lär dig försvara dig på riktigt - både stående och på marken. Tekniker som faktiskt fungerar i verkligheten, inte bara i ringen.</p>
+					</div>
+					<div class="feature">
+						<div class="feature-icon">🤝</div>
+						<h3>Gruppträning & Individuell träning</h3>
+						<p>Träna med en dedikerad grupp i alla åldrar. Vi hjälps åt att bli bättre.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Martial Arts Section -->
+		<section class="section martial-arts">
+			<div class="container">
+				<div class="martial-arts-content">
+					<h2>Komplett Kampsportsträning - Stående & Mark</h2>
+					<p>Vi erbjuder en helhetslösning för kampsport:</p>
+					
+					<h3>Wushu Sanda</h3>
+					<p>Kinas moderna full-contact kampsport med 1000 års historia. Kombinerar slag, sparkar och kasttekniker från traditionell kung fu.</p>
+					
+					<h3>MMA (Mixed Martial Arts)</h3>
+					<p>Den kompletta kampsporten som blandar det bästa från olika discipliner. Träna både stående teknik och markstrid.</p>
+					
+					<h3>Submission Wrestling</h3>
+					<p>Fokuserar på brottning, kontroll och låstekniker. Målet är att få din motståndare att ge upp utan att använda sparkar eller slag.</p>
+					
+					<p>Hos oss anpassar vi träningen efter DIN nivå. Från nybörjare till tävlingsutövare, alla tränar tillsammans.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Target Audience Section -->
+		<section class="section target-audience">
+			<div class="container">
+				<h2>Är Kampsportsträning Rätt För Dig?</h2>
+				<div class="audience-grid">
+					<div class="audience-card">
+						<h4>Nybörjare</h4>
+						<p>Aldrig tränat kampsport? Perfekt! De flesta hos oss började från noll. Vi lär ut grunderna steg för steg - både stående teknik och markstrid.</p>
+					</div>
+					<div class="audience-card">
+						<h4>Självförsvar</h4>
+						<p>Vill du känna dig tryggare? Lär dig försvara dig både stående och på marken. Verktyg som fungerar i verkliga situationer.</p>
+					</div>
+					<div class="audience-card">
+						<h4>Fitness</h4>
+						<p>Få en helkroppsträning som är rolig, utmanande och ger resultat. Varje muskelgrupp tränas.</p>
+					</div>
+					<div class="audience-card">
+						<h4>Tävling</h4>
+						<p>Vill du tävla i Sanda, MMA eller submission wrestling? Vi har erfarna instruktörer som kan ta dig hela vägen till mästerskap.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Social Proof Section -->
+		<section class="section social-proof">
+			<div class="container">
+				<h2>5,0 Stjärnor På Google</h2>
+				<p>Läs vad våra medlemmar säger om oss:</p>
+				<div class="rating">
+					<span class="stars">⭐⭐⭐⭐⭐</span>
+					<span>Besök vår Google-sida för att se recensioner från riktiga medlemmar</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section class="section contact" id="contact">
+			<div class="container">
+				<h2>Kom Igång Idag</h2>
+				<div class="contact-grid">
+					<div class="contact-card">
+						<div class="contact-icon">📍</div>
+						<h3>Hitta Oss</h3>
+						<p>Jakobsgatan 97<br>724 64 Västerås</p>
+						<a href="https://maps.google.com/?q=Jakobsgatan+97,+724+64+Västerås" target="_blank" class="btn btn-secondary">Öppna i Google Maps</a>
+					</div>
+					<div class="contact-card">
+						<div class="contact-icon">📞</div>
+						<h3>Kontakt</h3>
+						<p>Telefon: 070-565 35 88<br>Email: luciano@kungfu.nu</p>
+						<p>Ring oss för frågor eller boka din provlektion</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Final CTA Section -->
+		<section class="section final-cta">
+			<div class="container">
+				<h2>Prova På Gratis - Första träningen kostar inget</h2>
+				<p>Ta med träningskläder och en vattenflaska. Välj mellan Sanda, MMA eller submission wrestling - prova på allt!</p>
+				<div class="cta-buttons">
+					<a href="tel:070-565-35-88" class="btn btn-primary">Boka Provlektion</a>
+					<a href="tel:070-565-35-88" class="btn btn-secondary">Ring: 070-565 35 88</a>
+				</div>
+				<p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">Begränsat antal platser per grupp. Boka idag för att säkra din plats.</p>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-content">
+					<div>
+						<h4>Adress</h4>
+						<p>Jakobsgatan 97<br>724 64 Västerås</p>
+					</div>
+					<div>
+						<h4>Kontakt</h4>
+						<p>Telefon: 070-565 35 88<br>E-post: luciano@kungfu.nu</p>
+					</div>
+					<div>
+						<h4>Sociala Medier</h4>
+						<p><a href="https://www.facebook.com/westeras.tainui" target="_blank">Facebook</a></p>
+					</div>
+					<div>
+						<h4>Träningstider</h4>
+						<p><a href="#schedule">Se Schema</a></p>
+					</div>
+				</div>
+				<p style="margin-top: 2rem; opacity: 0.7;">© 2024 Västerås Tai-Nui Club. Alla rättigheter förbehållna.</p>
+			</div>
+		</footer>
+	</body>
+</html>
