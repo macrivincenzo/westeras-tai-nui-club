@@ -23,6 +23,111 @@
 				background-color: #fff;
 			}
 			
+			/* Header and Navigation */
+			.header {
+				background: #000;
+				color: white;
+				padding: 1rem 0;
+				position: sticky;
+				top: 0;
+				z-index: 100;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			}
+			
+			.nav-container {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+			
+			.logo {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				text-decoration: none;
+				color: white;
+			}
+			
+			.logo-circle {
+				width: 60px;
+				height: 60px;
+				border: 3px solid white;
+				border-radius: 50%;
+				background: #000;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.logo-inner {
+				width: 50px;
+				height: 50px;
+				background: #000;
+				border-radius: 50%;
+				position: relative;
+			}
+			
+			.logo-dragon {
+				position: absolute;
+				top: 8px;
+				left: 8px;
+				width: 20px;
+				height: 20px;
+				background: white;
+				border-radius: 50% 50% 50% 0;
+				transform: rotate(-45deg);
+			}
+			
+			.logo-yin-yang {
+				position: absolute;
+				bottom: 8px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 24px;
+				height: 12px;
+				background: white;
+				border-radius: 12px 12px 0 0;
+			}
+			
+			.logo-yin-yang::after {
+				content: '';
+				position: absolute;
+				top: 6px;
+				left: 6px;
+				width: 6px;
+				height: 6px;
+				background: #000;
+				border-radius: 50%;
+			}
+			
+			.logo-text {
+				font-size: 1.2rem;
+				font-weight: 800;
+				letter-spacing: 1px;
+			}
+			
+			.nav-links {
+				display: flex;
+				gap: 2rem;
+				list-style: none;
+			}
+			
+			.nav-links a {
+				color: white;
+				text-decoration: none;
+				font-weight: 600;
+				transition: color 0.3s ease;
+			}
+			
+			.nav-links a:hover {
+				color: #dc2626;
+			}
+			
 			.container {
 				max-width: 1200px;
 				margin: 0 auto;
@@ -332,6 +437,19 @@
 			
 			/* Responsive Design */
 			@media (max-width: 768px) {
+				.nav-container {
+					flex-direction: column;
+					gap: 1rem;
+				}
+				
+				.nav-links {
+					gap: 1rem;
+				}
+				
+				.logo-text {
+					font-size: 1rem;
+				}
+				
 				.hero h1 {
 					font-size: 2.5rem;
 				}
@@ -363,6 +481,28 @@
 		</style>
 	</head>
 	<body>
+		<!-- Header -->
+		<header class="header">
+			<div class="nav-container">
+				<a href="#" class="logo">
+					<div class="logo-circle">
+						<div class="logo-inner">
+							<div class="logo-dragon"></div>
+							<div class="logo-yin-yang"></div>
+						</div>
+					</div>
+					<span class="logo-text">VÄSTERÅS TAI-NUI CLUB</span>
+				</a>
+				<nav>
+					<ul class="nav-links">
+						<li><a href="#contact">Kontakt</a></li>
+						<li><a href="#schedule">Schema</a></li>
+						<li><a href="tel:070-565-35-88">Ring Oss</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
 		<!-- Hero Section -->
 		<section class="hero">
 			<div class="container">
@@ -525,6 +665,15 @@
 		<!-- Footer -->
 		<footer class="footer">
 			<div class="container">
+				<div class="footer-logo">
+					<div class="logo-circle" style="width: 80px; height: 80px; margin: 0 auto 1rem;">
+						<div class="logo-inner" style="width: 70px; height: 70px;">
+							<div class="logo-dragon" style="top: 12px; left: 12px; width: 28px; height: 28px;"></div>
+							<div class="logo-yin-yang" style="bottom: 12px; width: 32px; height: 16px; border-radius: 16px 16px 0 0;"></div>
+						</div>
+					</div>
+					<h3 style="text-align: center; margin-bottom: 2rem; color: #dc2626;">VÄSTERÅS TAI-NUI CLUB</h3>
+				</div>
 				<div class="footer-content">
 					<div>
 						<h4>Adress</h4>
