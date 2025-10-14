@@ -190,11 +190,16 @@
 				border-radius: 10px;
 				padding: 2rem;
 				color: white;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
 			}
 			
 			.schedule-header {
 				text-align: center;
 				margin-bottom: 2rem;
+				width: 100%;
 			}
 			
 			.schedule-logo img {
@@ -220,29 +225,27 @@
 			.schedule-table {
 				background: #2a2a2a;
 				border-radius: 10px;
-				padding: 1rem;
-				display: flex;
-				justify-content: center;
-				align-items: center;
+				padding: 2rem;
+				width: 100%;
+				max-width: 900px;
+				margin: 0 auto;
 			}
 			
 			.schedule-grid {
 				display: grid;
-				grid-template-columns: 100px repeat(7, 120px);
-				grid-template-rows: 50px repeat(12, 60px);
-				gap: 3px;
-				max-width: 1000px;
+				grid-template-columns: 80px repeat(7, 1fr);
+				gap: 4px;
 				width: 100%;
+				margin: 0 auto;
 			}
 			
 			.schedule-cell {
 				background: #3a3a3a;
-				padding: 8px;
-				border-radius: 4px;
-				font-size: 0.75rem;
+				padding: 12px 8px;
+				border-radius: 6px;
+				font-size: 0.8rem;
 				text-align: center;
-				height: 60px;
-				width: 100%;
+				min-height: 70px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -253,8 +256,8 @@
 				background: #4a4a4a;
 				font-weight: bold;
 				color: white;
-				font-size: 0.9rem;
-				height: 50px;
+				font-size: 1rem;
+				min-height: 50px;
 			}
 			
 			.schedule-cell.time {
@@ -262,7 +265,7 @@
 				font-weight: bold;
 				color: white;
 				font-size: 0.9rem;
-				height: 60px;
+				min-height: 70px;
 			}
 			
 			.schedule-cell.class {
@@ -387,14 +390,15 @@
 			
 			/* Responsive Design */
 			@media (max-width: 1200px) {
-				.schedule-grid {
-					grid-template-columns: 80px repeat(7, 100px);
+				.schedule-table {
 					max-width: 800px;
+					padding: 1.5rem;
 				}
 				
 				.schedule-cell {
-					font-size: 0.7rem;
-					padding: 6px;
+					font-size: 0.75rem;
+					padding: 10px 6px;
+					min-height: 65px;
 				}
 			}
 			
@@ -417,26 +421,30 @@
 					gap: 2rem;
 				}
 				
+				.schedule-table {
+					max-width: 100%;
+					padding: 1rem;
+				}
+				
 				.schedule-grid {
-					grid-template-columns: 60px repeat(7, 80px);
-					max-width: 600px;
-					gap: 2px;
+					grid-template-columns: 60px repeat(7, 1fr);
+					gap: 3px;
 				}
 				
 				.schedule-cell {
-					font-size: 0.6rem;
-					padding: 4px;
-					height: 50px;
+					font-size: 0.7rem;
+					padding: 8px 4px;
+					min-height: 60px;
 				}
 				
 				.schedule-cell.header {
-					height: 40px;
-					font-size: 0.7rem;
+					min-height: 45px;
+					font-size: 0.8rem;
 				}
 				
 				.schedule-cell.time {
-					height: 50px;
-					font-size: 0.7rem;
+					min-height: 60px;
+					font-size: 0.8rem;
 				}
 				
 				.cta-buttons {
