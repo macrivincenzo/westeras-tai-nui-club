@@ -82,6 +82,68 @@
 				color: #dc2626;
 			}
 			
+			/* Dropdown Navigation */
+			.dropdown {
+				position: relative;
+			}
+			
+			.dropdown-toggle {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+			}
+			
+			.arrow {
+				font-size: 0.8rem;
+				transition: transform 0.3s ease;
+			}
+			
+			.dropdown:hover .arrow {
+				transform: rotate(180deg);
+			}
+			
+			.dropdown-menu {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background: #1a1a1a;
+				min-width: 200px;
+				box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+				border-radius: 5px;
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(-10px);
+				transition: all 0.3s ease;
+				z-index: 1000;
+				list-style: none;
+				padding: 0.5rem 0;
+				margin: 0;
+			}
+			
+			.dropdown:hover .dropdown-menu {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0);
+			}
+			
+			.dropdown-menu li {
+				margin: 0;
+			}
+			
+			.dropdown-menu a {
+				display: block;
+				padding: 0.75rem 1.5rem;
+				color: white;
+				text-decoration: none;
+				transition: background 0.3s ease;
+				border-radius: 0;
+			}
+			
+			.dropdown-menu a:hover {
+				background: #dc2626;
+				color: white;
+			}
+			
 			.container {
 				max-width: 1200px;
 				margin: 0 auto;
@@ -368,6 +430,15 @@
 				</a>
 				<nav>
 					<ul class="nav-links">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle">Träning <span class="arrow">▼</span></a>
+							<ul class="dropdown-menu">
+								<li><a href="/wushu-sanda">Wushu Sanda</a></li>
+								<li><a href="/submission-wrestling">Submission Wrestling</a></li>
+								<li><a href="/mma">MMA</a></li>
+								<li><a href="/traditionell-kungfu">Traditionell Kung-Fu</a></li>
+							</ul>
+						</li>
 						<li><a href="/contact">Kontakt</a></li>
 						<li><a href="/schedule">Schema</a></li>
 						<li><a href="tel:070-565-35-88">Ring Oss</a></li>

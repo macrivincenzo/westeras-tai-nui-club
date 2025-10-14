@@ -7,8 +7,8 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Kontakta Westeras Tai-Nui Club - Boka din provlektion eller ställ frågor om Wushu Sanda, MMA & Submission Wrestling." />
-		<title>Kontakt - Westeras Tai-Nui Club</title>
+		<meta name="description" content="Wushu Sanda träning i Westeras - Kinesisk full-contact kampsport. Lär dig slag, sparkar och brottningstekniker." />
+		<title>Wushu Sanda - Westeras Tai-Nui Club</title>
 		<style>
 			* {
 				margin: 0;
@@ -172,38 +172,38 @@
 				margin: 0 auto;
 			}
 			
-			/* Contact Form Section */
-			.contact-section {
+			/* Content Section */
+			.content-section {
 				padding: 80px 0;
 				background: #f8f9fa;
 			}
 			
-			.contact-container {
+			.content-grid {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				gap: 4rem;
 				align-items: start;
 			}
 			
-			.contact-info h2 {
+			.content-info h2 {
 				font-size: 2.5rem;
 				margin-bottom: 2rem;
 				color: #1a1a1a;
 			}
 			
-			.contact-info h3 {
+			.content-info h3 {
 				font-size: 1.5rem;
 				margin-bottom: 1rem;
 				color: #dc2626;
 			}
 			
-			.contact-info p {
+			.content-info p {
 				font-size: 1.1rem;
 				margin-bottom: 1.5rem;
 				color: #666;
 			}
 			
-			.contact-details {
+			.benefits {
 				background: white;
 				padding: 2rem;
 				border-radius: 10px;
@@ -211,81 +211,90 @@
 				margin-top: 2rem;
 			}
 			
-			.contact-details h4 {
+			.benefits h4 {
 				font-size: 1.2rem;
 				margin-bottom: 1rem;
 				color: #1a1a1a;
 			}
 			
-			.contact-details p {
-				margin-bottom: 0.5rem;
+			.benefits ul {
+				list-style: none;
+				padding: 0;
+			}
+			
+			.benefits li {
+				padding: 0.5rem 0;
 				color: #666;
+				border-bottom: 1px solid #eee;
 			}
 			
-			/* Form Styles */
-			.form-container {
-				background: white;
-				padding: 3rem;
-				border-radius: 10px;
-				box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+			.benefits li:last-child {
+				border-bottom: none;
 			}
 			
-			.form-container h2 {
-				font-size: 2rem;
-				margin-bottom: 2rem;
-				color: #1a1a1a;
+			.benefits li:before {
+				content: "🥊";
+				margin-right: 0.5rem;
+			}
+			
+			/* Contact CTA */
+			.contact-cta {
+				background: #1a1a1a;
+				color: white;
+				padding: 60px 0;
 				text-align: center;
 			}
 			
-			.form-group {
-				margin-bottom: 1.5rem;
+			.contact-cta h2 {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+				color: white;
 			}
 			
-			.form-group label {
-				display: block;
-				margin-bottom: 0.5rem;
-				font-weight: 600;
-				color: #1a1a1a;
+			.contact-cta p {
+				font-size: 1.2rem;
+				margin-bottom: 2rem;
+				opacity: 0.9;
 			}
 			
-			.form-group input,
-			.form-group textarea,
-			.form-group select {
-				width: 100%;
-				padding: 12px 15px;
-				border: 2px solid #e5e7eb;
-				border-radius: 5px;
-				font-size: 1rem;
-				transition: border-color 0.3s ease;
-			}
-			
-			.form-group input:focus,
-			.form-group textarea:focus,
-			.form-group select:focus {
-				outline: none;
-				border-color: #dc2626;
-			}
-			
-			.form-group textarea {
-				resize: vertical;
-				min-height: 120px;
+			.cta-buttons {
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				flex-wrap: wrap;
 			}
 			
 			.btn {
-				width: 100%;
 				padding: 15px 30px;
-				background: #dc2626;
-				color: white;
 				border: none;
 				border-radius: 5px;
 				font-size: 1.1rem;
 				font-weight: 600;
+				text-decoration: none;
+				display: inline-block;
+				transition: all 0.3s ease;
 				cursor: pointer;
-				transition: background 0.3s ease;
 			}
 			
-			.btn:hover {
+			.btn-primary {
+				background: #dc2626;
+				color: white;
+			}
+			
+			.btn-primary:hover {
 				background: #b91c1c;
+				transform: translateY(-2px);
+			}
+			
+			.btn-secondary {
+				background: transparent;
+				color: white;
+				border: 2px solid white;
+			}
+			
+			.btn-secondary:hover {
+				background: white;
+				color: black;
 			}
 			
 			/* Footer */
@@ -332,13 +341,19 @@
 					font-size: 2.5rem;
 				}
 				
-				.contact-container {
+				.content-grid {
 					grid-template-columns: 1fr;
 					gap: 2rem;
 				}
 				
-				.form-container {
-					padding: 2rem;
+				.cta-buttons {
+					flex-direction: column;
+					align-items: center;
+				}
+				
+				.btn {
+					width: 100%;
+					max-width: 300px;
 				}
 			}
 		</style>
@@ -373,71 +388,81 @@
 		<!-- Hero Section -->
 		<section class="hero">
 			<div class="container">
-				<h1>Kontakta Oss</h1>
-				<p>Boka din provlektion eller ställ frågor om vår kampsportsträning. Vi svarar snabbt!</p>
+				<h1>Wushu Sanda</h1>
+				<p>Kinesisk full-contact kampsport som kombinerar slag, sparkar och brottningstekniker för den ultimata helkroppsträningen.</p>
 			</div>
 		</section>
 
-		<!-- Contact Section -->
-		<section class="contact-section">
+		<!-- Content Section -->
+		<section class="content-section">
 			<div class="container">
-				<div class="contact-container">
-					<div class="contact-info">
-						<h2>Kom Igång Idag</h2>
-						<p>Vill du prova på Wushu Sanda, MMA eller submission wrestling? Fyll i formuläret så kontaktar vi dig snart!</p>
+				<div class="content-grid">
+					<div class="content-info">
+						<h2>Vad är Wushu Sanda?</h2>
+						<p>Wushu Sanda är en modern kinesisk kampsport som kombinerar traditionella kung fu-tekniker med moderna full-contact regler. Det är en komplett kampsport som tränar både slag, sparkar och brottningstekniker.</p>
 						
-						<h3>Vad kan du fråga om?</h3>
-						<p>• Boka provlektion<br>
-						• Frågor om träningstider<br>
-						• Information om priser<br>
-						• Vilken stil som passar dig<br>
-						• Allmänna frågor</p>
+						<h3>Tekniker du lär dig:</h3>
+						<div class="benefits">
+							<h4>Slagtekniker</h4>
+							<ul>
+								<li>Direkta slag (jab, cross)</li>
+								<li>Krokslag och uppercuts</li>
+								<li>Kombinationer och sekvenser</li>
+								<li>Försvar och pareringar</li>
+							</ul>
+						</div>
 						
-						<div class="contact-details">
-							<h4>Direktkontakt</h4>
-							<p><strong>Telefon:</strong> 070-565 35 88</p>
-							<p><strong>E-post:</strong> luciano@kungfu.nu</p>
-							<p><strong>Adress:</strong> Jakobsgatan 97, 724 64 Västerås</p>
+						<div class="benefits">
+							<h4>Sparktekniker</h4>
+							<ul>
+								<li>Runda sparkar (roundhouse)</li>
+								<li>Framåtsparkar (front kick)</li>
+								<li>Sidosparkar (side kick)</li>
+								<li>Höga sparkar och kombinationer</li>
+							</ul>
 						</div>
 					</div>
 					
-					<div class="form-container">
-						<h2>Skicka Meddelande</h2>
-						<form action="https://formspree.io/f/xpwnqkqk" method="POST">
-							<div class="form-group">
-								<label for="name">Namn *</label>
-								<input type="text" id="name" name="name" required>
-							</div>
-							
-							<div class="form-group">
-								<label for="email">E-post *</label>
-								<input type="email" id="email" name="email" required>
-							</div>
-							
-							<div class="form-group">
-								<label for="phone">Telefon</label>
-								<input type="tel" id="phone" name="phone">
-							</div>
-							
-							<div class="form-group">
-								<label for="subject">Ämne</label>
-								<select id="subject" name="subject">
-									<option value="provlektion">Boka Provlektion</option>
-									<option value="traningstider">Fråga om Träningstider</option>
-									<option value="priser">Information om Priser</option>
-									<option value="stil">Vilken Stil Passar Mig</option>
-									<option value="allmant">Allmänna Frågor</option>
-								</select>
-							</div>
-							
-							<div class="form-group">
-								<label for="message">Meddelande *</label>
-								<textarea id="message" name="message" placeholder="Berätta om dina intressen, erfarenhet eller frågor..." required></textarea>
-							</div>
-							
-							<button type="submit" class="btn">Skicka Meddelande</button>
-						</form>
+					<div class="content-info">
+						<h3>Brottningstekniker</h3>
+						<div class="benefits">
+							<h4>Markstrid</h4>
+							<ul>
+								<li>Kast och fällningar</li>
+								<li>Markkontroll</li>
+								<li>Submission-tekniker</li>
+								<li>Positionering och rörelse</li>
+							</ul>
+						</div>
+						
+						<div class="benefits">
+							<h4>Fördelar med Wushu Sanda</h4>
+							<ul>
+								<li>Förbättrar kondition och styrka</li>
+								<li>Utvecklar koordination och balans</li>
+								<li>Bygger självförtroende</li>
+								<li>Lär självförsvar</li>
+								<li>Tränar både kropp och sinne</li>
+							</ul>
+						</div>
+						
+						<h3>Instruktörer</h3>
+						<p><strong>SIFU Luciano Macri</strong> - 070/565 35 88</p>
+						<p><strong>Besim Sedjiu</strong> - MMA/Submission Wrestling</p>
+						<p><strong>Vincenzo Macri</strong> - Brottning</p>
 					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact CTA Section -->
+		<section class="contact-cta">
+			<div class="container">
+				<h2>Redo att Börja Träna Wushu Sanda?</h2>
+				<p>Kontakta oss för att boka din provlektion eller ställ frågor om vår Wushu Sanda-träning!</p>
+				<div class="cta-buttons">
+					<a href="/contact" class="btn btn-primary">Boka Provlektion</a>
+					<a href="tel:070-565-35-88" class="btn btn-secondary">Ring: 070-565 35 88</a>
 				</div>
 			</div>
 		</section>
@@ -460,7 +485,7 @@
 					</div>
 					<div>
 						<h4>Träningstider</h4>
-						<p><a href="/#schedule">Se Schema</a></p>
+						<p><a href="/schedule">Se Schema</a></p>
 					</div>
 				</div>
 				<p style="margin-top: 2rem; opacity: 0.7;">© 2024 Westeras Tai-Nui Club. Alla rättigheter förbehållna.</p>
