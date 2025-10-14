@@ -116,11 +116,16 @@
 				background: #f8f9fa;
 			}
 			
-			.schedule-container {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 4rem;
-				align-items: start;
+			.main-schedule-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-bottom: 4rem;
+			}
+			
+			.schedule-info-container {
+				max-width: 800px;
+				margin: 0 auto;
 			}
 			
 			.schedule-info h2 {
@@ -179,10 +184,18 @@
 			/* Schedule Image */
 			.schedule-image-container {
 				background: white;
-				padding: 2rem;
-				border-radius: 10px;
-				box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+				padding: 3rem;
+				border-radius: 15px;
+				box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 				text-align: center;
+				width: 100%;
+				max-width: 1000px;
+			}
+			
+			.schedule-image-container h2 {
+				font-size: 2.5rem;
+				margin-bottom: 2rem;
+				color: #1a1a1a;
 			}
 			
 			.schedule-image-wrapper {
@@ -193,10 +206,11 @@
 			}
 			
 			.schedule-image {
-				max-width: 100%;
+				width: 100%;
+				max-width: 900px;
 				height: auto;
-				border-radius: 10px;
-				box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+				border-radius: 15px;
+				box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 			}
 			
 			.download-btn {
@@ -319,13 +333,17 @@
 					font-size: 2.5rem;
 				}
 				
-				.schedule-container {
-					grid-template-columns: 1fr;
-					gap: 2rem;
+				.schedule-image-container {
+					padding: 2rem;
+					max-width: 100%;
 				}
 				
-				.schedule-image-container {
-					padding: 1rem;
+				.schedule-image-container h2 {
+					font-size: 2rem;
+				}
+				
+				.schedule-image {
+					max-width: 100%;
 				}
 				
 				.cta-buttons {
@@ -369,9 +387,20 @@
 		<!-- Schedule Section -->
 		<section class="schedule-section">
 			<div class="container">
-				<div class="schedule-container">
-					<div class="schedule-info">
+				<!-- Main Schedule Display -->
+				<div class="main-schedule-container">
+					<div class="schedule-image-container">
 						<h2>Våra Träningstider</h2>
+						<div class="schedule-image-wrapper">
+							<img src="/schedule.png" alt="Westeras Tai-Nui Club Schema" class="schedule-image" />
+						</div>
+						<a href="/schedule.png" download class="download-btn">Ladda Ner Schema</a>
+					</div>
+				</div>
+				
+				<!-- Information Section -->
+				<div class="schedule-info-container">
+					<div class="schedule-info">
 						<p>Vi erbjuder träning för alla åldrar och nivåer. Välj den klass som passar dig bäst!</p>
 						
 						<h3>Klassindelning</h3>
@@ -410,14 +439,6 @@
 						<p><strong>SIFU Luciano Macri</strong> - 070/565 35 88</p>
 						<p><strong>Besim Sedjiu</strong> - MMA/Submission Wrestling</p>
 						<p><strong>Vincenzo Macri</strong> - Brottning</p>
-					</div>
-					
-					<div class="schedule-image-container">
-						<h3>Komplett Schema</h3>
-						<div class="schedule-image-wrapper">
-							<img src="/schedule.png" alt="Westeras Tai-Nui Club Schema" class="schedule-image" />
-						</div>
-						<a href="/schedule.png" download class="download-btn">Ladda Ner Schema</a>
 					</div>
 				</div>
 			</div>
