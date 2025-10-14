@@ -1,0 +1,451 @@
+---
+---
+
+<html lang="sv">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Träningstider och schema för Westeras Tai-Nui Club - Wushu Sanda, MMA & Submission Wrestling. Se alla våra klasser och tider." />
+		<title>Schema - Westeras Tai-Nui Club</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				line-height: 1.6;
+				color: #333;
+				background-color: #fff;
+			}
+			
+			/* Header and Navigation */
+			.header {
+				background: #000;
+				color: white;
+				padding: 1rem 0;
+				position: sticky;
+				top: 0;
+				z-index: 100;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			}
+			
+			.nav-container {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+			
+			.logo {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				text-decoration: none;
+				color: white;
+			}
+			
+			.logo img {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				object-fit: cover;
+				display: block;
+			}
+			
+			.logo-text {
+				font-size: 1.2rem;
+				font-weight: 800;
+				letter-spacing: 1px;
+			}
+			
+			.nav-links {
+				display: flex;
+				gap: 2rem;
+				list-style: none;
+			}
+			
+			.nav-links a {
+				color: white;
+				text-decoration: none;
+				font-weight: 600;
+				transition: color 0.3s ease;
+			}
+			
+			.nav-links a:hover {
+				color: #dc2626;
+			}
+			
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+			
+			/* Hero Section */
+			.hero {
+				background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+				color: white;
+				padding: 80px 0;
+				text-align: center;
+			}
+			
+			.hero h1 {
+				font-size: 3rem;
+				font-weight: 800;
+				margin-bottom: 1rem;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+			}
+			
+			.hero p {
+				font-size: 1.2rem;
+				opacity: 0.9;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+			
+			/* Schedule Section */
+			.schedule-section {
+				padding: 80px 0;
+				background: #f8f9fa;
+			}
+			
+			.schedule-container {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 4rem;
+				align-items: start;
+			}
+			
+			.schedule-info h2 {
+				font-size: 2.5rem;
+				margin-bottom: 2rem;
+				color: #1a1a1a;
+			}
+			
+			.schedule-info h3 {
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+				color: #dc2626;
+			}
+			
+			.schedule-info p {
+				font-size: 1.1rem;
+				margin-bottom: 1.5rem;
+				color: #666;
+			}
+			
+			.class-types {
+				background: white;
+				padding: 2rem;
+				border-radius: 10px;
+				box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+				margin-top: 2rem;
+			}
+			
+			.class-types h4 {
+				font-size: 1.2rem;
+				margin-bottom: 1rem;
+				color: #1a1a1a;
+			}
+			
+			.class-type {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				margin-bottom: 1rem;
+				padding: 1rem;
+				background: #f8f9fa;
+				border-radius: 5px;
+			}
+			
+			.color-indicator {
+				width: 20px;
+				height: 20px;
+				border-radius: 3px;
+			}
+			
+			.blue { background: #3b82f6; }
+			.yellow { background: #fbbf24; }
+			.purple { background: #8b5cf6; }
+			.orange { background: #f97316; }
+			
+			/* Schedule Image */
+			.schedule-image-container {
+				background: white;
+				padding: 2rem;
+				border-radius: 10px;
+				box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+				text-align: center;
+			}
+			
+			.schedule-image {
+				width: 100%;
+				max-width: 600px;
+				height: auto;
+				border-radius: 10px;
+				box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+			}
+			
+			.download-btn {
+				display: inline-block;
+				margin-top: 1rem;
+				padding: 12px 24px;
+				background: #dc2626;
+				color: white;
+				text-decoration: none;
+				border-radius: 5px;
+				font-weight: 600;
+				transition: background 0.3s ease;
+			}
+			
+			.download-btn:hover {
+				background: #b91c1c;
+			}
+			
+			/* Contact CTA */
+			.contact-cta {
+				background: #1a1a1a;
+				color: white;
+				padding: 60px 0;
+				text-align: center;
+			}
+			
+			.contact-cta h2 {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+				color: white;
+			}
+			
+			.contact-cta p {
+				font-size: 1.2rem;
+				margin-bottom: 2rem;
+				opacity: 0.9;
+			}
+			
+			.cta-buttons {
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			
+			.btn {
+				padding: 15px 30px;
+				border: none;
+				border-radius: 5px;
+				font-size: 1.1rem;
+				font-weight: 600;
+				text-decoration: none;
+				display: inline-block;
+				transition: all 0.3s ease;
+				cursor: pointer;
+			}
+			
+			.btn-primary {
+				background: #dc2626;
+				color: white;
+			}
+			
+			.btn-primary:hover {
+				background: #b91c1c;
+				transform: translateY(-2px);
+			}
+			
+			.btn-secondary {
+				background: transparent;
+				color: white;
+				border: 2px solid white;
+			}
+			
+			.btn-secondary:hover {
+				background: white;
+				color: black;
+			}
+			
+			/* Footer */
+			.footer {
+				background: #000;
+				color: white;
+				padding: 3rem 0;
+				text-align: center;
+			}
+			
+			.footer-content {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 2rem;
+				margin-bottom: 2rem;
+			}
+			
+			.footer h4 {
+				margin-bottom: 1rem;
+				color: #dc2626;
+			}
+			
+			.footer a {
+				color: #ccc;
+				text-decoration: none;
+			}
+			
+			.footer a:hover {
+				color: white;
+			}
+			
+			/* Responsive Design */
+			@media (max-width: 768px) {
+				.nav-container {
+					flex-direction: column;
+					gap: 1rem;
+				}
+				
+				.nav-links {
+					gap: 1rem;
+				}
+				
+				.hero h1 {
+					font-size: 2.5rem;
+				}
+				
+				.schedule-container {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+				
+				.cta-buttons {
+					flex-direction: column;
+					align-items: center;
+				}
+				
+				.btn {
+					width: 100%;
+					max-width: 300px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Header -->
+		<header class="header">
+			<div class="nav-container">
+				<a href="/" class="logo">
+					<img src="/logo.svg" alt="Westeras Tai-Nui Club Logo" />
+					<span class="logo-text">WESTERAS TAI-NUI CLUB</span>
+				</a>
+				<nav>
+					<ul class="nav-links">
+						<li><a href="/contact">Kontakt</a></li>
+						<li><a href="/schedule">Schema</a></li>
+						<li><a href="tel:070-565-35-88">Ring Oss</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="container">
+				<h1>Träningstider & Schema</h1>
+				<p>Se alla våra klasser och tider. Vi har träning för alla åldrar och nivåer!</p>
+			</div>
+		</section>
+
+		<!-- Schedule Section -->
+		<section class="schedule-section">
+			<div class="container">
+				<div class="schedule-container">
+					<div class="schedule-info">
+						<h2>Våra Träningstider</h2>
+						<p>Vi erbjuder träning för alla åldrar och nivåer. Välj den klass som passar dig bäst!</p>
+						
+						<h3>Klassindelning</h3>
+						<div class="class-types">
+							<div class="class-type">
+								<div class="color-indicator blue"></div>
+								<div>
+									<strong>Barn (7-9 år)</strong><br>
+									Wushu/Sanda & brottning
+								</div>
+							</div>
+							<div class="class-type">
+								<div class="color-indicator yellow"></div>
+								<div>
+									<strong>Ungdom/Utvecklingsgruppen (10-13 år)</strong><br>
+									Wushu/Sanda & brottning
+								</div>
+							</div>
+							<div class="class-type">
+								<div class="color-indicator purple"></div>
+								<div>
+									<strong>Flickor (13-25 år)</strong><br>
+									Traditionell Kungfu
+								</div>
+							</div>
+							<div class="class-type">
+								<div class="color-indicator orange"></div>
+								<div>
+									<strong>Ungdom/Seniorer/Vuxna (14+)</strong><br>
+									MMA, Submission Wrestling, Wushu Sanda
+								</div>
+							</div>
+						</div>
+						
+						<h3>Instruktörer</h3>
+						<p><strong>SIFU Luciano Macri</strong> - 070/565 35 88</p>
+						<p><strong>Besim Sedjiu</strong> - MMA/Submission Wrestling</p>
+						<p><strong>Vincenzo Macri</strong> - Brottning</p>
+					</div>
+					
+					<div class="schedule-image-container">
+						<h3>Komplett Schema</h3>
+						<img src="/schedule.png" alt="Westeras Tai-Nui Club Schema" class="schedule-image" />
+						<a href="/schedule.png" download class="download-btn">Ladda Ner Schema</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact CTA Section -->
+		<section class="contact-cta">
+			<div class="container">
+				<h2>Redo att Börja Träna?</h2>
+				<p>Kontakta oss för att boka din provlektion eller ställ frågor om våra klasser!</p>
+				<div class="cta-buttons">
+					<a href="/contact" class="btn btn-primary">Boka Provlektion</a>
+					<a href="tel:070-565-35-88" class="btn btn-secondary">Ring: 070-565 35 88</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-content">
+					<div>
+						<h4>Adress</h4>
+						<p>Jakobsgatan 97<br>724 64 Västerås</p>
+					</div>
+					<div>
+						<h4>Kontakt</h4>
+						<p>Telefon: 070-565 35 88<br>E-post: luciano@kungfu.nu</p>
+					</div>
+					<div>
+						<h4>Sociala Medier</h4>
+						<p><a href="https://www.facebook.com/westeras.tainui" target="_blank">Facebook</a></p>
+					</div>
+					<div>
+						<h4>Träningstider</h4>
+						<p><a href="/schedule">Se Schema</a></p>
+					</div>
+				</div>
+				<p style="margin-top: 2rem; opacity: 0.7;">© 2024 Westeras Tai-Nui Club. Alla rättigheter förbehållna.</p>
+			</div>
+		</footer>
+	</body>
+</html>
