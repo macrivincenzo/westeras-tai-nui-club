@@ -176,7 +176,7 @@
 			.purple { background: #8b5cf6; }
 			.orange { background: #f97316; }
 			
-			/* Schedule Table */
+			/* Schedule Image */
 			.schedule-image-container {
 				background: white;
 				padding: 2rem;
@@ -185,118 +185,18 @@
 				text-align: center;
 			}
 			
-			.schedule-table-container {
-				background: #1a1a1a;
-				border-radius: 10px;
-				padding: 2rem;
-				color: white;
+			.schedule-image-wrapper {
 				display: flex;
-				flex-direction: column;
-				align-items: center;
 				justify-content: center;
-			}
-			
-			.schedule-header {
-				text-align: center;
-				margin-bottom: 2rem;
+				align-items: center;
 				width: 100%;
 			}
 			
-			.schedule-logo img {
-				width: 80px;
-				height: 80px;
-				border-radius: 50%;
-				margin-bottom: 1rem;
-			}
-			
-			.schedule-header h2 {
-				font-size: 1.8rem;
-				font-weight: 800;
-				margin-bottom: 1rem;
-				color: white;
-			}
-			
-			.schedule-info p {
-				font-size: 0.9rem;
-				margin-bottom: 0.5rem;
-				opacity: 0.9;
-			}
-			
-			.schedule-table {
-				background: #2a2a2a;
+			.schedule-image {
+				max-width: 100%;
+				height: auto;
 				border-radius: 10px;
-				padding: 2rem;
-				width: 100%;
-				max-width: 900px;
-				margin: 0 auto;
-			}
-			
-			.schedule-grid {
-				display: grid;
-				grid-template-columns: 80px repeat(7, 1fr);
-				gap: 4px;
-				width: 100%;
-				margin: 0 auto;
-			}
-			
-			.schedule-cell {
-				background: #3a3a3a;
-				padding: 12px 8px;
-				border-radius: 6px;
-				font-size: 0.8rem;
-				text-align: center;
-				min-height: 70px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				box-sizing: border-box;
-			}
-			
-			.schedule-cell.header {
-				background: #4a4a4a;
-				font-weight: bold;
-				color: white;
-				font-size: 1rem;
-				min-height: 50px;
-			}
-			
-			.schedule-cell.time {
-				background: #4a4a4a;
-				font-weight: bold;
-				color: white;
-				font-size: 0.9rem;
-				min-height: 70px;
-			}
-			
-			.schedule-cell.class {
-				color: white;
-				font-weight: 600;
-				text-align: center;
-			}
-			
-			.schedule-cell.class.blue {
-				background: #3b82f6;
-			}
-			
-			.schedule-cell.class.yellow {
-				background: #fbbf24;
-				color: #1a1a1a;
-			}
-			
-			.schedule-cell.class.purple {
-				background: #8b5cf6;
-			}
-			
-			.schedule-cell.class.orange {
-				background: #f97316;
-			}
-			
-			.class-content {
-				line-height: 1.3;
-			}
-			
-			.class-content strong {
-				font-weight: 700;
+				box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 			}
 			
 			/* Contact CTA */
@@ -389,19 +289,6 @@
 			}
 			
 			/* Responsive Design */
-			@media (max-width: 1200px) {
-				.schedule-table {
-					max-width: 800px;
-					padding: 1.5rem;
-				}
-				
-				.schedule-cell {
-					font-size: 0.75rem;
-					padding: 10px 6px;
-					min-height: 65px;
-				}
-			}
-			
 			@media (max-width: 768px) {
 				.nav-container {
 					flex-direction: column;
@@ -421,30 +308,8 @@
 					gap: 2rem;
 				}
 				
-				.schedule-table {
-					max-width: 100%;
+				.schedule-image-container {
 					padding: 1rem;
-				}
-				
-				.schedule-grid {
-					grid-template-columns: 60px repeat(7, 1fr);
-					gap: 3px;
-				}
-				
-				.schedule-cell {
-					font-size: 0.7rem;
-					padding: 8px 4px;
-					min-height: 60px;
-				}
-				
-				.schedule-cell.header {
-					min-height: 45px;
-					font-size: 0.8rem;
-				}
-				
-				.schedule-cell.time {
-					min-height: 60px;
-					font-size: 0.8rem;
 				}
 				
 				.cta-buttons {
@@ -533,245 +398,8 @@
 					
 					<div class="schedule-image-container">
 						<h3>Komplett Schema</h3>
-						<div class="schedule-table-container">
-							<div class="schedule-header">
-								<div class="schedule-logo">
-									<img src="/logo.svg" alt="Westeras Tai-Nui Club Logo" />
-								</div>
-								<h2>SCHEMA WESTERAS TAI-NUI CLUB</h2>
-								<div class="schedule-info">
-									<p>Kung Fu Wushu - Sweden Since 1976</p>
-									<p>SIFU Luciano Macri | 070/565 35 88</p>
-									<p>Tränare: Besim Sedjiu MMA/Submission Wrestling</p>
-									<p>Tränare: Vincenzo Macri Brottning</p>
-								</div>
-							</div>
-							
-							<div class="schedule-table">
-								<div class="schedule-grid">
-									<!-- Header row -->
-									<div class="schedule-cell header">Tid</div>
-									<div class="schedule-cell header">Måndag</div>
-									<div class="schedule-cell header">Tisdag</div>
-									<div class="schedule-cell header">Onsdag</div>
-									<div class="schedule-cell header">Torsdag</div>
-									<div class="schedule-cell header">Fredag</div>
-									<div class="schedule-cell header">Lördag</div>
-									<div class="schedule-cell header">Söndag</div>
-									
-									<!-- Time rows -->
-									<div class="schedule-cell time">11:00</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell class blue">
-										<div class="class-content">
-											<strong>Barn</strong><br>
-											7-9 år<br>
-											Wushu/Sanda & brottning
-										</div>
-									</div>
-									<div class="schedule-cell"></div>
-									
-									<div class="schedule-cell time">12:15</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									
-									<div class="schedule-cell time">12:30</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell class yellow">
-										<div class="class-content">
-											<strong>Ungdom/utvecklings gruppen</strong><br>
-											10-13 år<br>
-											Wushu/Sanda & brottning
-										</div>
-									</div>
-									<div class="schedule-cell"></div>
-									
-									<div class="schedule-cell time">13:30</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									
-									<div class="schedule-cell time">14:00</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell class orange">
-										<div class="class-content">
-											<strong>Ungdom 14-15</strong><br>
-											<strong>Juniorer 16-17</strong><br>
-											<strong>Seniorer 18-25</strong><br>
-											<strong>Vuxna 26+</strong><br>
-											Wushu Sanda
-										</div>
-									</div>
-									<div class="schedule-cell class orange">
-										<div class="class-content">
-											<strong>Ungdom 14-15</strong><br>
-											<strong>Juniorer 16-17</strong><br>
-											<strong>Seniorer 18-25</strong><br>
-											<strong>Vuxna 26+</strong><br>
-											Stryketräning
-										</div>
-									</div>
-									
-									<div class="schedule-cell time">15:00</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									
-									<div class="schedule-cell time">16:00</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									
-									<div class="schedule-cell time">16:30</div>
-									<div class="schedule-cell class yellow">
-										<div class="class-content">
-											<strong>Ungdom/utvecklings gruppen</strong><br>
-											10-13 år<br>
-											Wushu/Sanda & brottning
-										</div>
-									</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell class blue">
-										<div class="class-content">
-											<strong>Barn</strong><br>
-											7-9 år<br>
-											Wushu/Sanda & brottning
-										</div>
-									</div>
-									<div class="schedule-cell class yellow">
-										<div class="class-content">
-											<strong>Ungdom/utvecklings gruppen</strong><br>
-											10-13 år<br>
-											Wushu/Sanda & brottning
-										</div>
-									</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									
-									<div class="schedule-cell time">17:30</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell class yellow">
-										<div class="class-content">
-											<strong>Ungdom/utvecklings gruppen</strong><br>
-											10-13 år<br>
-											Wushu/Sanda & brottning
-										</div>
-									</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									
-									<div class="schedule-cell time">18:00</div>
-									<div class="schedule-cell class purple">
-										<div class="class-content">
-											<strong>Flickor</strong><br>
-											13-25 år<br>
-											Traditionell Kungfu
-										</div>
-									</div>
-									<div class="schedule-cell class purple">
-										<div class="class-content">
-											<strong>Flickor</strong><br>
-											13-25 år<br>
-											Traditionell Kungfu
-										</div>
-									</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell class purple">
-										<div class="class-content">
-											<strong>Flickor</strong><br>
-											13-25 år<br>
-											Traditionell Kungfu
-										</div>
-									</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									
-									<div class="schedule-cell time">19:00</div>
-									<div class="schedule-cell class orange">
-										<div class="class-content">
-											<strong>Ungdom 14-15</strong><br>
-											<strong>Juniorer 16-17</strong><br>
-											<strong>Seniorer 18-25</strong><br>
-											<strong>Vuxna 26+</strong><br>
-											MMA & Submission Wrestling
-										</div>
-									</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell class orange">
-										<div class="class-content">
-											<strong>Ungdom 14-15</strong><br>
-											<strong>Juniorer 16-17</strong><br>
-											<strong>Seniorer 18-25</strong><br>
-											<strong>Vuxna 26+</strong><br>
-											Wushu Sanda
-										</div>
-									</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									
-									<div class="schedule-cell time">19:30</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell class orange">
-										<div class="class-content">
-											<strong>Ungdom 14-15</strong><br>
-											<strong>Juniorer 16-17</strong><br>
-											<strong>Seniorer 18-25</strong><br>
-											<strong>Vuxna 26+</strong><br>
-											Wushu Sanda & Brottning
-										</div>
-									</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									
-									<div class="schedule-cell time">20:30</div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-									<div class="schedule-cell"></div>
-								</div>
-							</div>
+						<div class="schedule-image-wrapper">
+							<img src="/schedule.png" alt="Westeras Tai-Nui Club Schema" class="schedule-image" />
 						</div>
 					</div>
 				</div>
