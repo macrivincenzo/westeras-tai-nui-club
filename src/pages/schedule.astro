@@ -380,8 +380,109 @@
 				color: white;
 			}
 			
+						/* Mobile Menu Toggle Button */
+			.mobile-menu-toggle {
+				display: none;
+				flex-direction: column;
+				background: transparent;
+				border: none;
+				cursor: pointer;
+				padding: 0;
+				z-index: 1001;
+			}
+			
+			.mobile-menu-toggle span {
+				width: 25px;
+				height: 3px;
+				background: white;
+				margin: 3px 0;
+				transition: all 0.3s ease;
+				border-radius: 3px;
+			}
+			
+			.mobile-menu-toggle.active span:nth-child(1) {
+				transform: rotate(45deg) translate(8px, 8px);
+			}
+			
+			.mobile-menu-toggle.active span:nth-child(2) {
+				opacity: 0;
+			}
+			
+			.mobile-menu-toggle.active span:nth-child(3) {
+				transform: rotate(-45deg) translate(7px, -7px);
+			}
+			
 			/* Responsive Design */
 			@media (max-width: 768px) {
+				.mobile-menu-toggle {
+					display: flex;
+				}
+				
+				.nav-menu {
+					position: fixed;
+					top: 0;
+					right: -100%;
+					width: 80%;
+					max-width: 400px;
+					height: 100vh;
+					background: #000;
+					padding: 80px 20px 20px;
+					transition: right 0.3s ease;
+					overflow-y: auto;
+					z-index: 1000;
+				}
+				
+				.nav-menu.active {
+					right: 0;
+				}
+				
+				.nav-links {
+					flex-direction: column;
+					gap: 0;
+				}
+				
+				.nav-links > li {
+					border-bottom: 1px solid #333;
+				}
+				
+				.nav-links > li > a {
+					display: block;
+					padding: 1rem 0;
+				}
+				
+				/* Mobile Dropdown */
+				.dropdown-menu {
+					position: static;
+					opacity: 1;
+					visibility: visible;
+					transform: none;
+					background: #1a1a1a;
+					max-height: 0;
+					overflow: hidden;
+					transition: max-height 0.3s ease;
+					box-shadow: none;
+					border-radius: 0;
+					margin: 0;
+					padding: 0;
+				}
+				
+				.dropdown.active .dropdown-menu {
+					max-height: 500px;
+					padding: 0.5rem 0;
+				}
+				
+				.dropdown-toggle {
+					justify-content: space-between;
+					width: 100%;
+				}
+				
+				.dropdown .arrow {
+					transition: transform 0.3s ease;
+				}
+				
+				.dropdown.active .arrow {
+					transform: rotate(180deg);
+				}
 				.nav-container {
 					flex-direction: column;
 					gap: 1rem;
@@ -428,7 +529,12 @@
 					<img src="/logo.svg" alt="Westeras Tai-Nui Club Logo" />
 					<span class="logo-text">WESTERAS TAI-NUI CLUB</span>
 				</a>
-				<nav>
+								<button class="mobile-menu-toggle" aria-label="Toggle menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<nav class="nav-menu">
 					<ul class="nav-links">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle">Träning <span class="arrow">▼</span></a>
@@ -555,6 +661,46 @@
 				</div>
 				<p style="margin-top: 2rem; opacity: 0.7;">© 2024 Westeras Tai-Nui Club. Alla rättigheter förbehållna.</p>
 			</div>
-		</footer>
+		</footer>		
+		<script>
+			// Mobile menu toggle
+			const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+			const navMenu = document.querySelector('.nav-menu');
+			
+			mobileMenuToggle.addEventListener('click', () => {
+				mobileMenuToggle.classList.toggle('active');
+				navMenu.classList.toggle('active');
+			});
+			
+			// Mobile dropdown toggle
+			const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+			dropdownToggles.forEach(toggle => {
+				toggle.addEventListener('click', (e) => {
+					// Only prevent default on mobile
+					if (window.innerWidth <= 768) {
+						e.preventDefault();
+						const dropdown = toggle.parentElement;
+						dropdown.classList.toggle('active');
+					}
+				});
+			});
+			
+			// Close mobile menu when clicking outside
+			document.addEventListener('click', (e) => {
+				if (!e.target.closest('.nav-container')) {
+					mobileMenuToggle.classList.remove('active');
+					navMenu.classList.remove('active');
+				}
+			});
+			
+			// Close mobile menu when clicking a link (except dropdown toggle)
+			const navLinks = document.querySelectorAll('.nav-links a:not(.dropdown-toggle)');
+			navLinks.forEach(link => {
+				link.addEventListener('click', () => {
+					mobileMenuToggle.classList.remove('active');
+					navMenu.classList.remove('active');
+				});
+			});
+		</script>
 	</body>
 </html>
