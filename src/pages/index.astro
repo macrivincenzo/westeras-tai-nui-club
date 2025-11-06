@@ -189,6 +189,13 @@
 				opacity: 1;
 			}
 			
+			/* Hide Mohammedfrontpage.JPG on desktop, show on mobile */
+			@media (min-width: 769px) {
+				.hero-slide-mobile {
+					display: none;
+				}
+			}
+			
 			.hero-overlay {
 				position: absolute;
 				top: 0;
@@ -668,7 +675,7 @@
 		<!-- Hero Section -->
 		<section class="hero">
 			<div class="hero-carousel">
-				<div class="hero-slide active" style="background-image: url('/hero/Mohammedfrontpage.JPG');"></div>
+				<div class="hero-slide hero-slide-mobile active" style="background-image: url('/hero/Mohammedfrontpage.JPG');"></div>
 				<div class="hero-slide" style="background-image: url('/hero/Submissionfrontpage.JPG');"></div>
 				<div class="hero-slide" style="background-image: url('/hero/Sandafrontpage.jpg');"></div>
 				<div class="hero-slide" style="background-image: url('/hero/MMAfrontpage.JPG');"></div>
@@ -907,7 +914,25 @@
 			
 			function nextSlide() {
 				heroSlides[currentSlide].classList.remove('active');
-				currentSlide = (currentSlide + 1) % heroSlides.length;
+				
+				// Skip mobile-only slide on desktop
+				do {
+					currentSlide = (currentSlide + 1) % heroSlides.length;
+					const isMobile = heroSlides[currentSlide].classList.contains('hero-slide-mobile');
+					const isDesktop = window.innerWidth >= 769;
+					if (isMobile && isDesktop) {
+						continue; // Skip this slide on desktop
+					}
+					break;
+				} while (true);
+				
+				heroSlides[currentSlide].classList.add('active');
+			}
+			
+			// Initialize: if on desktop and first slide is mobile, start with second slide
+			if (window.innerWidth >= 769 && heroSlides[0].classList.contains('hero-slide-mobile')) {
+				heroSlides[0].classList.remove('active');
+				currentSlide = 1;
 				heroSlides[currentSlide].classList.add('active');
 			}
 			
