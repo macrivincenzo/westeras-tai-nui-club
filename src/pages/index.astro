@@ -180,16 +180,9 @@
 				height: 100%;
 				opacity: 0;
 				transition: opacity 1.5s ease-in-out;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-			
-			.hero-slide img {
-				width: 100%;
-				height: 100%;
-				object-fit: contain;
-				object-position: center;
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
 			}
 			
 			.hero-slide.active {
@@ -675,21 +668,11 @@
 		<!-- Hero Section -->
 		<section class="hero">
 			<div class="hero-carousel">
-				<div class="hero-slide active">
-					<img src="/hero/Mohammedfrontpage.JPG" alt="Wushu Sanda Training" />
-				</div>
-				<div class="hero-slide">
-					<img src="/hero/Submissionfrontpage.JPG" alt="Submission Wrestling Training" />
-				</div>
-				<div class="hero-slide">
-					<img src="/hero/Sandafrontpage.jpg" alt="Sanda Training" />
-				</div>
-				<div class="hero-slide">
-					<img src="/hero/MMAfrontpage.JPG" alt="MMA Training" />
-				</div>
-				<div class="hero-slide">
-					<img src="/hero/Mohammedfrontpage2.JPG" alt="Martial Arts Training" />
-				</div>
+				<div class="hero-slide active" style="background-image: url('/hero/Mohammedfrontpage.JPG');"></div>
+				<div class="hero-slide" style="background-image: url('/hero/Submissionfrontpage.JPG');"></div>
+				<div class="hero-slide" style="background-image: url('/hero/Sandafrontpage.jpg');"></div>
+				<div class="hero-slide" style="background-image: url('/hero/MMAfrontpage.JPG');"></div>
+				<div class="hero-slide" style="background-image: url('/hero/Mohammedfrontpage2.JPG');"></div>
 			</div>
 			<div class="hero-overlay"></div>
 			<div class="container">
