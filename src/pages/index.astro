@@ -196,6 +196,13 @@
 				}
 			}
 			
+			/* Hide Submissionfrontpage.JPG on mobile, show on desktop */
+			@media (max-width: 768px) {
+				.hero-slide-desktop {
+					display: none;
+				}
+			}
+			
 			.hero-overlay {
 				position: absolute;
 				top: 0;
@@ -676,7 +683,7 @@
 		<section class="hero">
 			<div class="hero-carousel">
 				<div class="hero-slide hero-slide-mobile active" style="background-image: url('/hero/Mohammedfrontpage.JPG');"></div>
-				<div class="hero-slide" style="background-image: url('/hero/Submissionfrontpage.JPG');"></div>
+				<div class="hero-slide hero-slide-desktop" style="background-image: url('/hero/Submissionfrontpage.JPG');"></div>
 				<div class="hero-slide" style="background-image: url('/hero/Sandafrontpage.jpg');"></div>
 				<div class="hero-slide" style="background-image: url('/hero/MMAfrontpage.JPG');"></div>
 				<div class="hero-slide" style="background-image: url('/hero/Mohammedfrontpage2.JPG');"></div>
@@ -915,13 +922,18 @@
 			function nextSlide() {
 				heroSlides[currentSlide].classList.remove('active');
 				
-				// Skip mobile-only slide on desktop
+				// Skip slides based on device type
 				do {
 					currentSlide = (currentSlide + 1) % heroSlides.length;
-					const isMobile = heroSlides[currentSlide].classList.contains('hero-slide-mobile');
+					const isMobileSlide = heroSlides[currentSlide].classList.contains('hero-slide-mobile');
+					const isDesktopSlide = heroSlides[currentSlide].classList.contains('hero-slide-desktop');
 					const isDesktop = window.innerWidth >= 769;
-					if (isMobile && isDesktop) {
-						continue; // Skip this slide on desktop
+					
+					if (isMobileSlide && isDesktop) {
+						continue; // Skip mobile-only slide on desktop
+					}
+					if (isDesktopSlide && !isDesktop) {
+						continue; // Skip desktop-only slide on mobile
 					}
 					break;
 				} while (true);
@@ -929,8 +941,13 @@
 				heroSlides[currentSlide].classList.add('active');
 			}
 			
-			// Initialize: if on desktop and first slide is mobile, start with second slide
-			if (window.innerWidth >= 769 && heroSlides[0].classList.contains('hero-slide-mobile')) {
+			// Initialize: skip hidden slides on initial load
+			const isDesktop = window.innerWidth >= 769;
+			if (isDesktop && heroSlides[0].classList.contains('hero-slide-mobile')) {
+				heroSlides[0].classList.remove('active');
+				currentSlide = 1;
+				heroSlides[currentSlide].classList.add('active');
+			} else if (!isDesktop && heroSlides[0].classList.contains('hero-slide-desktop')) {
 				heroSlides[0].classList.remove('active');
 				currentSlide = 1;
 				heroSlides[currentSlide].classList.add('active');
