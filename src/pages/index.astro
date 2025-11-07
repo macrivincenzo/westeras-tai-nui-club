@@ -920,40 +920,43 @@
 			
 			// Hero carousel
 			const heroSlides = document.querySelectorAll('.hero-slide');
+			const isDesktop = window.innerWidth >= 769;
 			let currentSlide = 0;
 			
-			function nextSlide() {
-				heroSlides[currentSlide].classList.remove('active');
-				
-				// Skip slides based on device type
-				do {
-					currentSlide = (currentSlide + 1) % heroSlides.length;
-					const isMobileSlide = heroSlides[currentSlide].classList.contains('hero-slide-mobile');
-					const isDesktopSlide = heroSlides[currentSlide].classList.contains('hero-slide-desktop');
-					const isDesktop = window.innerWidth >= 769;
-					
-					if (isMobileSlide && isDesktop) {
-						continue; // Skip mobile-only slide on desktop
-					}
-					if (isDesktopSlide && !isDesktop) {
-						continue; // Skip desktop-only slide on mobile
-					}
-					break;
-				} while (true);
-				
-				heroSlides[currentSlide].classList.add('active');
+			function slideAllowed(slide) {
+				const isMobileSlide = slide.classList.contains('hero-slide-mobile');
+				const isDesktopSlide = slide.classList.contains('hero-slide-desktop');
+				if (isDesktop && isMobileSlide) {
+					return false;
+				}
+				if (!isDesktop && isDesktopSlide) {
+					return false;
+				}
+				return true;
 			}
 			
-			// Initialize: skip hidden slides on initial load
-			const isDesktop = window.innerWidth >= 769;
-			if (isDesktop && heroSlides[0].classList.contains('hero-slide-mobile')) {
-				heroSlides[0].classList.remove('active');
-				currentSlide = 1;
-				heroSlides[currentSlide].classList.add('active');
-			} else if (!isDesktop && heroSlides[0].classList.contains('hero-slide-desktop')) {
-				heroSlides[0].classList.remove('active');
-				currentSlide = 1;
-				heroSlides[currentSlide].classList.add('active');
+			function showSlide(index) {
+				heroSlides.forEach(slide => slide.classList.remove('active'));
+				heroSlides[index].classList.add('active');
+				currentSlide = index;
+			}
+			
+			function nextSlide() {
+				let nextIndex = currentSlide;
+				do {
+					nextIndex = (nextIndex + 1) % heroSlides.length;
+					if (slideAllowed(heroSlides[nextIndex])) {
+						break;
+					}
+				} while (nextIndex !== currentSlide);
+				showSlide(nextIndex);
+			}
+			
+			const initialIndex = Array.from(heroSlides).findIndex(slide => slideAllowed(slide));
+			if (initialIndex >= 0) {
+				showSlide(initialIndex);
+			} else {
+				showSlide(0);
 			}
 			
 			// Change slide every 5 seconds
