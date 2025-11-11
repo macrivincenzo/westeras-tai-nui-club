@@ -7,7 +7,7 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="MMA träning i Westeras - Mixed Martial Arts som kombinerar alla kampsportstekniker för den ultimata helkroppsträningen." />
+		<meta name="description" content="MMA i Västerås hos Westeras Tai-Nui Club. Träna modern Mixed Martial Arts med striking, brottning och submission under erfarna coacher i Mälardalen." />
 		<title>MMA - Westeras Tai-Nui Club</title>
 		<style>
 			* {
@@ -179,9 +179,9 @@
 			}
 			
 			.content-info {
-				text-align: center;
-				max-width: 800px;
+				max-width: 900px;
 				margin: 0 auto;
+				text-align: left;
 			}
 			
 			.content-info h2 {
@@ -190,10 +190,108 @@
 				color: #1a1a1a;
 			}
 			
+			.content-info h3 {
+				font-size: 1.6rem;
+				margin-bottom: 1rem;
+				color: #dc2626;
+			}
+			
 			.content-info p {
+				font-size: 1.1rem;
+				color: #555;
+				margin-bottom: 1.5rem;
+			}
+			
+			.benefits {
+				background: white;
+				padding: 2rem;
+				border-radius: 10px;
+				box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+				margin: 2.5rem 0;
+			}
+			
+			.benefits h4 {
+				font-size: 1.3rem;
+				color: #1a1a1a;
+				margin-bottom: 1rem;
+			}
+			
+			.benefits ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			
+			.benefits li {
+				padding: 0.5rem 0;
+				border-bottom: 1px solid #eee;
+				color: #555;
+				display: flex;
+				align-items: baseline;
+				gap: 0.6rem;
+			}
+			
+			.benefits li:last-child {
+				border-bottom: none;
+			}
+			
+			.benefits li::before {
+				content: "🥋";
 				font-size: 1.2rem;
-				color: #666;
-				margin-bottom: 3rem;
+			}
+			
+			/* FAQ Section */
+			.faq-section {
+				margin-top: 3rem;
+				background: white;
+				border-radius: 12px;
+				box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+				overflow: hidden;
+			}
+			
+			.faq-section h3 {
+				margin: 0;
+				padding: 2rem 1.75rem 1rem;
+			}
+			
+			.faq-item {
+				border-top: 1px solid #eee;
+			}
+			
+			.faq-item:first-of-type {
+				border-top: none;
+			}
+			
+			.faq-item summary {
+				cursor: pointer;
+				padding: 1.25rem 1.75rem;
+				font-weight: 600;
+				font-size: 1.1rem;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				list-style: none;
+			}
+			
+			.faq-item summary::-webkit-details-marker {
+				display: none;
+			}
+			
+			.faq-item summary:after {
+				content: "+";
+				font-size: 1.5rem;
+				color: #dc2626;
+				margin-left: 1rem;
+				transition: transform 0.3s ease;
+			}
+			
+			.faq-item[open] summary:after {
+				transform: rotate(45deg);
+			}
+			
+			.faq-item p {
+				padding: 0 1.75rem 1.5rem;
+				color: #555;
 			}
 			
 			/* Contact CTA */
@@ -401,6 +499,10 @@
 					font-size: 2.5rem;
 				}
 				
+				.content-info h2 {
+					text-align: left;
+				}
+				
 				.cta-buttons {
 					flex-direction: column;
 					align-items: center;
@@ -462,8 +564,77 @@
 		<section class="content-section">
 			<div class="container">
 				<div class="content-info">
-					<h2>MMA Träning</h2>
-					<p>Mer information kommer snart...</p>
+					<h2>MMA i Västerås</h2>
+					<p>Mixed Martial Arts (MMA) är det mest kompletta stridssystemet inom modern kampsport. Disciplinen kombinerar explosiv striking, brottning och submission grappling och ställer höga krav på fysik, teknik och strategi. Hos Westeras Tai-Nui Club i Västerås bygger vi atleter från grunden genom ett strukturprogram som förenar klubbens rötter i Wushu Sanda och submission wrestling med dagens Unified Rules of MMA.</p>
+
+					<h3>Från Vale Tudo till moderna regler</h3>
+					<p>MMA utvecklades ur brasiliansk vale tudo under 1900-talets första hälft och fick sitt globala genombrott när UFC arrangerade sin första gala 1993. När Athletic Commissions i USA införde Unified Rules 2001 etablerades nuvarande roundsystem, viktklasser och tillåtna tekniker. Svenska MMA-förbundet (SMMAF) bildades 2007 och ansvarar i dag för amatörtävlingar, licenser och domarutbildning. Westeras Tai-Nui Club har följt utvecklingen sedan de tidiga skandinaviska eventen och tränar enligt SMMAF:s riktlinjer.</p>
+
+					<h3>Regler och viktklasser</h3>
+					<p>Amatörmatcher i Sverige går tre ronder à tre minuter med 1 minut vila. Tillåtna tekniker omfattar slag och sparkar mot kropp och huvud (ej armbågar), knän mot kropp, brottning, kast samt submissions på marken. Viktklasserna sträcker sig från flugvikt (–57 kg) till tungvikt (–120 kg). Utövare bär MMA-handskar (6–7 oz), tandskydd, suspensoar och benskydd. Proffsregler inför armbågar, knän mot huvud på marken och längre ronder. Vi utbildar våra fighters stegvis – först amatör, sedan semiproffs och proffs.</p>
+
+					<h3>Träningssystemet hos Westeras Tai-Nui Club</h3>
+					<p>Varje MMA-pass i Västerås är uppbyggt för att utveckla hela spektrat:</p>
+					<ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #555;">
+						<li><strong>Striking:</strong> fotarbete, distanskontroll, boxning, sparkar från Sanda och kickboxning, clinch med knän och armbågsskydd.</li>
+						<li><strong>Brottning:</strong> nivåförändringar, chain wrestling, cage wall-kontroll, nedtagningar från dubbel- och single-leg samt trips.</li>
+						<li><strong>Markspel:</strong> ground-and-pound-struktur, passeringar, submissions och återgång till stående med fokus på MMA-specifik guard.</li>
+						<li><strong>Fys:</strong> periodiserad styrka, explosivitet, anaerob kondition och skadeförebyggande rörlighet.</li>
+					</ul>
+					<p>Träningsblocken följer säsongsplanering inför tävlingar i SMMAF:s serie, internationella amatörmästerskap och proffsgalor. Varje block avslutas med sparring med tydligt fokus (t.ex. endast clinch, endast ground-and-pound) för att hålla kvaliteten hög och skaderisken låg.</p>
+
+					<h3>Teamet och coacherna</h3>
+					<p>Westeras Tai-Nui Club leds av instruktörer med lång tävlingserfarenhet i Sanda, submission wrestling och MMA. Vi samarbetar med fysioterapeuter, styrkecoacher och närliggande klubbar i Mälardalen för att ge våra atleter bästa möjliga stöd. Klubben har producerat medaljörer på SM i Sanda, submission wrestling och representanter på internationella MMA-tävlingar. Sparringpartner finns i alla viktklasser, och vi matchar dig mot nivåanpassade motståndare.</p>
+
+					<h3>Västerås – navet för MMA i Mälardalen</h3>
+					<p>Med träningslokal på Jakobsgatan 97 är klubben lättillgänglig för utövare från Västerås, Eskilstuna, Enköping, Sala och Köping. Vi arrangerar öppna sparringar, gästpass med elitfighters och resor till större galor. Westeras Tai-Nui Club samarbetar även med SMMAF för att utbilda domare och coacher i regionen, vilket gör klubben till en central aktör i svensk MMA.</p>
+
+					<div class="benefits">
+						<h4>Därför väljer fighters Westeras Tai-Nui Club</h4>
+						<ul>
+							<li>Erfarna coacher med bakgrund i internationella Sanda-, grappling- och MMA-matcher.</li>
+							<li>Integrerat schema med striking, brottning och submission – allt under samma tak.</li>
+							<li>Matchning och coaching genom hela SMMAF-systemet från amatör till proffs.</li>
+							<li>Tillgång till sparringpartners i flera viktklasser och dedikerade gameplan-sessioner.</li>
+							<li>Strong community i Västerås med atleter från hela Mälardalen.</li>
+						</ul>
+					</div>
+
+					<h3>Utrustning och säkerhet</h3>
+					<p>Nybörjare behöver tandskydd, suspensoar och träningskläder. Klubben har låneutrustning såsom MMA-handskar, benskydd och hjälmar för introduktionspass. När du avancerar till sparring rekommenderar vi egna 6–7 oz handskar, benskydd, hjälm med ansiktsskydd vid behov samt rashguard eller kompressionskläder. All träning sker barfota på mattor eller i cage-området.</p>
+
+					<h3>Vem är MMA till för?</h3>
+					<p>MMA passar dig som vill utveckla funktionella stridsfärdigheter, få ett komplett träningspass och testa dina gränser – oavsett om målet är motion, självförsvar eller internationella titlar. Vi tar emot nybörjare, erfarna kampsportare, kvinnor, män och ungdomar från 15 år. Programmet inkluderar teknikpass, sparring på flera nivåer, individuella gameplan-samtal och möjlighet till personliga sessions.</p>
+
+					<h3>Tävlingsresa och utveckling</h3>
+					<p>Klubben hjälper dig att sätta mål: debut på klubbmatch, kval till SM, deltagande i internationella amatörmästerskap eller proffskontrakt. Vi följer SMMAF:s stegsystem med medicinska kontroller, licenser och coachstöd. Inför varje match analyseras motståndaren, vi bygger en gameplan och arrangerar simsparring med specifika scenarier. Efter matchen gör vi videogenomgång och planerar nästa utvecklingssteg.</p>
+
+					<div class="faq-section">
+						<h3>Vanliga frågor om MMA-träningen</h3>
+						<details class="faq-item">
+							<summary>Måste jag ha erfarenhet av kampsport innan jag börjar?</summary>
+							<p>Nej. Vi introducerar grunderna i striking, brottning och markspel från dag ett. Du tränar i en grupp med andra nybörjare och får tydliga progressioner. Tidigare erfarenhet i till exempel boxning, kickboxning eller BJJ är ett plus men inget krav.</p>
+						</details>
+						<details class="faq-item">
+							<summary>Hur ofta bör jag träna för att tävla i MMA?</summary>
+							<p>För amatördebut rekommenderar vi minst tre MMA- och grapplingpass per vecka samt två kompletterande fys- eller strikingpass. Inför match höjer vi volymen med gameplan-sparring och individuell coaching.</p>
+						</details>
+						<details class="faq-item">
+							<summary>Är MMA-träning säkert?</summary>
+							<p>Vi följer SMMAF:s säkerhetsprotokoll med skyddsutrustning, kontrollerad sparring och medicinska riktlinjer. Varje pass leds av licensierad tränare som ser till att tekniker utförs korrekt och att sparringnivån hålls balanserad efter erfarenhet.</p>
+						</details>
+						<details class="faq-item">
+							<summary>Kan kvinnor och ungdomar träna MMA hos er?</summary>
+							<p>Ja. Klubben har dedikerade grupper och sparringpartner för kvinnor samt juniorer från 15 år. Vi erbjuder teknikpass med fokus på självförsvar, tävlingsinriktade sparringar och individuell coachning utifrån mål.</p>
+						</details>
+						<details class="faq-item">
+							<summary>Hur fungerar samarbetet mellan MMA och klubbens andra discipliner?</summary>
+							<p>MMA-gruppen tränar sida vid sida med Wushu Sanda och submission wrestling. Det betyder att du får världsklass-striking och markspel inom samma klubb, plus gemensamma sparringar där vi tränar övergångar mellan disciplinerna.</p>
+						</details>
+					</div>
+
+					<h3>Boka din provträning</h3>
+					<p>Gör som fighters från hela Mälardalen – kom till Westeras Tai-Nui Club och upplev hur professionell MMA-träning ska kännas. Första passet är kostnadsfritt och vi hjälper dig att sätta en plan från dag ett.</p>
 				</div>
 			</div>
 		</section>
@@ -508,6 +679,54 @@
 				<p style="margin-top: 2rem; opacity: 0.7;">© 2025 Westeras Tai-Nui Club. Alla rättigheter förbehållna.</p>
 			</div>
 		</footer>		
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "FAQPage",
+				"mainEntity": [
+					{
+						"@type": "Question",
+						"name": "Måste jag ha erfarenhet av kampsport innan jag börjar med MMA?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Nej, Westeras Tai-Nui Club introducerar grunderna i striking, brottning och markspel från dag ett. Nybörjare tränar tillsammans med andra som är nya och får tydliga progressioner."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "Hur ofta bör jag träna för att tävla i MMA?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Inför amatördebut rekommenderas minst tre MMA- eller grapplingpass per vecka samt kompletterande fys- och strikingträning. Klubben hjälper till med periodisering och gameplan."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "Är MMA-träning säkert?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Klubben följer SMMAF:s säkerhetsprotokoll med skyddsutrustning, kontrollerad sparring och licensierade coacher. Varje pass anpassas efter deltagarnas erfarenhet."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "Kan kvinnor och ungdomar träna MMA i Västerås?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Ja, Westeras Tai-Nui Club har aktiva kvinnliga fighters och juniorer från 15 år. Träningen anpassas efter mål och erfarenhet med särskilda pass och sparringsgrupper."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "Hur samarbetar MMA-gruppen med klubbens andra discipliner?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "MMA-utövare tränar tillsammans med Wushu Sanda och submission wrestling för att få komplett striking och grappling. Gemensamma sparringar och gameplan-pass stärker övergångarna mellan disciplinerna."
+						}
+					}
+				]
+			}
+		</script>
 		<script>
 			// Mobile menu toggle
 			const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
