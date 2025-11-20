@@ -209,6 +209,28 @@
 				background: #f8f9fa;
 			}
 			
+			/* Kung-Fu Image - Desktop only */
+			.kungfu-image {
+				display: none;
+			}
+			
+			@media (min-width: 769px) {
+				.kungfu-image {
+					display: block;
+					width: 100%;
+					max-width: 1200px;
+					margin: 0 auto 3rem;
+					padding: 0 20px;
+				}
+				
+				.kungfu-image img {
+					width: 100%;
+					height: auto;
+					object-fit: contain;
+					display: block;
+				}
+			}
+			
 			.content-info {
 				max-width: 900px;
 				margin: 0 auto;
@@ -593,6 +615,9 @@
 		<!-- Content Section -->
 		<section class="content-section">
 			<div class="container">
+				<div class="kungfu-image">
+					<img src="/hero/LucianoColloseum.JPG" alt="Traditionell Kung-Fu träning hos Westeras Tai-Nui Club" />
+				</div>
 				<div class="content-info">
 					<h2>Traditionell Kung-Fu i Västerås</h2>
 					<p>Westeras Tai-Nui Club har tränat traditionell kung-fu i Västerås sedan 1976. Tai-Nui är klubbens egen tradition där inre (nei jia) och yttre (wai jia) stilar möts i ett sammanhållet system. Fokus ligger på att bygga stabilitet, explosivitet och mentalt lugn genom formarbete, partnerträning och filosofisk reflektion.</p>
