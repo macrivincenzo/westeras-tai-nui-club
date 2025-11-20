@@ -153,7 +153,10 @@
 			/* Hero Section */
 			.hero {
 				position: relative;
-				background: #000;
+				background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%), url('/hero/MMAfrontpage.JPG');
+				background-size: cover;
+				background-position: center 30%;
+				background-repeat: no-repeat;
 				color: white;
 				padding: 100px 0;
 				text-align: center;
@@ -161,41 +164,19 @@
 				align-items: center;
 				justify-content: center;
 				min-height: 80vh;
-				overflow: hidden;
-			}
-			
-			.hero::after {
-				content: "";
-				position: absolute;
-				inset: 0;
-				background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 100%);
-				z-index: 1;
-			}
-			
-			.hero-media {
-				position: absolute;
-				inset: 0;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				z-index: 0;
-			}
-			
-			.hero-media img {
-				width: 100%;
-				height: 100%;
-				object-fit: contain;
-				object-position: center;
 			}
 			
 			.hero .container {
 				position: relative;
-				z-index: 2;
+				z-index: 1;
 			}
 			
-			/* Desktop: give more height to display entire image */
+			/* Desktop: Use MMApageimage.JPG and show full image */
 			@media (min-width: 769px) {
 				.hero {
+					background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%), url('/hero/MMApageimage.JPG');
+					background-size: contain;
+					background-position: center;
 					min-height: 85vh;
 					padding: 150px 0;
 				}
@@ -597,9 +578,6 @@
 
 		<!-- Hero Section -->
 		<section class="hero">
-			<div class="hero-media">
-				<img src="/hero/MMApageimage.JPG" alt="MMA-utövare under träning hos Westeras Tai-Nui Club" loading="lazy" />
-			</div>
 			<div class="container">
 				<h1>MMA</h1>
 				<p>Mixed Martial Arts som kombinerar alla kampsportstekniker för den ultimata helkroppsträningen som bygger styrka, kondition och mental styrka.</p>
