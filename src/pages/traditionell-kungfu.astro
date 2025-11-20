@@ -171,13 +171,49 @@
 				z-index: 1;
 			}
 			
-			/* Desktop: Show full image with contain, make hero taller */
+			.hero-media {
+				display: none;
+			}
+			
+			/* Desktop: Use img tag to show full image */
 			@media (min-width: 769px) {
+				.hero-media {
+					display: flex;
+				}
 				.hero {
-					background-size: contain;
-					background-position: center;
-					min-height: 95vh;
-					padding: 160px 0;
+					background: #000;
+					overflow: hidden;
+					min-height: 100vh;
+					padding: 0;
+				}
+				
+				.hero-media {
+					position: absolute;
+					inset: 0;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					z-index: 0;
+				}
+				
+				.hero-media img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+					object-position: center;
+				}
+				
+				.hero::after {
+					content: "";
+					position: absolute;
+					inset: 0;
+					background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+					z-index: 1;
+				}
+				
+				.hero .container {
+					z-index: 2;
+					padding: 140px 0;
 				}
 			}
 			
@@ -573,6 +609,9 @@
 
 		<!-- Hero Section -->
 		<section class="hero">
+			<div class="hero-media">
+				<img src="/hero/LucianoColloseum.JPG" alt="Traditionell Kung-Fu träning hos Westeras Tai-Nui Club" loading="lazy" />
+			</div>
 			<div class="container">
 				<h1>Traditionell Kung-Fu</h1>
 				<p>Lär dig klassiska kinesiska kampsportstekniker och filosofi för kropp och sinne. Traditionell Kung-Fu som bygger karaktär, disciplin och mental styrka.</p>
