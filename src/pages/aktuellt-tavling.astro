@@ -203,6 +203,117 @@
 				margin-bottom: 2rem;
 			}
 			
+			/* Image Gallery Section */
+			.gallery-section {
+				padding: 80px 0;
+				background: white;
+			}
+			
+			.gallery-section h2 {
+				font-size: 2.5rem;
+				text-align: center;
+				margin-bottom: 1rem;
+				color: #1a1a1a;
+			}
+			
+			.gallery-section .subtitle {
+				text-align: center;
+				font-size: 1.2rem;
+				color: #666;
+				margin-bottom: 3rem;
+				max-width: 600px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.image-gallery {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 20px;
+				margin-top: 3rem;
+			}
+			
+			.gallery-item {
+				position: relative;
+				overflow: hidden;
+				border-radius: 10px;
+				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				aspect-ratio: 1;
+				cursor: pointer;
+			}
+			
+			.gallery-item:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+			}
+			
+			.gallery-item img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+				transition: transform 0.3s ease;
+			}
+			
+			.gallery-item:hover img {
+				transform: scale(1.05);
+			}
+			
+			/* Lightbox Modal */
+			.lightbox {
+				display: none;
+				position: fixed;
+				z-index: 9999;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,0.95);
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.lightbox.active {
+				display: flex;
+			}
+			
+			.lightbox-content {
+				max-width: 90%;
+				max-height: 90%;
+				object-fit: contain;
+			}
+			
+			.lightbox-close {
+				position: absolute;
+				top: 20px;
+				right: 30px;
+				color: white;
+				font-size: 40px;
+				font-weight: bold;
+				cursor: pointer;
+				z-index: 10000;
+			}
+			
+			.lightbox-close:hover {
+				color: #dc2626;
+			}
+			
+			@media (max-width: 768px) {
+				.image-gallery {
+					grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+					gap: 15px;
+				}
+				
+				.gallery-section h2 {
+					font-size: 2rem;
+				}
+				
+				.gallery-section .subtitle {
+					font-size: 1rem;
+				}
+			}
+			
 			/* Contact CTA */
 			.contact-cta {
 				background: #1a1a1a;
@@ -478,6 +589,133 @@
 			</div>
 		</section>
 
+		<!-- Image Gallery Section -->
+		<section class="gallery-section">
+			<div class="container">
+				<h2>Våra Aktuella Händelser och Tävlingar</h2>
+				<p class="subtitle">Se bilder från våra senaste träningspass, tävlingar och evenemang. Varje ögonblick visar vår passion för kampsport och gemenskap.</p>
+				<div class="image-gallery">
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20241019_184538.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20241029_151316.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20241110_122950.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20241208_102656.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20241209_202803.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20241211_210744.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20241227_170850.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250226_135336.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250301_172712.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250301_173038.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250301_173106.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250301_173320.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250301_174006.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250307_123220.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250307_123403.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250315_211002.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250316_155048.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250316_155724.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250316_160201.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250316_160244.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250329_174103.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250329_175726.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250422_162823.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250429_161136.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250510_134341.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250510_144933(0).jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250511_125911.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250511_142951_03.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250513_180444.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250513_191118.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250513_200158.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250517_172811.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250829_173412.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20250926_102634.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20251025_165659_100.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20251025_165719_041.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/aktuellt-tavling-images/20251101_174227.jpg" alt="Westeras Tai-Nui Club händelse" loading="lazy" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Lightbox Modal -->
+		<div class="lightbox" id="lightbox">
+			<span class="lightbox-close" id="lightboxClose">&times;</span>
+			<img class="lightbox-content" id="lightboxImage" src="" alt="Förstorad bild" />
+		</div>
+
 		<!-- Contact CTA Section -->
 		<section class="contact-cta">
 			<div class="container">
@@ -556,6 +794,40 @@
 					mobileMenuToggle.classList.remove('active');
 					navMenu.classList.remove('active');
 				});
+			});
+			
+			// Lightbox functionality
+			const lightbox = document.getElementById('lightbox');
+			const lightboxImage = document.getElementById('lightboxImage');
+			const lightboxClose = document.getElementById('lightboxClose');
+			const galleryItems = document.querySelectorAll('.gallery-item img');
+			
+			galleryItems.forEach(img => {
+				img.addEventListener('click', () => {
+					lightboxImage.src = img.src;
+					lightbox.classList.add('active');
+					document.body.style.overflow = 'hidden';
+				});
+			});
+			
+			lightboxClose.addEventListener('click', () => {
+				lightbox.classList.remove('active');
+				document.body.style.overflow = '';
+			});
+			
+			lightbox.addEventListener('click', (e) => {
+				if (e.target === lightbox) {
+					lightbox.classList.remove('active');
+					document.body.style.overflow = '';
+				}
+			});
+			
+			// Close lightbox with Escape key
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+					lightbox.classList.remove('active');
+					document.body.style.overflow = '';
+				}
 			});
 		</script>
 	</body>
