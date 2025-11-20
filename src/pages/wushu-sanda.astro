@@ -200,6 +200,28 @@
 				background: #f8f9fa;
 			}
 			
+			/* Sanda Image - Desktop only */
+			.sanda-image {
+				display: none;
+			}
+			
+			@media (min-width: 769px) {
+				.sanda-image {
+					display: block;
+					width: 100%;
+					max-width: 1200px;
+					margin: 0 auto 3rem;
+					padding: 0 20px;
+				}
+				
+				.sanda-image img {
+					width: 100%;
+					height: auto;
+					object-fit: contain;
+					display: block;
+				}
+			}
+			
 			.content-grid {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
@@ -582,6 +604,9 @@
 		<!-- Content Section -->
 		<section class="content-section">
 			<div class="container">
+				<div class="sanda-image">
+					<img src="/hero/Sandafrontpage.jpg" alt="Wushu Sanda träning hos Westeras Tai-Nui Club" />
+				</div>
 				<div class="content-info" style="max-width: 900px; margin: 0 auto; text-align: left;">
 					<h2>Vad är Wushu Sanda?</h2>
 					<p>Wushu Sanda, även känt som Sanshou, är den moderna fullkontaktgrenen inom wushu där slag, sparkar, knän, svep, kast och nedtagningar möts i ett dynamiskt regelsystem. Sporten togs fram av den kinesiska militären på 1950-talet som ett effektivt självförsvar, och vidareutvecklades av Kinas nationella wushuförbund till en internationell tävlingssport under 1980- och 1990-talet. I dag regleras sporten av International Wushu Federation (IWUF) och används både för traditionell kampkonst, professionell tävling och funktionell självförsvarsträning.</p>
