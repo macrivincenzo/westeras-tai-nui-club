@@ -171,12 +171,13 @@
 				z-index: 1;
 			}
 			
-			/* Desktop: Adjust background to show faces better and make hero taller */
+			/* Desktop: Show full image with contain, make hero taller */
 			@media (min-width: 769px) {
 				.hero {
-					background-position: center 25%;
-					min-height: 80vh;
-					padding: 140px 0;
+					background-size: contain;
+					background-position: center;
+					min-height: 95vh;
+					padding: 160px 0;
 				}
 			}
 			
