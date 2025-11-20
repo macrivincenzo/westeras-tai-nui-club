@@ -208,6 +208,28 @@
 				background: #f8f9fa;
 			}
 			
+			/* Submission Image - Desktop only */
+			.submission-image {
+				display: none;
+			}
+			
+			@media (min-width: 769px) {
+				.submission-image {
+					display: block;
+					width: 100%;
+					max-width: 1200px;
+					margin: 0 auto 3rem;
+					padding: 0 20px;
+				}
+				
+				.submission-image img {
+					width: 100%;
+					height: auto;
+					object-fit: contain;
+					display: block;
+				}
+			}
+			
 			.content-info {
 				max-width: 900px;
 				margin: 0 auto;
@@ -590,6 +612,9 @@
 		<!-- Content Section -->
 		<section class="content-section">
 			<div class="container">
+				<div class="submission-image">
+					<img src="/hero/Submissionfrontpage.JPG" alt="Submission Wrestling träning hos Westeras Tai-Nui Club" />
+				</div>
 				<div class="content-info">
 				<h2>Submission Wrestling i Västerås</h2>
 					<p>Submission wrestling är markkamp utan gi där fokus ligger på kontroll, nedtagningar och avslutande lås. Disciplinen kombinerar tekniker från catch wrestling, brasiliansk jiu-jitsu, judo, sambo och olympisk brottning för att skapa ett effektivt system för grappling. Hos Westeras Tai-Nui Club tränar du i Västerås tillsammans med instruktörer som har decennier av erfarenhet från tävlingar i Sverige och internationellt.</p>
