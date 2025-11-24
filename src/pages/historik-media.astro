@@ -196,6 +196,117 @@
 				margin-bottom: 3rem;
 			}
 			
+			/* Image Gallery Section */
+			.gallery-section {
+				padding: 80px 0;
+				background: white;
+			}
+			
+			.gallery-section h2 {
+				font-size: 2.5rem;
+				text-align: center;
+				margin-bottom: 1rem;
+				color: #1a1a1a;
+			}
+			
+			.gallery-section .subtitle {
+				text-align: center;
+				font-size: 1.2rem;
+				color: #666;
+				margin-bottom: 3rem;
+				max-width: 600px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.image-gallery {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 20px;
+				margin-top: 3rem;
+			}
+			
+			.gallery-item {
+				position: relative;
+				overflow: hidden;
+				border-radius: 10px;
+				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				aspect-ratio: 1;
+				cursor: pointer;
+			}
+			
+			.gallery-item:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+			}
+			
+			.gallery-item img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+				transition: transform 0.3s ease;
+			}
+			
+			.gallery-item:hover img {
+				transform: scale(1.05);
+			}
+			
+			/* Lightbox Modal */
+			.lightbox {
+				display: none;
+				position: fixed;
+				z-index: 9999;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,0.95);
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.lightbox.active {
+				display: flex;
+			}
+			
+			.lightbox-content {
+				max-width: 90%;
+				max-height: 90%;
+				object-fit: contain;
+			}
+			
+			.lightbox-close {
+				position: absolute;
+				top: 20px;
+				right: 30px;
+				color: white;
+				font-size: 40px;
+				font-weight: bold;
+				cursor: pointer;
+				z-index: 10000;
+			}
+			
+			.lightbox-close:hover {
+				color: #dc2626;
+			}
+			
+			@media (max-width: 768px) {
+				.image-gallery {
+					grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+					gap: 15px;
+				}
+				
+				.gallery-section h2 {
+					font-size: 2rem;
+				}
+				
+				.gallery-section .subtitle {
+					font-size: 1rem;
+				}
+			}
+			
 			/* Contact CTA */
 			.contact-cta {
 				background: #1a1a1a;
@@ -462,10 +573,137 @@
 			<div class="container">
 				<div class="content-info">
 					<h2>Historik & Media</h2>
-					<p>Mer information kommer snart...</p>
+					<p>Upptäck vår rika historia genom bilder och media från våra nästan 50 år som Västerås äldsta kampsportsklubb.</p>
 				</div>
 			</div>
 		</section>
+
+		<!-- Image Gallery Section -->
+		<section class="gallery-section">
+			<div class="container">
+				<h2>Vår Historia i Bilder</h2>
+				<p class="subtitle">Se bilder från Westeras Tai-Nui Clubs långa historia sedan 1976. Varje bild berättar en del av vår resa.</p>
+				<div class="image-gallery">
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 1.jpg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 2.jpg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 3.jpg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 4.jpg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 5.jpg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 6.jpg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 7.jpg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 8.jpg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 9.jpg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 10.jpg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 11.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 12.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 13.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 14.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 15.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 16.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 17.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 18.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 19.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 20.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 21.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 22.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 23.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 24.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 25.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 26.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 27.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 28.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 29.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 30.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 31.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 32.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 33.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 34.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 35.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 36.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+					<div class="gallery-item">
+						<img src="/Skannade bilder till hemsidan/Bild 37.jpeg" alt="Westeras Tai-Nui Club historik" loading="lazy" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Lightbox Modal -->
+		<div class="lightbox" id="lightbox">
+			<span class="lightbox-close" id="lightboxClose">&times;</span>
+			<img class="lightbox-content" id="lightboxImage" src="" alt="Förstorad bild" />
+		</div>
 
 		<!-- Contact CTA Section -->
 		<section class="contact-cta">
@@ -545,6 +783,40 @@
 					mobileMenuToggle.classList.remove('active');
 					navMenu.classList.remove('active');
 				});
+			});
+			
+			// Lightbox functionality
+			const lightbox = document.getElementById('lightbox');
+			const lightboxImage = document.getElementById('lightboxImage');
+			const lightboxClose = document.getElementById('lightboxClose');
+			const galleryItems = document.querySelectorAll('.gallery-item img');
+			
+			galleryItems.forEach(img => {
+				img.addEventListener('click', () => {
+					lightboxImage.src = img.src;
+					lightbox.classList.add('active');
+					document.body.style.overflow = 'hidden';
+				});
+			});
+			
+			lightboxClose.addEventListener('click', () => {
+				lightbox.classList.remove('active');
+				document.body.style.overflow = '';
+			});
+			
+			lightbox.addEventListener('click', (e) => {
+				if (e.target === lightbox) {
+					lightbox.classList.remove('active');
+					document.body.style.overflow = '';
+				}
+			});
+			
+			// Close lightbox with Escape key
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+					lightbox.classList.remove('active');
+					document.body.style.overflow = '';
+				}
 			});
 		</script>
 	</body>
