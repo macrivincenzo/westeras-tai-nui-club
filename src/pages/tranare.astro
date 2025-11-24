@@ -1,4 +1,14 @@
 ---
+function encodePath(path) {
+	return path.split('/').map(part => encodeURIComponent(part)).join('/');
+}
+
+const trainerImages = {
+	luciano: encodePath("/Tränar bilder/Tränar bild 1 Luciano Macri.JPG"),
+	besim: encodePath("/Tränar bilder/Tränar bild 2 Besim Sedjiu.JPG"),
+	vincenzo: encodePath("/Tränar bilder/Tränar Bild 3 Vincenzo Macri.JPG"),
+	elham: encodePath("/Tränar bilder/Tränar Bild 4 Elham Shamal.jpg")
+};
 ---
 
 <html lang="sv">
@@ -545,7 +555,7 @@
 			<div class="container">
 				<!-- Trainer 1: Luciano Macri -->
 				<div class="trainer-item">
-					<img src="/Tränar bilder/Tränar bild 1 Luciano Macri.JPG" alt="Luciano Macri - SIFU/Huvudtränare" class="trainer-image" />
+					<img src={trainerImages.luciano} alt="Luciano Macri - SIFU/Huvudtränare" class="trainer-image" />
 					<div class="trainer-title">SIFU/Huvudtränare</div>
 					<div class="trainer-name">Luciano Macri</div>
 					<div class="trainer-info">
@@ -559,7 +569,7 @@
 
 				<!-- Trainer 2: Besim Sedjiu -->
 				<div class="trainer-item">
-					<img src="/Tränar bilder/Tränar bild 2 Besim Sedjiu.JPG" alt="Besim Sedjiu - Huvudtränare" class="trainer-image" />
+					<img src={trainerImages.besim} alt="Besim Sedjiu - Huvudtränare" class="trainer-image" />
 					<div class="trainer-title">Huvudtränare</div>
 					<div class="trainer-name">Besim Sedjiu</div>
 					<div class="trainer-info">
@@ -572,7 +582,7 @@
 
 				<!-- Trainer 3: Vincenzo Macri -->
 				<div class="trainer-item">
-					<img src="/Tränar bilder/Tränar Bild 3 Vincenzo Macri.JPG" alt="Vincenzo Macri - Huvudtränare" class="trainer-image" />
+					<img src={trainerImages.vincenzo} alt="Vincenzo Macri - Huvudtränare" class="trainer-image" />
 					<div class="trainer-title">Huvudtränare</div>
 					<div class="trainer-name">Vincenzo Macri</div>
 					<div class="trainer-info">
@@ -585,7 +595,7 @@
 
 				<!-- Trainer 4: Elham Shamal -->
 				<div class="trainer-item">
-					<img src="/Tränar bilder/Tränar Bild 4 Elham Shamal.jpg" alt="Elham Shamal - Huvudtränare" class="trainer-image" />
+					<img src={trainerImages.elham} alt="Elham Shamal - Huvudtränare" class="trainer-image" />
 					<div class="trainer-title">Huvudtränare</div>
 					<div class="trainer-name">Elham Shamal</div>
 					<div class="trainer-info">
