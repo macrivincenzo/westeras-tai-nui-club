@@ -204,7 +204,7 @@
 
 			.federation-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				grid-template-columns: repeat(3, 1fr);
 				gap: 2rem;
 				margin-top: 3rem;
 			}
@@ -213,11 +213,14 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
+				justify-content: center;
 				text-align: center;
-				padding: 2rem;
+				padding: 2.5rem 2rem;
 				background: #f8f9fa;
 				border-radius: 10px;
 				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				min-height: 280px;
+				height: 100%;
 			}
 
 			.federation-item:hover {
@@ -231,7 +234,18 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
+				justify-content: center;
 				width: 100%;
+				height: 100%;
+			}
+
+			.federation-logo-container {
+				width: 200px;
+				height: 150px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 1.5rem;
 			}
 
 			.federation-logo {
@@ -240,19 +254,25 @@
 				width: auto;
 				height: auto;
 				object-fit: contain;
-				margin-bottom: 1rem;
 			}
 
 			.federation-name {
-				font-size: 1.1rem;
+				font-size: 1rem;
 				font-weight: 600;
 				color: #1a1a1a;
-				margin-top: 0.5rem;
+				line-height: 1.4;
 				transition: color 0.3s ease;
+				text-align: center;
 			}
 
 			.federation-item:hover .federation-name {
 				color: #dc2626;
+			}
+
+			@media (max-width: 1024px) {
+				.federation-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
 			}
 
 			@media (max-width: 768px) {
@@ -262,12 +282,22 @@
 				}
 
 				.federation-item {
-					padding: 1.5rem;
+					padding: 2rem 1.5rem;
+					min-height: 250px;
+				}
+
+				.federation-logo-container {
+					width: 180px;
+					height: 130px;
 				}
 
 				.federation-logo {
-					max-width: 150px;
-					max-height: 120px;
+					max-width: 180px;
+					max-height: 130px;
+				}
+
+				.federation-name {
+					font-size: 0.95rem;
 				}
 			}
 			
@@ -547,37 +577,49 @@
 				<div class="federation-grid">
 					<div class="federation-item">
 						<a href="https://www.iwuf.org/en/" target="_blank" rel="noopener noreferrer">
-							<img src="/Logo-till-förbund/IWUF-LOGO.jpg" alt="International Wushu Federation" class="federation-logo" />
+							<div class="federation-logo-container">
+								<img src="/Logo-till-förbund/IWUF-LOGO.jpg" alt="International Wushu Federation" class="federation-logo" />
+							</div>
 							<div class="federation-name">International Wushu Federation</div>
 						</a>
 					</div>
 					<div class="federation-item">
 						<a href="https://www.wkfe.org/" target="_blank" rel="noopener noreferrer">
-							<img src="/Logo-till-förbund/WKFE-LOGO.jpg" alt="Wushu Kungfu Federation Of Europe" class="federation-logo" />
+							<div class="federation-logo-container">
+								<img src="/Logo-till-förbund/WKFE-LOGO.jpg" alt="Wushu Kungfu Federation Of Europe" class="federation-logo" />
+							</div>
 							<div class="federation-name">Wushu Kungfu Federation Of Europe</div>
 						</a>
 					</div>
 					<div class="federation-item">
 						<a href="https://svenskwushu.se/" target="_blank" rel="noopener noreferrer">
-							<img src="/Logo-till-förbund/sweden-kung-fu-and-wushu-federation-logo.jpg" alt="Sweden Kungfu & Wushu Federation" class="federation-logo" />
+							<div class="federation-logo-container">
+								<img src="/Logo-till-förbund/sweden-kung-fu-and-wushu-federation-logo.jpg" alt="Sweden Kungfu & Wushu Federation" class="federation-logo" />
+							</div>
 							<div class="federation-name">Sweden Kungfu & Wushu Federation</div>
 						</a>
 					</div>
 					<div class="federation-item">
 						<a href="https://www.budokampsport.se/" target="_blank" rel="noopener noreferrer">
-							<img src="/Logo-till-förbund/svenska-budo-och-kampsportsförbundet-logo.jpg" alt="Svenska Budo & Kamsportsförbundet" class="federation-logo" />
+							<div class="federation-logo-container">
+								<img src="/Logo-till-förbund/svenska-budo-och-kampsportsförbundet-logo.jpg" alt="Svenska Budo & Kamsportsförbundet" class="federation-logo" />
+							</div>
 							<div class="federation-name">Svenska Budo & Kamsportsförbundet</div>
 						</a>
 					</div>
 					<div class="federation-item">
 						<a href="https://www.sswf.se/" target="_blank" rel="noopener noreferrer">
-							<img src="/Logo-till-förbund/submission-wrestling-förbundet-logga.jpg" alt="Svenska submission wrestling förbundet" class="federation-logo" />
+							<div class="federation-logo-container">
+								<img src="/Logo-till-förbund/submission-wrestling-förbundet-logga.jpg" alt="Svenska submission wrestling förbundet" class="federation-logo" />
+							</div>
 							<div class="federation-name">Svenska submission wrestling förbundet</div>
 						</a>
 					</div>
 					<div class="federation-item">
 						<a href="https://www.smmaf.se/" target="_blank" rel="noopener noreferrer">
-							<img src="/Logo-till-förbund/smmaf-logga.jpg" alt="Svenska MMA-förbundet" class="federation-logo" />
+							<div class="federation-logo-container">
+								<img src="/Logo-till-förbund/smmaf-logga.jpg" alt="Svenska MMA-förbundet" class="federation-logo" />
+							</div>
 							<div class="federation-name">Svenska MMA-förbundet</div>
 						</a>
 					</div>
