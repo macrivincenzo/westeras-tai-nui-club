@@ -9,6 +9,8 @@
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="Träna Wushu Sanda, MMA & Submission Wrestling i Westeras. Kinesisk full-contact kampsport, MMA och submission wrestling - den ultimata helkroppsträningen för kropp och sinne." />
 		<title>Westeras Tai-Nui Club - Wushu Sanda, MMA & Submission Wrestling</title>
+		<link rel="preload" as="image" href="/hero/Mohammedfrontpage.JPG" media="(max-width: 768px)" />
+		<link rel="preload" as="image" href="/hero/Submissionfrontpage.JPG" media="(min-width: 769px)" />
 		<style>
 			* {
 				margin: 0;
@@ -187,6 +189,14 @@
 			
 			.hero-slide.active {
 				opacity: 1;
+			}
+			
+			/* Visa första bilden direkt utan fade-in - ingen transition */
+			.hero-slide:first-of-type.active,
+			.hero-slide-mobile.active,
+			.hero-slide-desktop.active {
+				opacity: 1 !important;
+				transition: none !important;
 			}
 			
 			/* Hide Mohammedfrontpage.JPG on desktop, show on mobile */
