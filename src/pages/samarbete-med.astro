@@ -1,10 +1,4 @@
 ---
-const trainerImages = {
-	luciano: "/Tränar bilder/tranar-bild-1-luciano-macri.jpg.JPG",
-	besim: "/Tränar bilder/tranar-bild-2-besim-sedjiu.jpg.JPG",
-	vincenzo: "/Tränar bilder/tranar-bild-3-vincenzo-macri.jpg.JPG",
-	elham: "/Tränar bilder/tranar-bild-4-Elham-Shamaljpg.jpg"
-};
 ---
 
 <html lang="sv">
@@ -13,8 +7,8 @@ const trainerImages = {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Tränare vid Westeras Tai-Nui Club - Möt våra erfarna tränare och instruktörer i Wushu Sanda, MMA och Submission Wrestling." />
-		<title>Tränare - Westeras Tai-Nui Club</title>
+		<meta name="description" content="Samarbete med - Westeras Tai-Nui Club samarbetar med olika organisationer och partners för att erbjuda bästa möjliga träning." />
+		<title>Samarbete med - Westeras Tai-Nui Club</title>
 		<style>
 			* {
 				margin: 0;
@@ -201,78 +195,109 @@ const trainerImages = {
 				color: #666;
 				margin-bottom: 3rem;
 			}
-			
-			/* Trainer Section */
-			.trainer-section {
-				padding: 80px 0;
+
+			/* Partners Section */
+			.partners-section {
+				padding: 60px 0;
 				background: white;
 			}
-			
-			.trainer-item {
-				max-width: 800px;
-				margin: 0 auto 60px;
+
+			.partners-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+
+			.partner-item {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
 				text-align: center;
-			}
-			
-			.trainer-item:last-child {
-				margin-bottom: 0;
-			}
-			
-			.trainer-image {
-				width: 100%;
-				max-width: 500px;
-				height: auto;
+				padding: 2.5rem 2rem;
+				background: #f8f9fa;
 				border-radius: 10px;
-				box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-				margin: 0 auto 2rem;
-				display: block;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				min-height: 280px;
+				height: 100%;
 			}
-			
-			.trainer-title {
-				font-size: 1.5rem;
-				font-weight: 700;
-				color: #dc2626;
-				margin-bottom: 0.5rem;
+
+			.partner-item:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 			}
-			
-			.trainer-name {
-				font-size: 2rem;
-				font-weight: 800;
-				color: #1a1a1a;
+
+			.partner-item a {
+				text-decoration: none;
+				color: inherit;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+			}
+
+			.partner-logo-container {
+				width: 200px;
+				height: 150px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				margin-bottom: 1.5rem;
 			}
-			
-			.trainer-info {
-				font-size: 1.1rem;
-				color: #666;
-				line-height: 1.8;
-				max-width: 700px;
-				margin: 0 auto;
+
+			.partner-logo {
+				max-width: 200px;
+				max-height: 150px;
+				width: auto;
+				height: auto;
+				object-fit: contain;
 			}
-			
-			.trainer-info p {
-				margin-bottom: 0.5rem;
+
+			.partner-name {
+				font-size: 1rem;
+				font-weight: 600;
+				color: #1a1a1a;
+				line-height: 1.4;
+				transition: color 0.3s ease;
+				text-align: center;
 			}
-			
+
+			.partner-item:hover .partner-name {
+				color: #dc2626;
+			}
+
+			@media (max-width: 1024px) {
+				.partners-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
+			}
+
 			@media (max-width: 768px) {
-				.trainer-item {
-					margin-bottom: 50px;
+				.partners-grid {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
 				}
-				
-				.trainer-image {
-					max-width: 100%;
+
+				.partner-item {
+					padding: 2rem 1.5rem;
+					min-height: 250px;
 				}
-				
-				.trainer-name {
-					font-size: 1.5rem;
+
+				.partner-logo-container {
+					width: 180px;
+					height: 130px;
 				}
-				
-				.trainer-title {
-					font-size: 1.2rem;
+
+				.partner-logo {
+					max-width: 180px;
+					max-height: 130px;
 				}
-				
-				.trainer-info {
-					font-size: 1rem;
+
+				.partner-name {
+					font-size: 0.95rem;
 				}
 			}
 			
@@ -365,7 +390,7 @@ const trainerImages = {
 				color: white;
 			}
 			
-						/* Mobile Menu Toggle Button */
+					/* Mobile Menu Toggle Button */
 			.mobile-menu-toggle {
 				display: none;
 				flex-direction: column;
@@ -501,7 +526,7 @@ const trainerImages = {
 					<img src="/logo.svg" alt="Westeras Tai-Nui Club Logo" />
 					<span class="logo-text">WESTERAS TAI-NUI CLUB</span>
 				</a>
-								<button class="mobile-menu-toggle" aria-label="Toggle menu">
+							<button class="mobile-menu-toggle" aria-label="Toggle menu">
 					<span></span>
 					<span></span>
 					<span></span>
@@ -533,8 +558,8 @@ const trainerImages = {
 		<!-- Hero Section -->
 		<section class="hero">
 			<div class="container">
-				<h1>Tränare</h1>
-				<p>Möt våra erfarna och dedikerade tränare. Med många års erfarenhet leder de dig mot dina mål inom kampsport.</p>
+				<h1>Samarbete med</h1>
+				<p>Westeras Tai-Nui Club samarbetar med olika organisationer och partners för att erbjuda bästa möjliga träning och utveckling för våra medlemmar.</p>
 			</div>
 		</section>
 
@@ -542,64 +567,17 @@ const trainerImages = {
 		<section class="content-section">
 			<div class="container">
 				<div class="content-info">
-					<h2>Våra Tränare</h2>
+					<h2>Våra Samarbetspartners</h2>
+					<p>Vi är stolta över våra samarbeten med organisationer som delar våra värderingar om kvalitet, utveckling och gemenskap inom kampsport.</p>
 				</div>
 			</div>
 		</section>
 
-		<!-- Trainer Section -->
-		<section class="trainer-section">
+		<!-- Partners Section -->
+		<section class="partners-section">
 			<div class="container">
-				<!-- Trainer 1: Luciano Macri -->
-				<div class="trainer-item">
-					<img src={trainerImages.luciano} alt="Luciano Macri - SIFU/Huvudtränare" class="trainer-image" />
-					<div class="trainer-title">SIFU/Huvudtränare</div>
-					<div class="trainer-name">Luciano Macri</div>
-					<div class="trainer-info">
-						<p>Med 5 årtionden lång erfarenhet inom kampsport.</p>
-						<p>Traditionella stilar inre & yttre.</p>
-						<p>Coach i Sanda i klubben & landslaget.</p>
-						<p>Coach i kickboxing & All Style.</p>
-						<p>Landslagschef för Sanda landslaget.</p>
-					</div>
-				</div>
-
-				<!-- Trainer 2: Besim Sedjiu -->
-				<div class="trainer-item">
-					<img src={trainerImages.besim} alt="Besim Sedjiu - Huvudtränare" class="trainer-image" />
-					<div class="trainer-title">Huvudtränare</div>
-					<div class="trainer-name">Besim Sedjiu</div>
-					<div class="trainer-info">
-						<p>Mästa Mästaren.</p>
-						<p>Flerfalldig SM-mästare i Sanda/Kickboxing/Boxing/All Style Open.</p>
-						<p>Vunnit flera tävlingar i Submission Wrestling.</p>
-						<p>Lång erfarenhet i MMA.</p>
-					</div>
-				</div>
-
-				<!-- Trainer 3: Vincenzo Macri -->
-				<div class="trainer-item">
-					<img src={trainerImages.vincenzo} alt="Vincenzo Macri - Huvudtränare" class="trainer-image" />
-					<div class="trainer-title">Huvudtränare</div>
-					<div class="trainer-name">Vincenzo Macri</div>
-					<div class="trainer-info">
-						<p>Silvermedaljör på ungdoms EM i brottning.</p>
-						<p>Vunnit flera Svenska & Italienska mästerskap i grekisk-romerska stilen & fristil.</p>
-						<p>Tävlat för både det Svenska & Italienska landslaget.</p>
-						<p>Mångårig erfarenhet inom Sanda/All style/Boxing.</p>
-					</div>
-				</div>
-
-				<!-- Trainer 4: Elham Shamal -->
-				<div class="trainer-item">
-					<img src={trainerImages.elham} alt="Elham Shamal - Huvudtränare" class="trainer-image" />
-					<div class="trainer-title">Huvudtränare</div>
-					<div class="trainer-name">Elham Shamal</div>
-					<div class="trainer-info">
-						<p>Landslags-fighter i det Afghanska landslaget.</p>
-						<p>Flerfalldig svensk mästare i Sanda.</p>
-						<p>Vunnit Grand-Prix tävling The Blitz.</p>
-					</div>
+				<div class="partners-grid">
+					<!-- Partners will be added here -->
 				</div>
 			</div>
 		</section>
@@ -607,8 +585,8 @@ const trainerImages = {
 		<!-- Contact CTA Section -->
 		<section class="contact-cta">
 			<div class="container">
-				<h2>Vill du träna med oss?</h2>
-				<p>Kontakta oss för att boka en provlektion med våra erfarna tränare!</p>
+				<h2>Vill du samarbeta med oss?</h2>
+				<p>Kontakta oss för att diskutera samarbetsmöjligheter!</p>
 				<div class="cta-buttons">
 					<a href="/contact" class="btn btn-primary">Kontakta Oss</a>
 					<a href="tel:070-565-35-88" class="btn btn-secondary">Ring: 070-565 35 88</a>
@@ -686,3 +664,4 @@ const trainerImages = {
 		</script>
 	</body>
 </html>
+
