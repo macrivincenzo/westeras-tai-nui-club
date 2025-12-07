@@ -498,8 +498,8 @@ const trainerImages = {
 		<!-- Header -->
 		<header class="header">
 			<div class="nav-container">
-				<a href="/" class="logo">
-					<img src="/logo.svg" alt="Westeras Tai-Nui Club Logo" />
+				<a href="/" class="logo" aria-label="Westeras Tai-Nui Club startsida">
+					<img src="/logo.svg" alt="Westeras Tai-Nui Club logotyp - Västerås äldsta kampsportsklubb sedan 1976" width="80" height="80" decoding="async" />
 					<span class="logo-text">WESTERAS TAI-NUI CLUB</span>
 				</a>
 								<button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -507,7 +507,7 @@ const trainerImages = {
 					<span></span>
 					<span></span>
 				</button>
-				<nav class="nav-menu">
+				<nav class="nav-menu" role="navigation" aria-label="Huvudnavigation">
 					<ul class="nav-links">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle">Träning <span class="arrow">▼</span></a>
@@ -531,8 +531,9 @@ const trainerImages = {
 			</div>
 		</header>
 
+		<main>
 		<!-- Hero Section -->
-		<section class="hero">
+		<section class="hero" aria-label="Huvudsektion">
 			<div class="container">
 				<h1>Tränare</h1>
 				<p>Möt våra erfarna och dedikerade tränare. Med många års erfarenhet leder de dig mot dina mål inom kampsport.</p>
@@ -540,7 +541,7 @@ const trainerImages = {
 		</section>
 
 		<!-- Content Section -->
-		<section class="content-section">
+		<section class="content-section" aria-label="Tränarsektion">
 			<div class="container">
 				<div class="content-info">
 					<h2>Våra Tränare</h2>
@@ -553,7 +554,7 @@ const trainerImages = {
 			<div class="container">
 				<!-- Trainer 1: Luciano Macri -->
 				<div class="trainer-item">
-					<img src={trainerImages.luciano} alt="Luciano Macri - SIFU/Huvudtränare" class="trainer-image" />
+					<img src={trainerImages.luciano} alt="Luciano Macri - SIFU/Huvudtränare vid Westeras Tai-Nui Club i Västerås" width="400" height="500" loading="lazy" decoding="async" class="trainer-image" />
 					<div class="trainer-title">SIFU/Huvudtränare</div>
 					<div class="trainer-name">Luciano Macri</div>
 					<div class="trainer-info">
@@ -567,7 +568,7 @@ const trainerImages = {
 
 				<!-- Trainer 2: Besim Sedjiu -->
 				<div class="trainer-item">
-					<img src={trainerImages.besim} alt="Besim Sedjiu - Huvudtränare" class="trainer-image" />
+					<img src={trainerImages.besim} alt="Besim Sedjiu - Huvudtränare vid Westeras Tai-Nui Club i Västerås" width="400" height="500" loading="lazy" decoding="async" class="trainer-image" />
 					<div class="trainer-title">Huvudtränare</div>
 					<div class="trainer-name">Besim Sedjiu</div>
 					<div class="trainer-info">
@@ -580,7 +581,7 @@ const trainerImages = {
 
 				<!-- Trainer 3: Vincenzo Macri -->
 				<div class="trainer-item">
-					<img src={trainerImages.vincenzo} alt="Vincenzo Macri - Huvudtränare" class="trainer-image" />
+					<img src={trainerImages.vincenzo} alt="Vincenzo Macri - Huvudtränare vid Westeras Tai-Nui Club i Västerås" width="400" height="500" loading="lazy" decoding="async" class="trainer-image" />
 					<div class="trainer-title">Huvudtränare</div>
 					<div class="trainer-name">Vincenzo Macri</div>
 					<div class="trainer-info">
@@ -593,7 +594,7 @@ const trainerImages = {
 
 				<!-- Trainer 4: Elham Shamal -->
 				<div class="trainer-item">
-					<img src={trainerImages.elham} alt="Elham Shamal - Huvudtränare" class="trainer-image" />
+					<img src={trainerImages.elham} alt="Elham Shamal - Huvudtränare vid Westeras Tai-Nui Club i Västerås" width="400" height="500" loading="lazy" decoding="async" class="trainer-image" />
 					<div class="trainer-title">Huvudtränare</div>
 					<div class="trainer-name">Elham Shamal</div>
 					<div class="trainer-info">
@@ -605,7 +606,7 @@ const trainerImages = {
 
 				<!-- Trainer 5: Anwar Dehkani -->
 				<div class="trainer-item">
-					<img src={trainerImages.anwar} alt="Anwar Dehkani - Internationell Domare" class="trainer-image" />
+					<img src={trainerImages.anwar} alt="Anwar Dehkani - Internationell Domare vid Westeras Tai-Nui Club i Västerås" width="400" height="500" loading="lazy" decoding="async" class="trainer-image" />
 					<div class="trainer-title">Internationell Domare</div>
 					<div class="trainer-name">Anwar Dehkani</div>
 					<div class="trainer-info">
@@ -627,12 +628,13 @@ const trainerImages = {
 				</div>
 			</div>
 		</section>
+		</main>
 
 		<!-- Footer -->
 		<footer class="footer">
 			<div class="container">
 				<div class="footer-logo">
-					<img src="/logo.svg" alt="Västerås Tai-Nui Club Logo" style="width: 100px; height: 100px; object-fit: contain; margin: 0 auto 1rem; display: block;" />
+					<img src="/logo.svg" alt="Westeras Tai-Nui Club logotyp" width="100" height="100" decoding="async" style="width: 100px; height: 100px; object-fit: contain; margin: 0 auto 1rem; display: block;" />
 					<h3 style="text-align: center; margin-bottom: 2rem; color: #dc2626;">WESTERAS TAI-NUI CLUB</h3>
 				</div>
 				<div class="footer-content">
@@ -646,14 +648,19 @@ const trainerImages = {
 					</div>
 					<div>
 						<h4>Sociala Medier</h4>
-						<p><a href="https://www.facebook.com/westeras.tainui" target="_blank">Facebook</a></p>
+						<p><a href="https://www.facebook.com/westeras.tainui" target="_blank" rel="noopener noreferrer" aria-label="Besök vår Facebook-sida">Facebook</a></p>
 					</div>
 					<div>
 						<h4>Träningstider</h4>
-						<p><a href="/schedule">Se Schema</a></p>
+						<p><a href="/schedule" aria-label="Se träningstider och schema">Se Schema</a></p>
 					</div>
 				</div>
-				<p style="margin-top: 2rem; opacity: 0.7;">© 2025 Westeras Tai-Nui Club. Alla rättigheter förbehållna.</p>
+				<div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #333; opacity: 0.7;">
+					<p style="margin-bottom: 1rem;">© 2025 Westeras Tai-Nui Club. Alla rättigheter förbehållna.</p>
+					<p style="font-size: 0.9rem; line-height: 1.8; max-width: 900px; margin: 0 auto;">
+						<strong>Westeras Tai-Nui Club</strong> är Västerås äldsta kampsportsklubb, grundad 1976. Vi erbjuder professionell träning i <strong>Wushu Sanda</strong>, <strong>MMA</strong> och <strong>Submission Wrestling</strong> i hjärtat av Västerås. Vår klubb på Jakobsgatan 97 är lätt att nå från hela Västeråsområdet och erbjuder träning för alla nivåer - från nybörjare till tävlingsutövare. Vi är specialiserade på kinesisk kampsport, mixed martial arts och brottningstekniker. Välkommen att prova på gratis! Hitta oss i Västerås för bästa kampsportsträningen i Västmanland.
+					</p>
+				</div>
 			</div>
 		</footer>		
 		<script>
@@ -698,3 +705,4 @@ const trainerImages = {
 		</script>
 	</body>
 </html>
+

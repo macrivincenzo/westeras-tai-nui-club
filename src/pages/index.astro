@@ -9,8 +9,8 @@
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="Träna Wushu Sanda, MMA & Submission Wrestling i Westeras. Kinesisk full-contact kampsport, MMA och submission wrestling - den ultimata helkroppsträningen för kropp och sinne." />
 		<title>Westeras Tai-Nui Club - Wushu Sanda, MMA & Submission Wrestling</title>
-		<link rel="preload" as="image" href="/hero/Mohammedfrontpage.JPG" media="(max-width: 768px)" />
-		<link rel="preload" as="image" href="/hero/Submissionfrontpage.JPG" media="(min-width: 769px)" />
+		<link rel="preload" as="image" href="/hero/Mohammedfrontpage.JPG" media="(max-width: 768px)" fetchpriority="high" />
+		<link rel="preload" as="image" href="/hero/Submissionfrontpage.JPG" media="(min-width: 769px)" fetchpriority="high" />
 		<style>
 			* {
 				margin: 0;
@@ -656,8 +656,8 @@
 		<!-- Header -->
 		<header class="header">
 			<div class="nav-container">
-				<a href="#" class="logo">
-					<img src="/logo.svg" alt="Västerås Tai-Nui Club Logo" />
+				<a href="/" class="logo" aria-label="Westeras Tai-Nui Club startsida">
+					<img src="/logo.svg" alt="Westeras Tai-Nui Club logotyp - Västerås äldsta kampsportsklubb sedan 1976" width="80" height="80" decoding="async" />
 					<span class="logo-text">WESTERAS TAI-NUI CLUB</span>
 				</a>
 				<button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -665,7 +665,7 @@
 					<span></span>
 					<span></span>
 				</button>
-				<nav class="nav-menu">
+				<nav class="nav-menu" role="navigation" aria-label="Huvudnavigation">
 					<ul class="nav-links">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle">Träning <span class="arrow">▼</span></a>
@@ -689,8 +689,9 @@
 			</div>
 		</header>
 
+		<main>
 		<!-- Hero Section -->
-		<section class="hero">
+		<section class="hero" aria-label="Huvudsektion">
 			<div class="hero-carousel">
 				<div class="hero-slide hero-slide-mobile active" style="background-image: url('/hero/Mohammedfrontpage.JPG');"></div>
 				<div class="hero-slide hero-slide-mobile" style="background-image: url('/hero/Submissionfrontpagemobile.JPG');"></div>
@@ -706,8 +707,8 @@
 					<p class="subtitle">Kinesisk full-contact kampsport, MMA och submission wrestling - den ultimata helkroppsträningen för kropp och sinne. Westeras Tai-Nui Club med nästan 50 års erfarenhet sedan 1976.</p>
 					<p class="description">Ingen erfarenhet krävs. Alla åldrar välkomna. Din första lektion är alltid gratis.</p>
 					<div class="cta-buttons">
-						<a href="/contact" class="btn btn-primary">Prova på Gratis</a>
-						<a href="/schedule" class="btn btn-secondary">Se Träningstider</a>
+						<a href="/contact" class="btn btn-primary" aria-label="Boka gratis provlektion">Prova på Gratis</a>
+						<a href="/schedule" class="btn btn-secondary" aria-label="Se träningstider och schema">Se Träningstider</a>
 					</div>
 				</div>
 			</div>
@@ -718,14 +719,14 @@
 			<div class="container">
 				<div class="intro-content">
 					<h2>Westeras Tai-Nui Club</h2>
-					<img src="/LucianoColloseum.JPG" alt="Luciano at Colosseum" style="width: 100%; max-width: 800px; height: auto; margin: 2rem auto; display: block; border-radius: 8px;" />
+					<img src="/LucianoColloseum.JPG" alt="Luciano Macri vid Colosseum i Rom - huvudtränare och grundare av Westeras Tai-Nui Club" width="800" height="600" loading="lazy" decoding="async" style="width: 100%; max-width: 800px; height: auto; margin: 2rem auto; display: block; border-radius: 8px;" />
 					<p>Hos oss tränar du Wushu Sanda, MMA och submission wrestling - en komplett kampsportsutbildning som kombinerar slag, sparkar, brottning och markstrid. Effektiv träning som ger resultat, oavsett om du vill bli starkare eller lära dig självförsvar.</p>
 					<p>Alla nivåer välkomna. Ingen erfarenhet krävs.</p>
-					<div class="rating">
-						<span class="stars">⭐⭐⭐⭐⭐</span>
+					<div class="rating" role="img" aria-label="5 stjärnor på Google">
+						<span class="stars" aria-hidden="true">⭐⭐⭐⭐⭐</span>
 						<span>5,0 stjärnor på Google - Westeras äldsta kampsportsklubb</span>
 					</div>
-					<img src="/Google5stjärnigreview.jpg" alt="Google 5 Star Review" style="width: 100%; max-width: 600px; height: auto; margin: 1.5rem auto; display: block; border-radius: 8px;" />
+					<img src="/Google5stjärnigreview.jpg" alt="Google recension med 5 stjärnor för Westeras Tai-Nui Club - Västerås bästa kampsportsklubb" width="600" height="400" loading="lazy" decoding="async" style="width: 100%; max-width: 600px; height: auto; margin: 1.5rem auto; display: block; border-radius: 8px;" />
 				</div>
 			</div>
 		</section>
@@ -736,17 +737,17 @@
 				<h2>Varför Träna Kampsport Hos Oss?</h2>
 				<div class="features-grid">
 					<div class="feature">
-						<div class="feature-icon">🥊</div>
+						<div class="feature-icon" aria-hidden="true">🥊</div>
 						<h3>Helkroppsträning</h3>
 						<p>Bygg styrka, kondition och explosivitet. Kombinationen av slagträning, brottning och markstrid - varje träning är unik.</p>
 					</div>
 					<div class="feature">
-						<div class="feature-icon">🛡</div>
+						<div class="feature-icon" aria-hidden="true">🛡</div>
 						<h3>Praktiskt Självförsvar</h3>
 						<p>Lär dig försvara dig på riktigt - både stående och på marken. Tekniker som faktiskt fungerar i verkligheten, inte bara i ringen.</p>
 					</div>
 					<div class="feature">
-						<div class="feature-icon">🤝</div>
+						<div class="feature-icon" aria-hidden="true">🤝</div>
 						<h3>Gruppträning & Individuell träning</h3>
 						<p>Träna med en dedikerad grupp i alla åldrar. Vi hjälps åt att bli bättre.</p>
 					</div>
@@ -806,15 +807,15 @@
 				<h2>Kom Igång Idag</h2>
 				<div class="contact-grid">
 					<div class="contact-card">
-						<div class="contact-icon">📍</div>
+						<div class="contact-icon" aria-hidden="true">📍</div>
 						<h3>Hitta Oss</h3>
 						<p>Jakobsgatan 97<br>724 64 Västerås</p>
-						<a href="https://maps.google.com/?q=Jakobsgatan+97,+724+64+Västerås" target="_blank" class="btn btn-secondary">Öppna i Google Maps</a>
+						<a href="https://maps.google.com/?q=Jakobsgatan+97,+724+64+Västerås" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="Öppna adress i Google Maps">Öppna i Google Maps</a>
 					</div>
 					<div class="contact-card">
-						<div class="contact-icon">📞</div>
+						<div class="contact-icon" aria-hidden="true">📞</div>
 						<h3>Kontakt</h3>
-						<p>Telefon: 070-565 35 88<br>Email: luciano@kungfu.nu</p>
+						<p>Telefon: <a href="tel:070-565-35-88" aria-label="Ring oss på 070-565 35 88">070-565 35 88</a><br>Email: <a href="mailto:luciano@kungfu.nu" aria-label="Skicka e-post till luciano@kungfu.nu">luciano@kungfu.nu</a></p>
 						<p>Ring oss för frågor eller boka din provlektion</p>
 					</div>
 				</div>
@@ -840,18 +841,19 @@
 				<h2>Prova På Gratis - Första träningen kostar inget</h2>
 				<p>Ta med träningskläder och en vattenflaska. Välj mellan Sanda, MMA eller submission wrestling - prova på allt!</p>
 				<div class="cta-buttons">
-					<a href="/contact" class="btn btn-primary">Boka Provlektion</a>
-					<a href="tel:070-565-35-88" class="btn btn-secondary">Ring: 070-565 35 88</a>
+					<a href="/contact" class="btn btn-primary" aria-label="Boka din gratis provlektion">Boka Provlektion</a>
+					<a href="tel:070-565-35-88" class="btn btn-secondary" aria-label="Ring oss på 070-565 35 88">Ring: 070-565 35 88</a>
 				</div>
 				<p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">Begränsat antal platser per grupp. Boka idag för att säkra din plats.</p>
 			</div>
 		</section>
+		</main>
 
 		<!-- Footer -->
 		<footer class="footer">
 			<div class="container">
 				<div class="footer-logo">
-					<img src="/logo.svg" alt="Västerås Tai-Nui Club Logo" style="width: 100px; height: 100px; object-fit: contain; margin: 0 auto 1rem; display: block;" />
+					<img src="/logo.svg" alt="Westeras Tai-Nui Club logotyp" width="100" height="100" decoding="async" style="width: 100px; height: 100px; object-fit: contain; margin: 0 auto 1rem; display: block;" />
 					<h3 style="text-align: center; margin-bottom: 2rem; color: #dc2626;">WESTERAS TAI-NUI CLUB</h3>
 				</div>
 				<div class="footer-content">
@@ -865,14 +867,19 @@
 					</div>
 					<div>
 						<h4>Sociala Medier</h4>
-						<p><a href="https://www.facebook.com/westeras.tainui" target="_blank">Facebook</a></p>
+						<p><a href="https://www.facebook.com/westeras.tainui" target="_blank" rel="noopener noreferrer" aria-label="Besök vår Facebook-sida">Facebook</a></p>
 					</div>
 					<div>
 						<h4>Träningstider</h4>
-						<p><a href="#schedule">Se Schema</a></p>
+						<p><a href="/schedule" aria-label="Se träningstider och schema">Se Schema</a></p>
 					</div>
 				</div>
-				<p style="margin-top: 2rem; opacity: 0.7;">© 2025 Westeras Tai-Nui Club. Alla rättigheter förbehållna.</p>
+				<div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #333; opacity: 0.7;">
+					<p style="margin-bottom: 1rem;">© 2025 Westeras Tai-Nui Club. Alla rättigheter förbehållna.</p>
+					<p style="font-size: 0.9rem; line-height: 1.8; max-width: 900px; margin: 0 auto;">
+						<strong>Westeras Tai-Nui Club</strong> är Västerås äldsta kampsportsklubb, grundad 1976. Vi erbjuder professionell träning i <strong>Wushu Sanda</strong>, <strong>MMA</strong> och <strong>Submission Wrestling</strong> i hjärtat av Västerås. Vår klubb på Jakobsgatan 97 är lätt att nå från hela Västeråsområdet och erbjuder träning för alla nivåer - från nybörjare till tävlingsutövare. Vi är specialiserade på kinesisk kampsport, mixed martial arts och brottningstekniker. Välkommen att prova på gratis! Hitta oss i Västerås för bästa kampsportsträningen i Västmanland.
+					</p>
+				</div>
 			</div>
 		</footer>
 		
@@ -961,4 +968,5 @@
 			setInterval(nextSlide, 5000);
 		</script>
 	</body>
+</html>
 </html>
