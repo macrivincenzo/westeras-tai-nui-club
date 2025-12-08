@@ -178,93 +178,73 @@
 				background: #f8f9fa;
 			}
 			
-			.main-schedule-container {
-				display: flex;
-				justify-content: center;
-				align-items: center;
+			html {
+				scroll-behavior: smooth;
+			}
+			
+			/* Schedule Links Container */
+			.schedule-links-container {
+				background: white;
+				padding: 3rem;
+				border-radius: 15px;
+				box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 				margin-bottom: 4rem;
+				text-align: center;
 			}
 			
-			.schedule-info-container {
-				max-width: 800px;
-				margin: 0 auto;
-			}
-			
-			.schedule-info h2 {
+			.schedule-links-container h2 {
 				font-size: 2.5rem;
 				margin-bottom: 2rem;
 				color: #1a1a1a;
 			}
 			
-			.schedule-info h3 {
-				font-size: 1.5rem;
-				margin-bottom: 1rem;
-				color: #dc2626;
-			}
-			
-			.schedule-info p {
-				font-size: 1.1rem;
-				margin-bottom: 1.5rem;
-				color: #444;
-			}
-			
-			.class-types {
-				background: white;
-				padding: 2rem;
-				border-radius: 10px;
-				box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-				margin-top: 2rem;
-			}
-			
-			.class-types h4 {
-				font-size: 1.2rem;
-				margin-bottom: 1rem;
-				color: #1a1a1a;
-			}
-			
-			.class-type {
+			.schedule-links {
+				list-style: none;
 				display: flex;
-				align-items: center;
+				flex-direction: column;
 				gap: 1rem;
-				margin-bottom: 1rem;
-				padding: 1rem;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+			
+			.schedule-links li {
+				margin: 0;
+			}
+			
+			.schedule-links a {
+				display: block;
+				padding: 1rem 1.5rem;
 				background: #f8f9fa;
-				border-radius: 5px;
+				color: #1a1a1a;
+				text-decoration: none;
+				border-radius: 8px;
+				font-weight: 600;
+				font-size: 1.1rem;
+				transition: all 0.3s ease;
+				border: 2px solid transparent;
 			}
 			
-			.color-indicator {
-				width: 20px;
-				height: 20px;
-				border-radius: 3px;
+			.schedule-links a:hover {
+				background: #dc2626;
+				color: white;
+				border-color: #dc2626;
+				transform: translateX(5px);
 			}
 			
-			.blue { background: #3b82f6; }
-			.yellow { background: #fbbf24; }
-			.purple { background: #8b5cf6; }
-			.orange { background: #f97316; }
+			/* Schedule Images Container */
+			.schedule-images-container {
+				display: flex;
+				flex-direction: column;
+				gap: 4rem;
+			}
 			
-			/* Schedule Image */
-			.schedule-image-container {
+			.schedule-item {
 				background: white;
 				padding: 3rem;
 				border-radius: 15px;
 				box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 				text-align: center;
-				width: 100%;
-				max-width: 1000px;
-			}
-			
-			.schedule-image-container h2 {
-				font-size: 2.5rem;
-				margin-bottom: 2rem;
-				color: #1a1a1a;
-			}
-			
-			.schedule-image-wrapper {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				width: 100%;
+				scroll-margin-top: 100px;
 			}
 			
 			.schedule-image {
@@ -273,11 +253,11 @@
 				height: auto;
 				border-radius: 15px;
 				box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+				margin-bottom: 1.5rem;
 			}
 			
 			.download-btn {
 				display: inline-block;
-				margin-top: 1.5rem;
 				padding: 12px 24px;
 				background: #dc2626;
 				color: white;
@@ -496,13 +476,21 @@
 					font-size: 2.5rem;
 				}
 				
-				.schedule-image-container {
-					padding: 2rem;
-					max-width: 100%;
+				.schedule-links-container {
+					padding: 2rem 1.5rem;
 				}
 				
-				.schedule-image-container h2 {
+				.schedule-links-container h2 {
 					font-size: 2rem;
+				}
+				
+				.schedule-links a {
+					font-size: 1rem;
+					padding: 0.875rem 1.25rem;
+				}
+				
+				.schedule-item {
+					padding: 2rem 1.5rem;
 				}
 				
 				.schedule-image {
@@ -570,58 +558,62 @@
 		<!-- Schedule Section -->
 		<section class="schedule-section">
 			<div class="container">
-				<!-- Main Schedule Display -->
-				<div class="main-schedule-container">
-					<div class="schedule-image-container">
-						<h2>Våra Träningstider</h2>
-						<div class="schedule-image-wrapper">
-							<img src="/schedule.png" alt="Westeras Tai-Nui Club Schema" class="schedule-image" />
-						</div>
-						<a href="/schedule.png" download class="download-btn">Ladda Ner Schema</a>
-					</div>
+				<!-- Anchor Links List -->
+				<div class="schedule-links-container">
+					<h2>Välj ditt träningsschema</h2>
+					<ul class="schedule-links">
+						<li><a href="#schema-7-9">Träningsschema Barngrupp 7-9 år</a></li>
+						<li><a href="#schema-10-13">Träningsschema Barngrupp 10-13 år</a></li>
+						<li><a href="#schema-14-15">Träningsschema Ungdom 14-15 år</a></li>
+						<li><a href="#schema-16-17">Träningsschema Juniorer 16-17 år</a></li>
+						<li><a href="#schema-18-25">Träningsschema Seniorer 18-25 år</a></li>
+						<li><a href="#schema-vuxna">Träningsschema Vuxna</a></li>
+						<li><a href="#schema-flickor-kvinnor">Träningsschema Flickor/Kvinnor 13 år >>></a></li>
+					</ul>
 				</div>
-				
-				<!-- Information Section -->
-				<div class="schedule-info-container">
-					<div class="schedule-info">
-						<p>Vi erbjuder träning för alla åldrar och nivåer. Välj den klass som passar dig bäst!</p>
-						
-						<h3>Klassindelning</h3>
-						<div class="class-types">
-							<div class="class-type">
-								<div class="color-indicator blue"></div>
-								<div>
-									<strong>Barn (7-9 år)</strong><br>
-									Wushu/Sanda & brottning
-								</div>
-							</div>
-							<div class="class-type">
-								<div class="color-indicator yellow"></div>
-								<div>
-									<strong>Ungdom/Utvecklingsgruppen (10-13 år)</strong><br>
-									Wushu/Sanda & brottning
-								</div>
-							</div>
-							<div class="class-type">
-								<div class="color-indicator purple"></div>
-								<div>
-									<strong>Flickor (13-25 år)</strong><br>
-									Traditionell Kungfu
-								</div>
-							</div>
-							<div class="class-type">
-								<div class="color-indicator orange"></div>
-								<div>
-									<strong>Ungdom/Seniorer/Vuxna (14+)</strong><br>
-									MMA, Submission Wrestling, Wushu Sanda
-								</div>
-							</div>
-						</div>
-						
-						<h3>Instruktörer</h3>
-						<p><strong>SIFU Luciano Macri</strong> - 070/565 35 88</p>
-						<p><strong>Besim Sedjiu</strong> - MMA/Submission Wrestling</p>
-						<p><strong>Vincenzo Macri</strong> - Brottning</p>
+
+				<!-- Schedule Images -->
+				<div class="schedule-images-container">
+					<!-- Barngrupp 7-9 år -->
+					<div id="schema-7-9" class="schedule-item">
+						<img src="/träningsschema/tränings-schema-7-9-år.jpg" alt="Träningsschema Barngrupp 7-9 år" class="schedule-image" width="900" height="auto" loading="lazy" decoding="async" />
+						<a href="/träningsschema/tränings-schema-7-9-år.jpg" download="tränings-schema-7-9-år.jpg" class="download-btn">Ladda ner PDF</a>
+					</div>
+
+					<!-- Barngrupp 10-13 år -->
+					<div id="schema-10-13" class="schedule-item">
+						<img src="/träningsschema/tränings-schema-10-13.jpg" alt="Träningsschema Barngrupp 10-13 år" class="schedule-image" width="900" height="auto" loading="lazy" decoding="async" />
+						<a href="/träningsschema/tränings-schema-10-13.jpg" download="tränings-schema-10-13.jpg" class="download-btn">Ladda ner PDF</a>
+					</div>
+
+					<!-- Ungdom 14-15 år -->
+					<div id="schema-14-15" class="schedule-item">
+						<img src="/träningsschema/tränings-schema-13-16-seniorer.jpg" alt="Träningsschema Ungdom 14-15 år" class="schedule-image" width="900" height="auto" loading="lazy" decoding="async" />
+						<a href="/träningsschema/tränings-schema-13-16-seniorer.jpg" download="tränings-schema-14-15.jpg" class="download-btn">Ladda ner PDF</a>
+					</div>
+
+					<!-- Juniorer 16-17 år -->
+					<div id="schema-16-17" class="schedule-item">
+						<img src="/träningsschema/tränings-schema-13-16-seniorer.jpg" alt="Träningsschema Juniorer 16-17 år" class="schedule-image" width="900" height="auto" loading="lazy" decoding="async" />
+						<a href="/träningsschema/tränings-schema-13-16-seniorer.jpg" download="tränings-schema-16-17.jpg" class="download-btn">Ladda ner PDF</a>
+					</div>
+
+					<!-- Seniorer 18-25 år -->
+					<div id="schema-18-25" class="schedule-item">
+						<img src="/träningsschema/tränings-schema-13-16-seniorer.jpg" alt="Träningsschema Seniorer 18-25 år" class="schedule-image" width="900" height="auto" loading="lazy" decoding="async" />
+						<a href="/träningsschema/tränings-schema-13-16-seniorer.jpg" download="tränings-schema-18-25.jpg" class="download-btn">Ladda ner PDF</a>
+					</div>
+
+					<!-- Vuxna -->
+					<div id="schema-vuxna" class="schedule-item">
+						<img src="/träningsschema/tränings-schema-13-16-seniorer.jpg" alt="Träningsschema Vuxna" class="schedule-image" width="900" height="auto" loading="lazy" decoding="async" />
+						<a href="/träningsschema/tränings-schema-13-16-seniorer.jpg" download="tränings-schema-vuxna.jpg" class="download-btn">Ladda ner PDF</a>
+					</div>
+
+					<!-- Flickor/Kvinnor 13 år -->
+					<div id="schema-flickor-kvinnor" class="schedule-item">
+						<img src="/träningsschema/tränings-schema-flickor-kvinnor.jpg" alt="Träningsschema Flickor/Kvinnor 13 år" class="schedule-image" width="900" height="auto" loading="lazy" decoding="async" />
+						<a href="/träningsschema/tränings-schema-flickor-kvinnor.jpg" download="tränings-schema-flickor-kvinnor.jpg" class="download-btn">Ladda ner PDF</a>
 					</div>
 				</div>
 			</div>
