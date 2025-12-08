@@ -7,8 +7,24 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Träningstider och schema för Westeras Tai-Nui Club - Wushu Sanda, MMA & Submission Wrestling. Se alla våra klasser och tider." />
-		<title>Schema - Westeras Tai-Nui Club</title>
+		<meta name="description" content="Se träningstider och priser för Westeras Tai-Nui Club i Västerås. Schema för Wushu Sanda, MMA & Submission Wrestling för alla åldrar. Jakobsgatan 97, Västerås." />
+		<title>Schema & Priser - Westeras Tai-Nui Club Västerås | Träningstider & Priser</title>
+		<link rel="canonical" href="https://westeras-tainui.se/schedule" />
+		
+		<!-- Open Graph Meta Tags -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Schema & Priser - Westeras Tai-Nui Club Västerås" />
+		<meta property="og:description" content="Se träningstider och priser för Westeras Tai-Nui Club i Västerås. Schema för Wushu Sanda, MMA & Submission Wrestling för alla åldrar." />
+		<meta property="og:url" content="https://westeras-tainui.se/schedule" />
+		<meta property="og:image" content="https://westeras-tainui.se/logo.svg" />
+		<meta property="og:locale" content="sv_SE" />
+		<meta property="og:site_name" content="Westeras Tai-Nui Club" />
+		
+		<!-- Twitter Card Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Schema & Priser - Westeras Tai-Nui Club Västerås" />
+		<meta name="twitter:description" content="Se träningstider och priser för Westeras Tai-Nui Club i Västerås. Schema för alla åldrar." />
+		<meta name="twitter:image" content="https://westeras-tainui.se/logo.svg" />
 		<style>
 			* {
 				margin: 0;
@@ -711,6 +727,52 @@
 					navMenu.classList.remove('active');
 				});
 			});
+		</script>
+		
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "SportsActivityLocation",
+			"name": "Westeras Tai-Nui Club",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Jakobsgatan 97",
+				"addressLocality": "Västerås",
+				"postalCode": "724 64",
+				"addressRegion": "Västmanland",
+				"addressCountry": "SE"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": "59.6099",
+				"longitude": "16.5448"
+			},
+			"telephone": "+46705653588",
+			"email": "luciano@kungfu.nu",
+			"url": "https://westeras-tainui.se/schedule",
+			"sport": ["Wushu Sanda", "MMA", "Submission Wrestling", "Kung-Fu"]
+		}
+		</script>
+		
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Hem",
+					"item": "https://westeras-tainui.se/"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Schema & Priser",
+					"item": "https://westeras-tainui.se/schedule"
+				}
+			]
+		}
 		</script>
 	</body>
 </html>

@@ -7,8 +7,24 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Aktuellt från Westeras Tai-Nui Club - Senaste nyheterna, evenemang och uppdateringar från vår kampsportsklubb." />
-		<title>Aktuellt - Westeras Tai-Nui Club</title>
+		<meta name="description" content="Aktuellt från Westeras Tai-Nui Club i Västerås. Senaste nyheterna, evenemang och uppdateringar från vår kampsportsklubb. Jakobsgatan 97, Västerås." />
+		<title>Aktuellt Västerås - Westeras Tai-Nui Club | Nyheter & Evenemang</title>
+		<link rel="canonical" href="https://westeras-tainui.se/aktuellt" />
+		
+		<!-- Open Graph Meta Tags -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Aktuellt Västerås - Westeras Tai-Nui Club" />
+		<meta property="og:description" content="Aktuellt från Westeras Tai-Nui Club i Västerås. Senaste nyheterna, evenemang och uppdateringar." />
+		<meta property="og:url" content="https://westeras-tainui.se/aktuellt" />
+		<meta property="og:image" content="https://westeras-tainui.se/logo.svg" />
+		<meta property="og:locale" content="sv_SE" />
+		<meta property="og:site_name" content="Westeras Tai-Nui Club" />
+		
+		<!-- Twitter Card Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Aktuellt Västerås - Westeras Tai-Nui Club" />
+		<meta name="twitter:description" content="Aktuellt från Westeras Tai-Nui Club i Västerås. Senaste nyheterna och evenemang." />
+		<meta name="twitter:image" content="https://westeras-tainui.se/logo.svg" />
 		<style>
 			* {
 				margin: 0;
@@ -548,6 +564,52 @@
 					navMenu.classList.remove('active');
 				});
 			});
+		</script>
+		
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "SportsActivityLocation",
+			"name": "Westeras Tai-Nui Club",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Jakobsgatan 97",
+				"addressLocality": "Västerås",
+				"postalCode": "724 64",
+				"addressRegion": "Västmanland",
+				"addressCountry": "SE"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": "59.6099",
+				"longitude": "16.5448"
+			},
+			"telephone": "+46705653588",
+			"email": "luciano@kungfu.nu",
+			"url": "https://westeras-tainui.se/aktuellt",
+			"sport": ["Wushu Sanda", "MMA", "Submission Wrestling", "Kung-Fu"]
+		}
+		</script>
+		
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Hem",
+					"item": "https://westeras-tainui.se/"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Aktuellt",
+					"item": "https://westeras-tainui.se/aktuellt"
+				}
+			]
+		}
 		</script>
 	</body>
 </html>
