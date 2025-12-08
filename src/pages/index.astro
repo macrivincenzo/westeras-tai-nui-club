@@ -28,6 +28,8 @@
 		
 		<link rel="preconnect" href="https://www.facebook.com" />
 		<link rel="preconnect" href="https://maps.google.com" />
+		<link rel="dns-prefetch" href="https://www.facebook.com" />
+		<link rel="dns-prefetch" href="https://maps.google.com" />
 		<link rel="preload" as="image" href="/hero/Mohammedfrontpage.JPG" media="(max-width: 768px)" fetchpriority="high" />
 		<link rel="preload" as="image" href="/hero/Submissionfrontpage.JPG" media="(min-width: 769px)" fetchpriority="high" />
 		<style>
@@ -844,13 +846,15 @@
 				<!-- Google Map -->
 				<div class="map-container">
 					<iframe 
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2008.123456789!2d16.5456!3d59.6162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465e6b1234567890%3A0x1234567890abcdef!2sJakobsgatan%2097%2C%20724%2064%20V%C3%A4ster%C3%A5s!5e0!3m2!1ssv!2sse!4v1234567890123!5m2!1ssv!2sse"
+						id="google-map-iframe"
+						data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2008.123456789!2d16.5456!3d59.6162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465e6b1234567890%3A0x1234567890abcdef!2sJakobsgatan%2097%2C%20724%2064%20V%C3%A4ster%C3%A5s!5e0!3m2!1ssv!2sse!4v1234567890123!5m2!1ssv!2sse"
 						width="100%" 
 						height="400" 
 						style="border:0; border-radius: 10px;" 
 						allowfullscreen="" 
-						loading="lazy" 
-						referrerpolicy="no-referrer-when-downgrade">
+						referrerpolicy="no-referrer-when-downgrade"
+						title="Karta över Westeras Tai-Nui Club på Jakobsgatan 97, Västerås"
+						aria-label="Google Maps karta visar platsen för Westeras Tai-Nui Club">
 					</iframe>
 				</div>
 			</div>
@@ -987,6 +991,34 @@
 			
 			// Change slide every 5 seconds
 			setInterval(nextSlide, 5000);
+			
+			// Load Google Maps iframe on interaction or after page load
+			const mapIframe = document.getElementById('google-map-iframe');
+			if (mapIframe) {
+				const loadMap = () => {
+					if (mapIframe.dataset.src) {
+						mapIframe.src = mapIframe.dataset.src;
+						mapIframe.removeAttribute('data-src');
+					}
+				};
+				
+				// Load on scroll into view or user interaction
+				const observer = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							loadMap();
+							observer.disconnect();
+						}
+					});
+				}, { rootMargin: '50px' });
+				
+				observer.observe(mapIframe);
+				
+				// Also load on user interaction as fallback
+				['click', 'touchstart', 'keydown'].forEach(event => {
+					document.addEventListener(event, loadMap, { once: true, passive: true });
+				});
+			}
 		</script>
 		
 		<script type="application/ld+json">
