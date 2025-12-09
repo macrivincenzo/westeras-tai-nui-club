@@ -1,6 +1,21 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://westeras-tai-nui-club.vercel.app',
-  output: 'static'
+  site: 'https://westeras-tainui.se',
+  output: 'static',
+  build: {
+    inlineStylesheets: 'auto',
+    assets: '_assets'
+  },
+  vite: {
+    build: {
+      cssMinify: true,
+      minify: 'terser',
+      rollupOptions: {
+        output: {
+          manualChunks: undefined
+        }
+      }
+    }
+  }
 });

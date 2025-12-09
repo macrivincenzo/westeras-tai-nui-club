@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 ---
 
 <html lang="sv">
@@ -30,650 +31,22 @@
 		<link rel="preconnect" href="https://maps.google.com" />
 		<link rel="dns-prefetch" href="https://www.facebook.com" />
 		<link rel="dns-prefetch" href="https://maps.google.com" />
-		<link rel="preload" as="image" href="/hero/Mohammedfrontpage.JPG" media="(max-width: 768px)" fetchpriority="high" />
-		<link rel="preload" as="image" href="/hero/Submissionfrontpage.JPG" media="(min-width: 769px)" fetchpriority="high" />
-		<style>
-			* {
-				margin: 0;
-				padding: 0;
-				box-sizing: border-box;
-			}
-			
-			body {
-				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-				line-height: 1.6;
-				color: #333;
-				background-color: #fff;
-			}
-			
-			/* Header and Navigation */
-			.header {
-				background: #000;
-				color: white;
-				padding: 1rem 0;
-				position: sticky;
-				top: 0;
-				z-index: 100;
-				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-			}
-			
-			.nav-container {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 0 20px;
-			}
-			
-			.logo {
-				display: flex;
-				align-items: center;
-				gap: 1rem;
-				text-decoration: none;
-				color: white;
-			}
-			
-			.logo img {
-				width: 80px;
-				height: 80px;
-				object-fit: contain;
-				display: block;
-				flex-shrink: 0;
-			}
-			
-			.logo-text {
-				font-size: 1.2rem;
-				font-weight: 800;
-				letter-spacing: 1px;
-			}
-			
-			.nav-links {
-				display: flex;
-				gap: 2rem;
-				list-style: none;
-			}
-			
-			.nav-links a {
-				color: white;
-				text-decoration: none;
-				font-weight: 600;
-				transition: color 0.3s ease;
-			}
-			
-			.nav-links a:hover {
-				color: #dc2626;
-			}
-			
-			/* Dropdown Navigation */
-			.dropdown {
-				position: relative;
-			}
-			
-			.dropdown-toggle {
-				display: flex;
-				align-items: center;
-				gap: 0.5rem;
-			}
-			
-			.arrow {
-				font-size: 0.8rem;
-				transition: transform 0.3s ease;
-			}
-			
-			.dropdown:hover .arrow {
-				transform: rotate(180deg);
-			}
-			
-			.dropdown-menu {
-				position: absolute;
-				top: 100%;
-				left: 0;
-				background: #1a1a1a;
-				min-width: 200px;
-				box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-				border-radius: 5px;
-				opacity: 0;
-				visibility: hidden;
-				transform: translateY(-10px);
-				transition: all 0.3s ease;
-				z-index: 1000;
-				list-style: none;
-				padding: 0.5rem 0;
-				margin: 0;
-			}
-			
-			.dropdown:hover .dropdown-menu {
-				opacity: 1;
-				visibility: visible;
-				transform: translateY(0);
-			}
-			
-			.dropdown-menu li {
-				margin: 0;
-			}
-			
-			.dropdown-menu a {
-				display: block;
-				padding: 0.75rem 1.5rem;
-				color: white;
-				text-decoration: none;
-				transition: background 0.3s ease;
-				border-radius: 0;
-			}
-			
-			.dropdown-menu a:hover {
-				background: #dc2626;
-				color: white;
-			}
-			
-			.container {
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 0 20px;
-			}
-			
-			/* Hero Section */
-			.hero {
-				background: #000;
-				color: white;
-				padding: 100px 0;
-				text-align: center;
-				position: relative;
-				overflow: hidden;
-				min-height: 600px;
-				display: flex;
-				align-items: center;
-			}
-			
-			.hero-carousel {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				z-index: 0;
-			}
-			
-			.hero-slide {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				opacity: 0;
-				transition: opacity 1.5s ease-in-out;
-				background-size: cover;
-				background-position: center;
-				background-repeat: no-repeat;
-			}
-			
-			.hero-slide.active {
-				opacity: 1;
-			}
-			
-			/* Visa första bilden direkt utan fade-in - ingen transition */
-			.hero-slide:first-of-type.active,
-			.hero-slide-mobile.active,
-			.hero-slide-desktop.active {
-				opacity: 1 !important;
-				transition: none !important;
-			}
-			
-			/* Hide Mohammedfrontpage.JPG on desktop, show on mobile */
-			@media (min-width: 769px) {
-				.hero-slide-mobile {
-					display: none;
-				}
-			}
-			
-			/* Hide Submissionfrontpage.JPG on mobile, show on desktop */
-			@media (max-width: 768px) {
-				.hero-slide-desktop {
-					display: none;
-				}
-			}
-			
-			.hero-overlay {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: rgba(0, 0, 0, 0.5);
-				z-index: 1;
-			}
-			
-			.hero-content {
-				position: relative;
-				z-index: 2;
-				width: 100%;
-			}
-			
-			.hero h1 {
-				font-size: 3.5rem;
-				font-weight: 800;
-				margin-bottom: 1rem;
-				text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-			}
-			
-			.hero .subtitle {
-				font-size: 1.3rem;
-				margin-bottom: 2rem;
-				opacity: 0.95;
-				max-width: 800px;
-				margin-left: auto;
-				margin-right: auto;
-				color: #ffffff;
-			}
-			
-			.hero .description {
-				font-size: 1.1rem;
-				margin-bottom: 3rem;
-				opacity: 0.9;
-				color: #ffffff;
-			}
-			
-			.cta-buttons {
-				display: flex;
-				gap: 1rem;
-				justify-content: center;
-				flex-wrap: wrap;
-			}
-			
-			.btn {
-				padding: 15px 30px;
-				border: none;
-				border-radius: 5px;
-				font-size: 1.1rem;
-				font-weight: 600;
-				text-decoration: none;
-				display: inline-block;
-				transition: all 0.3s ease;
-				cursor: pointer;
-			}
-			
-			.btn-primary {
-				background: #dc2626;
-				color: white;
-			}
-			
-			.btn-primary:hover {
-				background: #b91c1c;
-				transform: translateY(-2px);
-			}
-			
-			.btn-secondary {
-				background: transparent;
-				color: white;
-				border: 2px solid white;
-			}
-			
-			.btn-secondary:hover {
-				background: white;
-				color: black;
-			}
-			
-			/* Section Styles */
-			.section {
-				padding: 80px 0;
-			}
-			
-			.section h2 {
-				font-size: 2.5rem;
-				text-align: center;
-				margin-bottom: 3rem;
-				color: #1a1a1a;
-			}
-			
-			.section h3 {
-				font-size: 1.8rem;
-				margin-bottom: 1rem;
-				color: #dc2626;
-			}
-			
-			.section p {
-				font-size: 1.1rem;
-				margin-bottom: 1.5rem;
-				color: #444;
-			}
-			
-			/* Introduction Section */
-			.intro {
-				background: #f8f9fa;
-			}
-			
-			.intro-content {
-				text-align: center;
-				max-width: 800px;
-				margin: 0 auto;
-			}
-			
-			.rating {
-				display: inline-flex;
-				align-items: center;
-				gap: 0.5rem;
-				background: #fff;
-				padding: 10px 20px;
-				border-radius: 25px;
-				margin-top: 2rem;
-				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-			}
-			
-			.stars {
-				color: #fbbf24;
-				font-size: 1.2rem;
-			}
-			
-			/* Why Train Section */
-			.why-train {
-				background: white;
-			}
-			
-			.features-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				gap: 3rem;
-				margin-top: 3rem;
-			}
-			
-			.feature {
-				text-align: center;
-				padding: 2rem;
-				border-radius: 10px;
-				background: #f8f9fa;
-				transition: transform 0.3s ease;
-			}
-			
-			.feature:hover {
-				transform: translateY(-5px);
-			}
-			
-			.feature-icon {
-				font-size: 3rem;
-				margin-bottom: 1rem;
-			}
-			
-			/* Martial Arts Section */
-			.martial-arts {
-				background: #1a1a1a;
-				color: white;
-			}
-			
-			.martial-arts h2,
-			.martial-arts h3 {
-				color: white;
-			}
-			
-			.martial-arts p {
-				color: #e0e0e0;
-			}
-			
-			.martial-arts-content {
-				max-width: 800px;
-				margin: 0 auto;
-			}
-			
-			/* Target Audience Section */
-			.target-audience {
-				background: white;
-			}
-			
-			.audience-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-				gap: 2rem;
-				margin-top: 3rem;
-			}
-			
-			.audience-card {
-				background: #f8f9fa;
-				padding: 2rem;
-				border-radius: 10px;
-				border-left: 4px solid #dc2626;
-			}
-			
-			.audience-card h4 {
-				font-size: 1.3rem;
-				margin-bottom: 1rem;
-				color: #1a1a1a;
-			}
-			
-			/* Social Proof Section */
-			.social-proof {
-				background: #f8f9fa;
-				text-align: center;
-			}
-			
-			/* Contact Section */
-			.contact {
-				background: white;
-			}
-			
-			.contact-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				gap: 3rem;
-				margin-top: 3rem;
-			}
-			
-			.contact-card {
-				background: #f8f9fa;
-				padding: 2rem;
-				border-radius: 10px;
-				text-align: center;
-			}
-			
-			.contact-icon {
-				font-size: 2rem;
-				margin-bottom: 1rem;
-			}
-			
-			/* Map Container */
-			.map-container {
-				margin-top: 3rem;
-				box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-				border-radius: 10px;
-				overflow: hidden;
-			}
-			
-			.map-container iframe {
-				display: block;
-				width: 100%;
-				height: 400px;
-			}
-			
-			/* Final CTA Section */
-			.final-cta {
-				background: #1a1a1a;
-				color: white;
-				text-align: center;
-			}
-			
-			.final-cta h2 {
-				color: white;
-			}
-			
-			.final-cta p {
-				color: #e0e0e0;
-			}
-			
-			/* Footer */
-			.footer {
-				background: #000;
-				color: white;
-				padding: 3rem 0;
-				text-align: center;
-			}
-			
-			.footer-content {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-				gap: 2rem;
-				margin-bottom: 2rem;
-			}
-			
-			.footer h4 {
-				margin-bottom: 1rem;
-				color: #dc2626;
-			}
-			
-			.footer a {
-				color: #e0e0e0;
-				text-decoration: none;
-			}
-			
-			.footer a:hover {
-				color: white;
-			}
-			
-			/* Mobile Menu Toggle Button */
-			.mobile-menu-toggle {
-				display: none;
-				flex-direction: column;
-				background: transparent;
-				border: none;
-				cursor: pointer;
-				padding: 0;
-				z-index: 1001;
-			}
-			
-			.mobile-menu-toggle span {
-				width: 25px;
-				height: 3px;
-				background: white;
-				margin: 3px 0;
-				transition: all 0.3s ease;
-				border-radius: 3px;
-			}
-			
-			.mobile-menu-toggle.active span:nth-child(1) {
-				transform: rotate(45deg) translate(8px, 8px);
-			}
-			
-			.mobile-menu-toggle.active span:nth-child(2) {
-				opacity: 0;
-			}
-			
-			.mobile-menu-toggle.active span:nth-child(3) {
-				transform: rotate(-45deg) translate(7px, -7px);
-			}
-			
-			/* Responsive Design */
-			@media (max-width: 768px) {
-				.mobile-menu-toggle {
-					display: flex;
-				}
-				
-				.nav-menu {
-					position: fixed;
-					top: 0;
-					right: -100%;
-					width: 80%;
-					max-width: 400px;
-					height: 100vh;
-					background: #000;
-					padding: 80px 20px 20px;
-					transition: right 0.3s ease;
-					overflow-y: auto;
-					z-index: 1000;
-				}
-				
-				.nav-menu.active {
-					right: 0;
-				}
-				
-				.nav-links {
-					flex-direction: column;
-					gap: 0;
-				}
-				
-				.nav-links > li {
-					border-bottom: 1px solid #333;
-				}
-				
-				.nav-links > li > a {
-					display: block;
-					padding: 1rem 0;
-				}
-				
-				/* Mobile Dropdown */
-				.dropdown-menu {
-					position: static;
-					opacity: 1;
-					visibility: visible;
-					transform: none;
-					background: #1a1a1a;
-					max-height: 0;
-					overflow: hidden;
-					transition: max-height 0.3s ease;
-					box-shadow: none;
-					border-radius: 0;
-					margin: 0;
-					padding: 0;
-				}
-				
-				.dropdown.active .dropdown-menu {
-					max-height: 500px;
-					padding: 0.5rem 0;
-				}
-				
-				.dropdown-toggle {
-					justify-content: space-between;
-					width: 100%;
-				}
-				
-				.dropdown .arrow {
-					transition: transform 0.3s ease;
-				}
-				
-				.dropdown.active .arrow {
-					transform: rotate(180deg);
-				}
-				
-				.logo-text {
-					font-size: 1rem;
-				}
-				
-				.hero {
-					min-height: 500px;
-					padding: 60px 0;
-				}
-				
-				.hero h1 {
-					font-size: 2.5rem;
-				}
-				
-				.hero .subtitle {
-					font-size: 1.1rem;
-				}
-				
-				.hero .description {
-					font-size: 1rem;
-					margin-bottom: 2rem;
-				}
-				
-				.cta-buttons {
-					flex-direction: column;
-					align-items: center;
-				}
-				
-				.btn {
-					width: 100%;
-					max-width: 300px;
-				}
-				
-				.section h2 {
-					font-size: 2rem;
-				}
-				
-				.features-grid,
-				.audience-grid,
-				.contact-grid {
-					grid-template-columns: 1fr;
-				}
-			}
-		</style>
+		<link rel="preload" as="image" href="/hero/Mohammedfrontpage.webp" media="(max-width: 768px)" fetchpriority="high" />
+		<link rel="preload" as="image" href="/hero/Submissionfrontpage.webp" media="(min-width: 769px)" fetchpriority="high" />
+		<script is:inline>
+			// Register Service Worker för offline-caching
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', () => {
+					navigator.serviceWorker.register('/sw.js')
+						.then((registration) => {
+							console.log('[SW] Service Worker registered successfully');
+						})
+						.catch((error) => {
+							console.log('[SW] Service Worker registration failed:', error);
+						});
+				});
+			}
+		</script>
 	</head>
 	<body>
 		<!-- Header -->
@@ -716,12 +89,12 @@
 		<!-- Hero Section -->
 		<section class="hero" aria-label="Huvudsektion">
 			<div class="hero-carousel">
-				<div class="hero-slide hero-slide-mobile active" style="background-image: url('/hero/Mohammedfrontpage.JPG');"></div>
-				<div class="hero-slide hero-slide-mobile" style="background-image: url('/hero/Submissionfrontpagemobile.JPG');"></div>
-				<div class="hero-slide hero-slide-desktop" style="background-image: url('/hero/Submissionfrontpage.JPG');"></div>
-				<div class="hero-slide" style="background-image: url('/hero/Sandafrontpage.jpg');"></div>
-				<div class="hero-slide" style="background-image: url('/hero/MMAfrontpage.JPG');"></div>
-				<div class="hero-slide" style="background-image: url('/hero/Mohammedfrontpage2.JPG');"></div>
+				<div class="hero-slide hero-slide-mobile active" style="background-image: url('/hero/Mohammedfrontpage.webp');" data-bg="/hero/Mohammedfrontpage.webp" data-fallback="/hero/Mohammedfrontpage.JPG" role="img" aria-label="Mohammed frontpage"></div>
+				<div class="hero-slide hero-slide-mobile" style="background-image: url('/hero/Submissionfrontpagemobile.webp');" data-bg="/hero/Submissionfrontpagemobile.webp" data-fallback="/hero/Submissionfrontpagemobile.JPG" loading="lazy" role="img" aria-label="Submission frontpage mobile"></div>
+				<div class="hero-slide hero-slide-desktop" style="background-image: url('/hero/Submissionfrontpage.webp');" data-bg="/hero/Submissionfrontpage.webp" data-fallback="/hero/Submissionfrontpage.JPG" role="img" aria-label="Submission frontpage"></div>
+				<div class="hero-slide" style="background-image: url('/hero/Sandafrontpage.webp');" data-bg="/hero/Sandafrontpage.webp" data-fallback="/hero/Sandafrontpage.jpg" loading="lazy" role="img" aria-label="Sanda frontpage"></div>
+				<div class="hero-slide" style="background-image: url('/hero/MMAfrontpage.webp');" data-bg="/hero/MMAfrontpage.webp" data-fallback="/hero/MMAfrontpage.JPG" loading="lazy" role="img" aria-label="MMA frontpage"></div>
+				<div class="hero-slide" style="background-image: url('/hero/Mohammedfrontpage2.webp');" data-bg="/hero/Mohammedfrontpage2.webp" data-fallback="/hero/Mohammedfrontpage2.JPG" loading="lazy" role="img" aria-label="Mohammed frontpage 2"></div>
 			</div>
 			<div class="hero-overlay"></div>
 			<div class="container">
@@ -742,14 +115,20 @@
 			<div class="container">
 				<div class="intro-content">
 					<h2>Westeras Tai-Nui Club</h2>
-					<img src="/LucianoColloseum.JPG" alt="Luciano Macri vid Colosseum i Rom - huvudtränare och grundare av Westeras Tai-Nui Club" width="800" height="600" sizes="(max-width: 800px) 100vw, 800px" loading="lazy" decoding="async" style="width: 100%; max-width: 800px; height: auto; margin: 2rem auto; display: block; border-radius: 8px;" />
+					<picture>
+						<source type="image/webp" srcset="/LucianoColloseum.webp" />
+						<img src="/LucianoColloseum.JPG" alt="Luciano Macri vid Colosseum i Rom - huvudtränare och grundare av Westeras Tai-Nui Club" width="800" height="600" sizes="(max-width: 800px) 100vw, 800px" loading="lazy" decoding="async" style="width: 100%; max-width: 800px; height: auto; margin: 2rem auto; display: block; border-radius: 8px;" />
+					</picture>
 					<p>Hos oss tränar du Wushu Sanda, MMA och submission wrestling - en komplett kampsportsutbildning som kombinerar slag, sparkar, brottning och markstrid. Effektiv träning som ger resultat, oavsett om du vill bli starkare eller lära dig självförsvar.</p>
 					<p>Alla nivåer välkomna. Ingen erfarenhet krävs.</p>
 					<div class="rating" role="img" aria-label="5 stjärnor på Google">
 						<span class="stars" aria-hidden="true">⭐⭐⭐⭐⭐</span>
 						<span>5,0 stjärnor på Google - Westeras äldsta kampsportsklubb</span>
 					</div>
-					<img src="/Google5stjärnigreview.jpg" alt="Google recension med 5 stjärnor för Westeras Tai-Nui Club - Västerås bästa kampsportsklubb" width="600" height="400" sizes="(max-width: 600px) 100vw, 600px" loading="lazy" decoding="async" style="width: 100%; max-width: 600px; height: auto; margin: 1.5rem auto; display: block; border-radius: 8px;" />
+					<picture>
+						<source type="image/webp" srcset="/Google5stjärnigreview.webp" />
+						<img src="/Google5stjärnigreview.jpg" alt="Google recension med 5 stjärnor för Westeras Tai-Nui Club - Västerås bästa kampsportsklubb" width="600" height="400" sizes="(max-width: 600px) 100vw, 600px" loading="lazy" decoding="async" style="width: 100%; max-width: 600px; height: auto; margin: 1.5rem auto; display: block; border-radius: 8px;" />
+					</picture>
 				</div>
 			</div>
 		</section>
@@ -948,10 +327,12 @@
 				});
 			});
 			
-			// Hero carousel
+			// Hero carousel - optimized
 			const heroSlides = document.querySelectorAll('.hero-slide');
 			const isDesktop = window.innerWidth >= 769;
 			let currentSlide = 0;
+			let carouselInterval = null;
+			let lastTime = 0;
 			
 			function slideAllowed(slide) {
 				const isMobileSlide = slide.classList.contains('hero-slide-mobile');
@@ -965,9 +346,39 @@
 				return true;
 			}
 			
+			function preloadNextSlide(nextIndex) {
+				if (heroSlides[nextIndex] && slideAllowed(heroSlides[nextIndex])) {
+					const slide = heroSlides[nextIndex];
+					const webpUrl = slide.dataset.bg;
+					const fallbackUrl = slide.dataset.fallback;
+					
+					if (webpUrl) {
+						const img = new Image();
+						// Test WebP support
+						const webpSupported = document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0;
+						
+						if (webpSupported && webpUrl.endsWith('.webp')) {
+							img.src = webpUrl;
+						} else if (fallbackUrl) {
+							img.src = fallbackUrl;
+						} else {
+							img.src = webpUrl.replace('.webp', '.JPG');
+						}
+					}
+				}
+			}
+			
 			function showSlide(index) {
-				heroSlides.forEach(slide => slide.classList.remove('active'));
-				heroSlides[index].classList.add('active');
+				heroSlides.forEach((slide, i) => {
+					if (i === index && slideAllowed(slide)) {
+						slide.classList.add('active');
+						// Preload next slide
+						const nextIndex = (index + 1) % heroSlides.length;
+						preloadNextSlide(nextIndex);
+					} else {
+						slide.classList.remove('active');
+					}
+				});
 				currentSlide = index;
 			}
 			
@@ -989,8 +400,16 @@
 				showSlide(0);
 			}
 			
-			// Change slide every 5 seconds
-			setInterval(nextSlide, 5000);
+			// Use requestAnimationFrame for better performance
+			function animateCarousel(currentTime) {
+				if (!lastTime) lastTime = currentTime;
+				if (currentTime - lastTime >= 5000) {
+					nextSlide();
+					lastTime = currentTime;
+				}
+				requestAnimationFrame(animateCarousel);
+			}
+			requestAnimationFrame(animateCarousel);
 			
 			// Load Google Maps iframe on interaction or after page load
 			const mapIframe = document.getElementById('google-map-iframe');

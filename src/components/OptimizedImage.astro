@@ -1,0 +1,71 @@
+---
+/**
+ * Optimized Image Component
+ * Använder Astro's inbyggda bildoptimering för bättre prestanda
+ */
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+  style?: string;
+  sizes?: string;
+  fetchpriority?: 'high' | 'low' | 'auto';
+}
+
+const { 
+  src, 
+  alt, 
+  width, 
+  height, 
+  loading = 'lazy',
+  class: className,
+  style,
+  sizes,
+  fetchpriority
+} = Astro.props;
+
+// För bilder i public-mappen, använd direkt path
+// För bilder i src/, använd import
+let imageSrc: ImageMetadata | string = src;
+
+// Om bilden är i public-mappen, använd direkt path
+if (src.startsWith('/')) {
+  imageSrc = src;
+}
+---
+
+{imageSrc && typeof imageSrc === 'string' ? (
+  <picture>
+    <source type="image/webp" srcset={src.replace(/\.(jpg|jpeg|png)$/i, '.webp')} />
+    <img 
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={loading}
+      decoding="async"
+      class={className}
+      style={style}
+      sizes={sizes}
+      fetchpriority={fetchpriority}
+    />
+  </picture>
+) : (
+  <Image 
+    src={imageSrc as ImageMetadata}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    class={className}
+    style={style}
+    sizes={sizes}
+    fetchpriority={fetchpriority}
+  />
+)}
+
