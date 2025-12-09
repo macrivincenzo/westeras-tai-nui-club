@@ -554,7 +554,7 @@ import '../styles/global.css';
 			
 			// Load Google Maps iframe on interaction or after page load (mobil-optimerad)
 			const mapIframe = document.getElementById('google-map-iframe');
-			if (mapIframe) {
+			if (mapIframe && mapIframe.dataset.src) {
 				const loadMap = () => {
 					if (mapIframe.dataset.src) {
 						mapIframe.src = mapIframe.dataset.src;
@@ -562,33 +562,33 @@ import '../styles/global.css';
 					}
 				};
 				
-				// Load on scroll into view - större rootMargin för mobil för att ladda tidigare
-				if ('IntersectionObserver' in window) {
-					const rootMargin = isDesktop ? '50px' : '200px';
-					const observer = new IntersectionObserver((entries) => {
-						entries.forEach(entry => {
-							if (entry.isIntersecting) {
-								// Ladda direkt när den blir synlig (ingen delay)
-								loadMap();
-								observer.disconnect();
-							}
+				// På mobil: ladda direkt efter sidan är klar (för att säkerställa att den syns)
+				if (!isDesktop) {
+					// Ladda efter DOMContentLoaded eller direkt om sidan redan är klar
+					if (document.readyState === 'loading') {
+						document.addEventListener('DOMContentLoaded', () => {
+							setTimeout(loadMap, 500);
 						});
-					}, { rootMargin });
-					
-					observer.observe(mapIframe);
-					
-					// Fallback: ladda efter 2 sekunder om den inte blivit synlig (speciellt för mobil)
-					if (!isDesktop) {
-						setTimeout(() => {
-							if (mapIframe.dataset.src) {
-								loadMap();
-								observer.disconnect();
-							}
-						}, 2000);
+					} else {
+						setTimeout(loadMap, 500);
 					}
 				} else {
-					// Fallback om IntersectionObserver inte stöds - ladda direkt
-					loadMap();
+					// Desktop: ladda när den blir synlig
+					if ('IntersectionObserver' in window) {
+						const observer = new IntersectionObserver((entries) => {
+							entries.forEach(entry => {
+								if (entry.isIntersecting) {
+									loadMap();
+									observer.disconnect();
+								}
+							});
+						}, { rootMargin: '50px' });
+						
+						observer.observe(mapIframe);
+					} else {
+						// Fallback om IntersectionObserver inte stöds
+						loadMap();
+					}
 				}
 				
 				// Also load on user interaction as fallback
