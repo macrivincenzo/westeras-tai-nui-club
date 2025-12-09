@@ -557,47 +557,38 @@ import '../styles/global.css';
 			if (mapIframe) {
 				const loadMap = () => {
 					if (mapIframe.dataset.src) {
-						// På mobil, fördröj mer för bättre initial load
-						if (!isDesktop) {
-							// Använd requestIdleCallback med längre timeout på mobil
-							if ('requestIdleCallback' in window) {
-								requestIdleCallback(() => {
-									mapIframe.src = mapIframe.dataset.src;
-									mapIframe.removeAttribute('data-src');
-								}, { timeout: 5000 });
-							} else {
-								// Fallback: fördröj med setTimeout på mobil
-								setTimeout(() => {
-									mapIframe.src = mapIframe.dataset.src;
-									mapIframe.removeAttribute('data-src');
-								}, 2000);
-							}
-						} else {
-							// Desktop: ladda direkt
-							mapIframe.src = mapIframe.dataset.src;
-							mapIframe.removeAttribute('data-src');
-						}
+						mapIframe.src = mapIframe.dataset.src;
+						mapIframe.removeAttribute('data-src');
 					}
 				};
 				
-				// Load on scroll into view - större rootMargin för mobil, längre delay
+				// Load on scroll into view - större rootMargin för mobil för att ladda tidigare
 				if ('IntersectionObserver' in window) {
-					const rootMargin = isDesktop ? '50px' : '150px';
+					const rootMargin = isDesktop ? '50px' : '200px';
 					const observer = new IntersectionObserver((entries) => {
 						entries.forEach(entry => {
 							if (entry.isIntersecting) {
-								// På mobil, fördröj laddning lite mer
-								if (!isDesktop) {
-									setTimeout(loadMap, 500);
-								} else {
-									loadMap();
-								}
+								// Ladda direkt när den blir synlig (ingen delay)
+								loadMap();
 								observer.disconnect();
 							}
 						});
 					}, { rootMargin });
 					
 					observer.observe(mapIframe);
+					
+					// Fallback: ladda efter 2 sekunder om den inte blivit synlig (speciellt för mobil)
+					if (!isDesktop) {
+						setTimeout(() => {
+							if (mapIframe.dataset.src) {
+								loadMap();
+								observer.disconnect();
+							}
+						}, 2000);
+					}
+				} else {
+					// Fallback om IntersectionObserver inte stöds - ladda direkt
+					loadMap();
 				}
 				
 				// Also load on user interaction as fallback
