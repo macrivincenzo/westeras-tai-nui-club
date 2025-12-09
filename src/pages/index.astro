@@ -553,7 +553,10 @@ import '../styles/global.css';
 			animationId = requestAnimationFrame(animateCarousel);
 			
 			// Load Google Maps iframe on interaction or after page load (mobil-optimerad)
+			// Definiera isMobileMap här för att säkerställa att den är korrekt
+			const isMobileMap = window.innerWidth <= 768;
 			const mapIframe = document.getElementById('google-map-iframe');
+			
 			if (mapIframe && mapIframe.dataset.src) {
 				const loadMap = () => {
 					if (mapIframe.dataset.src) {
@@ -563,15 +566,9 @@ import '../styles/global.css';
 				};
 				
 				// På mobil: ladda direkt efter sidan är klar (för att säkerställa att den syns)
-				if (!isDesktop) {
-					// Ladda efter DOMContentLoaded eller direkt om sidan redan är klar
-					if (document.readyState === 'loading') {
-						document.addEventListener('DOMContentLoaded', () => {
-							setTimeout(loadMap, 500);
-						});
-					} else {
-						setTimeout(loadMap, 500);
-					}
+				if (isMobileMap) {
+					// Ladda direkt på mobil - ingen lazy loading
+					setTimeout(loadMap, 300);
 				} else {
 					// Desktop: ladda när den blir synlig
 					if ('IntersectionObserver' in window) {
