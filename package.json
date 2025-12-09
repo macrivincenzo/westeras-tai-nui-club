@@ -8,7 +8,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "convert-images": "node scripts/convert-images.js",
-    "optimize": "npm run convert-images && npm run build"
+    "create-mobile-images": "node scripts/create-mobile-images.js",
+    "optimize": "npm run convert-images && npm run create-mobile-images && npm run build"
   },
   "dependencies": {
     "astro": "^5.14.4"

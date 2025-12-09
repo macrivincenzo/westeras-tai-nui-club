@@ -284,6 +284,13 @@ body {
 	padding: 80px 0;
 }
 
+/* Mobile optimizations - reduce padding */
+@media (max-width: 768px) {
+	.section {
+		padding: 50px 0;
+	}
+}
+
 .section h2 {
 	font-size: 2.5rem;
 	text-align: center;
@@ -601,21 +608,23 @@ body {
 	}
 	
 	.hero {
-		min-height: 500px;
-		padding: 60px 0;
+		min-height: 400px;
+		padding: 40px 0;
 	}
 	
 	.hero h1 {
-		font-size: 2.5rem;
+		font-size: 2rem;
+		line-height: 1.2;
 	}
 	
 	.hero .subtitle {
-		font-size: 1.1rem;
+		font-size: 1rem;
+		line-height: 1.4;
 	}
 	
 	.hero .description {
-		font-size: 1rem;
-		margin-bottom: 2rem;
+		font-size: 0.95rem;
+		margin-bottom: 1.5rem;
 	}
 	
 	.cta-buttons {
