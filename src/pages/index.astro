@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+// CSS laddas automatiskt optimerat av Astro
 ---
 
 <html lang="sv">
@@ -32,19 +33,15 @@ import '../styles/global.css';
 		<meta name="twitter:description" content="Träna Wushu Sanda, MMA & Submission Wrestling i Västerås. Västerås äldsta kampsportsklubb sedan 1976." />
 		<meta name="twitter:image" content="https://www.kungfu.nu/logo.svg" />
 		
-		<!-- Resource hints - optimerade för mobil -->
-		<link rel="preconnect" href="https://www.facebook.com" />
+		<!-- Resource hints - optimerade för mobil (defer non-critical) -->
 		<link rel="dns-prefetch" href="https://www.facebook.com" />
-		<link rel="preconnect" href="https://maps.google.com" />
 		<link rel="dns-prefetch" href="https://maps.google.com" />
+		<!-- Preconnect bara när det behövs (lazy load) -->
 		<!-- Mobile-optimized preloads - bara första hero-bilden för mobil -->
 		<link rel="preload" as="image" href="/hero/Mohammedfrontpage-mobile.webp" media="(max-width: 768px)" fetchpriority="high" />
 		<link rel="preload" as="image" href="/hero/Submissionfrontpage.webp" media="(min-width: 769px)" fetchpriority="high" />
 		<!-- Preload logo for faster header render -->
 		<link rel="preload" as="image" href="/logo.svg" fetchpriority="high" />
-		<!-- Optimized resource hints för fonts - bara om de används -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<script is:inline>
 			// Register Service Worker asynchronously för offline-caching (non-blocking)
 			if ('serviceWorker' in navigator) {
@@ -354,13 +351,13 @@ import '../styles/global.css';
 				});
 			});
 			
-			// Close mobile menu when clicking outside
+			// Close mobile menu when clicking outside (passive för bättre prestanda)
 			document.addEventListener('click', (e) => {
 				if (!e.target.closest('.nav-container')) {
 					mobileMenuToggle.classList.remove('active');
 					navMenu.classList.remove('active');
 				}
-			});
+			}, { passive: true });
 			
 			// Close mobile menu when clicking a link (except dropdown toggle)
 			const navLinks = document.querySelectorAll('.nav-links a:not(.dropdown-toggle)');
@@ -420,13 +417,25 @@ import '../styles/global.css';
 					const url = getImageUrl(slide);
 					
 					if (url) {
-						// Använd requestIdleCallback för mobil för att inte blockera rendering
-						if ('requestIdleCallback' in window && !isDesktop) {
-							requestIdleCallback(() => {
-								const img = new Image();
-								img.src = url;
-							}, { timeout: 2000 });
+						// På mobil, fördröj preloading mer för bättre initial load
+						if (!isDesktop) {
+							// Använd requestIdleCallback med längre timeout på mobil
+							if ('requestIdleCallback' in window) {
+								requestIdleCallback(() => {
+									const img = new Image();
+									img.loading = 'lazy';
+									img.src = url;
+								}, { timeout: 3000 });
+							} else {
+								// Fallback: fördröj med setTimeout på mobil
+								setTimeout(() => {
+									const img = new Image();
+									img.loading = 'lazy';
+									img.src = url;
+								}, 1000);
+							}
 						} else {
+							// Desktop: preload direkt
 							const img = new Image();
 							img.src = url;
 						}
@@ -485,14 +494,14 @@ import '../styles/global.css';
 				showSlide(0);
 			}
 			
-			// Handle resize for responsive images
+			// Handle resize for responsive images (passive och debounced för bättre prestanda)
 			let resizeTimeout;
 			window.addEventListener('resize', () => {
 				clearTimeout(resizeTimeout);
 				resizeTimeout = setTimeout(() => {
 					showSlide(currentSlide); // Reload current slide with correct image
-				}, 150);
-			});
+				}, 200);
+			}, { passive: true });
 			
 			// Use requestAnimationFrame for better performance (pausa på mobil för bättre prestanda)
 			let animationId;
@@ -548,26 +557,41 @@ import '../styles/global.css';
 			if (mapIframe) {
 				const loadMap = () => {
 					if (mapIframe.dataset.src) {
-						// Använd requestIdleCallback för mobil för att inte blockera rendering
-						if ('requestIdleCallback' in window && !isDesktop) {
-							requestIdleCallback(() => {
-								mapIframe.src = mapIframe.dataset.src;
-								mapIframe.removeAttribute('data-src');
-							}, { timeout: 3000 });
+						// På mobil, fördröj mer för bättre initial load
+						if (!isDesktop) {
+							// Använd requestIdleCallback med längre timeout på mobil
+							if ('requestIdleCallback' in window) {
+								requestIdleCallback(() => {
+									mapIframe.src = mapIframe.dataset.src;
+									mapIframe.removeAttribute('data-src');
+								}, { timeout: 5000 });
+							} else {
+								// Fallback: fördröj med setTimeout på mobil
+								setTimeout(() => {
+									mapIframe.src = mapIframe.dataset.src;
+									mapIframe.removeAttribute('data-src');
+								}, 2000);
+							}
 						} else {
+							// Desktop: ladda direkt
 							mapIframe.src = mapIframe.dataset.src;
 							mapIframe.removeAttribute('data-src');
 						}
 					}
 				};
 				
-				// Load on scroll into view - större rootMargin för mobil
+				// Load on scroll into view - större rootMargin för mobil, längre delay
 				if ('IntersectionObserver' in window) {
-					const rootMargin = isDesktop ? '50px' : '100px';
+					const rootMargin = isDesktop ? '50px' : '150px';
 					const observer = new IntersectionObserver((entries) => {
 						entries.forEach(entry => {
 							if (entry.isIntersecting) {
-								loadMap();
+								// På mobil, fördröj laddning lite mer
+								if (!isDesktop) {
+									setTimeout(loadMap, 500);
+								} else {
+									loadMap();
+								}
 								observer.disconnect();
 							}
 						});
