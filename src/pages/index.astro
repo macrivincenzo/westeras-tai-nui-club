@@ -552,52 +552,51 @@ import '../styles/global.css';
 			}
 			animationId = requestAnimationFrame(animateCarousel);
 			
-			// Load Google Maps iframe on interaction or after page load (mobil-optimerad)
-			const loadGoogleMap = () => {
-				const mapIframe = document.getElementById('google-map-iframe');
-				if (mapIframe && mapIframe.dataset.src) {
-					mapIframe.src = mapIframe.dataset.src;
-					mapIframe.removeAttribute('data-src');
-				}
-			};
+			// Load Google Maps iframe - enkel och pålitlig lösning
+			const mapIframe = document.getElementById('google-map-iframe');
 			
-			// Kontrollera om mobil
-			const isMobileMap = window.innerWidth <= 768;
-			
-			if (isMobileMap) {
-				// På mobil: ladda direkt när DOM är klar
-				if (document.readyState === 'loading') {
-					document.addEventListener('DOMContentLoaded', loadGoogleMap);
-				} else {
-					// DOM är redan klar, ladda direkt
-					loadGoogleMap();
-				}
-			} else {
-				// Desktop: lazy load när den blir synlig
-				const mapIframe = document.getElementById('google-map-iframe');
-				if (mapIframe && mapIframe.dataset.src) {
-					if ('IntersectionObserver' in window) {
-						const observer = new IntersectionObserver((entries) => {
-							entries.forEach(entry => {
-								if (entry.isIntersecting) {
-									loadGoogleMap();
-									observer.disconnect();
-								}
-							});
-						}, { rootMargin: '50px' });
-						
-						observer.observe(mapIframe);
-					} else {
-						// Fallback om IntersectionObserver inte stöds
-						loadGoogleMap();
+			if (mapIframe && mapIframe.dataset.src) {
+				const loadMap = () => {
+					if (mapIframe.dataset.src) {
+						mapIframe.src = mapIframe.dataset.src;
+						mapIframe.removeAttribute('data-src');
 					}
-				}
+				};
+				
+				// Använd matchMedia för att detektera mobil (mer pålitligt)
+				const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
+				
+				// Funktion för att kontrollera och ladda
+				const checkAndLoad = () => {
+					if (mobileMediaQuery.matches) {
+						// På mobil: ladda direkt
+						loadMap();
+					} else {
+						// Desktop: lazy load när synlig
+						if ('IntersectionObserver' in window) {
+							const observer = new IntersectionObserver((entries) => {
+								entries.forEach(entry => {
+									if (entry.isIntersecting) {
+										loadMap();
+										observer.disconnect();
+									}
+								});
+							}, { rootMargin: '50px' });
+							observer.observe(mapIframe);
+						} else {
+							loadMap();
+						}
+					}
+				};
+				
+				// Kör direkt när scriptet körs
+				checkAndLoad();
+				
+				// Fallback: ladda vid användarinteraktion
+				['click', 'touchstart', 'scroll'].forEach(event => {
+					document.addEventListener(event, loadMap, { once: true, passive: true });
+				});
 			}
-			
-			// Fallback: ladda vid användarinteraktion (för säkerhets skull)
-			['click', 'touchstart', 'scroll'].forEach(event => {
-				document.addEventListener(event, loadGoogleMap, { once: true, passive: true });
-			});
 		</script>
 		
 		<script type="application/ld+json" set:html={JSON.stringify({
