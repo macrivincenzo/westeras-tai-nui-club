@@ -171,6 +171,7 @@ body {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	will-change: opacity;
 }
 
 .hero-slide.active {
@@ -355,6 +356,7 @@ body {
 	border-radius: 10px;
 	background: #f8f9fa;
 	transition: transform 0.3s ease;
+	will-change: transform;
 }
 
 .feature:hover {

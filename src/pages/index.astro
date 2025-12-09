@@ -34,22 +34,23 @@ import '../styles/global.css';
 		<!-- Mobile-optimized preloads -->
 		<link rel="preload" as="image" href="/hero/Mohammedfrontpage-mobile.webp" media="(max-width: 768px)" fetchpriority="high" />
 		<link rel="preload" as="image" href="/hero/Submissionfrontpage.webp" media="(min-width: 769px)" fetchpriority="high" />
-		<!-- Preload critical CSS -->
-		<link rel="preload" href="/styles/global.css" as="style" />
-		<!-- DNS prefetch för bättre prestanda -->
-		<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+		<!-- Optimized resource hints -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<!-- Preload logo for faster header render -->
+		<link rel="preload" as="image" href="/logo.svg" fetchpriority="high" />
 		<script is:inline>
-			// Register Service Worker för offline-caching
+			// Register Service Worker asynchronously för offline-caching (non-blocking)
 			if ('serviceWorker' in navigator) {
-				window.addEventListener('load', () => {
-					navigator.serviceWorker.register('/sw.js')
-						.then((registration) => {
-							console.log('[SW] Service Worker registered successfully');
-						})
-						.catch((error) => {
-							console.log('[SW] Service Worker registration failed:', error);
-						});
-				});
+				// Use requestIdleCallback för bättre prestanda, fallback till setTimeout
+				const registerSW = () => {
+					navigator.serviceWorker.register('/sw.js').catch(() => {});
+				};
+				if ('requestIdleCallback' in window) {
+					requestIdleCallback(registerSW, { timeout: 2000 });
+				} else {
+					setTimeout(registerSW, 1000);
+				}
 			}
 		</script>
 	</head>
@@ -526,10 +527,9 @@ import '../styles/global.css';
 			}
 		</script>
 		
-		<script type="application/ld+json">
-		{
+		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
-			"@type": "SportsActivityLocation",
+			"@type": ["SportsActivityLocation", "Organization"],
 			"name": "Westeras Tai-Nui Club",
 			"alternateName": "Westerås Tai-Nui Club",
 			"description": "Västerås äldsta kampsportsklubb sedan 1976. Erbjuder träning i Wushu Sanda, MMA, Submission Wrestling och Traditionell Kung-Fu i Västerås.",
@@ -572,37 +572,14 @@ import '../styles/global.css';
 			"areaServed": {
 				"@type": "City",
 				"name": "Västerås"
-			}
-		}
-		</script>
-		
-		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Organization",
-			"name": "Westeras Tai-Nui Club",
-			"alternateName": "Westerås Tai-Nui Club",
-			"url": "https://westeras-tainui.se/",
-			"logo": "https://westeras-tainui.se/logo.svg",
+			},
 			"contactPoint": {
 				"@type": "ContactPoint",
 				"telephone": "+46705653588",
 				"contactType": "customer service",
 				"areaServed": "SE",
 				"availableLanguage": ["sv", "en"]
-			},
-			"address": {
-				"@type": "PostalAddress",
-				"streetAddress": "Jakobsgatan 97",
-				"addressLocality": "Västerås",
-				"postalCode": "724 64",
-				"addressRegion": "Västmanland",
-				"addressCountry": "SE"
-			},
-			"sameAs": [
-				"https://www.facebook.com/westeras.tainui"
-			]
-		}
-		</script>
+			}
+		})}></script>
 	</body>
 </html>
