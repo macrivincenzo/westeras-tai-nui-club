@@ -457,6 +457,26 @@ body {
 	height: 400px;
 }
 
+/* Mobil: visa mobil-kartan, dölj desktop-kartan */
+@media (max-width: 768px) {
+	.map-container .mobile-map {
+		display: block !important;
+	}
+	.map-container .desktop-map {
+		display: none !important;
+	}
+}
+
+/* Desktop: visa desktop-kartan, dölj mobil-kartan */
+@media (min-width: 769px) {
+	.map-container .mobile-map {
+		display: none !important;
+	}
+	.map-container .desktop-map {
+		display: block !important;
+	}
+}
+
 /* Final CTA Section */
 .final-cta {
 	background: #1a1a1a;
