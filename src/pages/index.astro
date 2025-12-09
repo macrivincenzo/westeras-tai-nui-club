@@ -8,16 +8,21 @@ import '../styles/global.css';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Träna Wushu Sanda, MMA & Submission Wrestling i Västerås. Westeras Tai-Nui Club är Västerås äldsta kampsportsklubb sedan 1976. Kinesisk full-contact kampsport, MMA och submission wrestling på Jakobsgatan 97, Västerås." />
-		<title>Westeras Tai-Nui Club Västerås - Wushu Sanda, MMA & Submission Wrestling | Kampsportsträning</title>
-		<link rel="canonical" href="https://westeras-tainui.se/" />
+		<meta name="description" content="Träna Wushu Sanda, MMA & Submission Wrestling i Västerås. Westeras Tai-Nui Club är Västerås äldsta kampsportsklubb sedan 1976. Kinesisk full-contact kampsport, MMA och submission wrestling på Jakobsgatan 97, Västerås. Boka provlektion idag!" />
+		<meta name="keywords" content="kampsport Västerås, Wushu Sanda Västerås, MMA Västerås, Submission Wrestling Västerås, kampsportsträning Västerås, kung fu Västerås, kampsportsklubb Västerås, Jakobsgatan 97" />
+		<meta name="geo.region" content="SE-W" />
+		<meta name="geo.placename" content="Västerås" />
+		<meta name="geo.position" content="59.6099;16.5448" />
+		<meta name="ICBM" content="59.6099, 16.5448" />
+		<title>Westeras Tai-Nui Club Västerås - Wushu Sanda, MMA & Submission Wrestling | Kampsportsträning i Västerås</title>
+		<link rel="canonical" href="https://www.kungfu.nu/" />
 		
 		<!-- Open Graph Meta Tags -->
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="Westeras Tai-Nui Club Västerås - Wushu Sanda, MMA & Submission Wrestling" />
 		<meta property="og:description" content="Träna Wushu Sanda, MMA & Submission Wrestling i Västerås. Västerås äldsta kampsportsklubb sedan 1976. Jakobsgatan 97, Västerås." />
-		<meta property="og:url" content="https://westeras-tainui.se/" />
-		<meta property="og:image" content="https://westeras-tainui.se/logo.svg" />
+		<meta property="og:url" content="https://www.kungfu.nu/" />
+		<meta property="og:image" content="https://www.kungfu.nu/logo.svg" />
 		<meta property="og:locale" content="sv_SE" />
 		<meta property="og:site_name" content="Westeras Tai-Nui Club" />
 		
@@ -25,7 +30,7 @@ import '../styles/global.css';
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content="Westeras Tai-Nui Club Västerås - Wushu Sanda, MMA & Submission Wrestling" />
 		<meta name="twitter:description" content="Träna Wushu Sanda, MMA & Submission Wrestling i Västerås. Västerås äldsta kampsportsklubb sedan 1976." />
-		<meta name="twitter:image" content="https://westeras-tainui.se/logo.svg" />
+		<meta name="twitter:image" content="https://www.kungfu.nu/logo.svg" />
 		
 		<link rel="preconnect" href="https://www.facebook.com" />
 		<link rel="preconnect" href="https://maps.google.com" />
@@ -529,13 +534,13 @@ import '../styles/global.css';
 		
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
-			"@type": ["SportsActivityLocation", "Organization"],
+			"@type": ["SportsActivityLocation", "Organization", "LocalBusiness"],
 			"name": "Westeras Tai-Nui Club",
 			"alternateName": "Westerås Tai-Nui Club",
 			"description": "Västerås äldsta kampsportsklubb sedan 1976. Erbjuder träning i Wushu Sanda, MMA, Submission Wrestling och Traditionell Kung-Fu i Västerås.",
-			"url": "https://westeras-tainui.se/",
-			"logo": "https://westeras-tainui.se/logo.svg",
-			"image": "https://westeras-tainui.se/logo.svg",
+			"url": "https://www.kungfu.nu/",
+			"logo": "https://www.kungfu.nu/logo.svg",
+			"image": "https://www.kungfu.nu/logo.svg",
 			"address": {
 				"@type": "PostalAddress",
 				"streetAddress": "Jakobsgatan 97",
@@ -569,9 +574,29 @@ import '../styles/global.css';
 				"name": "Luciano Macri"
 			},
 			"foundingDate": "1976",
-			"areaServed": {
-				"@type": "City",
-				"name": "Västerås"
+			"areaServed": [
+				{
+					"@type": "City",
+					"name": "Västerås",
+					"@id": "https://www.wikidata.org/wiki/Q102420"
+				},
+				{
+					"@type": "State",
+					"name": "Västmanland"
+				}
+			],
+			"serviceArea": {
+				"@type": "GeoCircle",
+				"geoMidpoint": {
+					"@type": "GeoCoordinates",
+					"latitude": "59.6099",
+					"longitude": "16.5448"
+				},
+				"geoRadius": {
+					"@type": "Distance",
+					"value": "50",
+					"unitCode": "KM"
+				}
 			},
 			"contactPoint": {
 				"@type": "ContactPoint",
