@@ -32,18 +32,19 @@ import '../styles/global.css';
 		<meta name="twitter:description" content="Träna Wushu Sanda, MMA & Submission Wrestling i Västerås. Västerås äldsta kampsportsklubb sedan 1976." />
 		<meta name="twitter:image" content="https://www.kungfu.nu/logo.svg" />
 		
+		<!-- Resource hints - optimerade för mobil -->
 		<link rel="preconnect" href="https://www.facebook.com" />
-		<link rel="preconnect" href="https://maps.google.com" />
 		<link rel="dns-prefetch" href="https://www.facebook.com" />
+		<link rel="preconnect" href="https://maps.google.com" />
 		<link rel="dns-prefetch" href="https://maps.google.com" />
-		<!-- Mobile-optimized preloads -->
+		<!-- Mobile-optimized preloads - bara första hero-bilden för mobil -->
 		<link rel="preload" as="image" href="/hero/Mohammedfrontpage-mobile.webp" media="(max-width: 768px)" fetchpriority="high" />
 		<link rel="preload" as="image" href="/hero/Submissionfrontpage.webp" media="(min-width: 769px)" fetchpriority="high" />
-		<!-- Optimized resource hints -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<!-- Preload logo for faster header render -->
 		<link rel="preload" as="image" href="/logo.svg" fetchpriority="high" />
+		<!-- Optimized resource hints för fonts - bara om de används -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<script is:inline>
 			// Register Service Worker asynchronously för offline-caching (non-blocking)
 			if ('serviceWorker' in navigator) {
@@ -64,7 +65,7 @@ import '../styles/global.css';
 		<header class="header">
 			<div class="nav-container">
 				<a href="/" class="logo" aria-label="Westeras Tai-Nui Club startsida">
-					<img src="/logo.svg" alt="Westeras Tai-Nui Club logotyp - Västerås äldsta kampsportsklubb sedan 1976" width="80" height="80" decoding="async" />
+					<img src="/logo.svg" alt="Westeras Tai-Nui Club logotyp - Västerås äldsta kampsportsklubb sedan 1976" width="80" height="80" decoding="async" fetchpriority="high" loading="eager" />
 					<span class="logo-text">WESTERAS TAI-NUI CLUB</span>
 				</a>
 				<button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -158,8 +159,8 @@ import '../styles/global.css';
 					<h2>Westeras Tai-Nui Club</h2>
 					<picture>
 						<source type="image/webp" srcset="/LucianoColloseum-mobile.webp" media="(max-width: 768px)" />
-						<source type="image/webp" srcset="/LucianoColloseum.webp" />
-						<img src="/LucianoColloseum.JPG" alt="Luciano Macri vid Colosseum i Rom - huvudtränare och grundare av Westeras Tai-Nui Club" width="800" height="600" sizes="(max-width: 768px) 100vw, (max-width: 800px) 100vw, 800px" loading="lazy" decoding="async" style="width: 100%; max-width: 800px; height: auto; margin: 2rem auto; display: block; border-radius: 8px;" />
+						<source type="image/webp" srcset="/LucianoColloseum.webp" media="(min-width: 769px)" />
+						<img src="/LucianoColloseum.JPG" alt="Luciano Macri vid Colosseum i Rom - huvudtränare och grundare av Westeras Tai-Nui Club" width="800" height="600" sizes="(max-width: 768px) 100vw, 800px" loading="lazy" decoding="async" fetchpriority="low" style="width: 100%; max-width: 800px; height: auto; margin: 2rem auto; display: block; border-radius: 8px;" />
 					</picture>
 					<p>Hos oss tränar du Wushu Sanda, MMA och submission wrestling - en komplett kampsportsutbildning som kombinerar slag, sparkar, brottning och markstrid. Effektiv träning som ger resultat, oavsett om du vill bli starkare eller lära dig självförsvar.</p>
 					<p>Alla nivåer välkomna. Ingen erfarenhet krävs.</p>
@@ -169,8 +170,8 @@ import '../styles/global.css';
 					</div>
 					<picture>
 						<source type="image/webp" srcset="/Google5stjärnigreview-mobile.webp" media="(max-width: 768px)" />
-						<source type="image/webp" srcset="/Google5stjärnigreview.webp" />
-						<img src="/Google5stjärnigreview.jpg" alt="Google recension med 5 stjärnor för Westeras Tai-Nui Club - Västerås bästa kampsportsklubb" width="600" height="400" sizes="(max-width: 768px) 100vw, (max-width: 600px) 100vw, 600px" loading="lazy" decoding="async" style="width: 100%; max-width: 600px; height: auto; margin: 1.5rem auto; display: block; border-radius: 8px;" />
+						<source type="image/webp" srcset="/Google5stjärnigreview.webp" media="(min-width: 769px)" />
+						<img src="/Google5stjärnigreview.jpg" alt="Google recension med 5 stjärnor för Westeras Tai-Nui Club - Västerås bästa kampsportsklubb" width="600" height="400" sizes="(max-width: 768px) 100vw, 600px" loading="lazy" decoding="async" fetchpriority="low" style="width: 100%; max-width: 600px; height: auto; margin: 1.5rem auto; display: block; border-radius: 8px;" />
 					</picture>
 				</div>
 			</div>
@@ -409,13 +410,26 @@ import '../styles/global.css';
 			}
 			
 			function preloadNextSlide(nextIndex) {
+				// På mobil, preloada bara när användaren är nära att se nästa slide
+				if (!isDesktop && isScrolling) {
+					return;
+				}
+				
 				if (heroSlides[nextIndex] && slideAllowed(heroSlides[nextIndex])) {
 					const slide = heroSlides[nextIndex];
 					const url = getImageUrl(slide);
 					
 					if (url) {
-						const img = new Image();
-						img.src = url;
+						// Använd requestIdleCallback för mobil för att inte blockera rendering
+						if ('requestIdleCallback' in window && !isDesktop) {
+							requestIdleCallback(() => {
+								const img = new Image();
+								img.src = url;
+							}, { timeout: 2000 });
+						} else {
+							const img = new Image();
+							img.src = url;
+						}
 					}
 				}
 			}
@@ -482,18 +496,44 @@ import '../styles/global.css';
 			
 			// Use requestAnimationFrame for better performance (pausa på mobil för bättre prestanda)
 			let animationId;
+			let isCarouselVisible = true;
+			let isScrolling = false;
+			let scrollTimeout;
+			
+			// Pausa carousel när användaren scrollar (mobil-optimering)
+			window.addEventListener('scroll', () => {
+				isScrolling = true;
+				clearTimeout(scrollTimeout);
+				scrollTimeout = setTimeout(() => {
+					isScrolling = false;
+				}, 150);
+			}, { passive: true });
+			
+			// Intersection Observer för att pausa när hero-sektionen inte är synlig
+			if ('IntersectionObserver' in window) {
+				const heroSection = document.querySelector('.hero');
+				if (heroSection) {
+					const observer = new IntersectionObserver((entries) => {
+						entries.forEach(entry => {
+							isCarouselVisible = entry.isIntersecting;
+						});
+					}, { threshold: 0.1 });
+					observer.observe(heroSection);
+				}
+			}
+			
 			function animateCarousel(currentTime) {
 				if (!lastTime) lastTime = currentTime;
 				const timeDiff = currentTime - lastTime;
 				
-				// Pausa carousel på mobil när sidan inte är synlig (battery saving)
-				if (document.hidden) {
+				// Pausa carousel när sidan inte är synlig, användaren scrollar, eller hero-sektionen inte är synlig
+				if (document.hidden || (isScrolling && !isDesktop) || !isCarouselVisible) {
 					animationId = requestAnimationFrame(animateCarousel);
 					return;
 				}
 				
-				// Snabbare på mobil (6 sekunder istället för 5)
-				const interval = isDesktop ? 5000 : 6000;
+				// Snabbare på mobil (7 sekunder istället för 5) för bättre prestanda
+				const interval = isDesktop ? 5000 : 7000;
 				
 				if (timeDiff >= interval) {
 					nextSlide();
@@ -503,27 +543,38 @@ import '../styles/global.css';
 			}
 			animationId = requestAnimationFrame(animateCarousel);
 			
-			// Load Google Maps iframe on interaction or after page load
+			// Load Google Maps iframe on interaction or after page load (mobil-optimerad)
 			const mapIframe = document.getElementById('google-map-iframe');
 			if (mapIframe) {
 				const loadMap = () => {
 					if (mapIframe.dataset.src) {
-						mapIframe.src = mapIframe.dataset.src;
-						mapIframe.removeAttribute('data-src');
+						// Använd requestIdleCallback för mobil för att inte blockera rendering
+						if ('requestIdleCallback' in window && !isDesktop) {
+							requestIdleCallback(() => {
+								mapIframe.src = mapIframe.dataset.src;
+								mapIframe.removeAttribute('data-src');
+							}, { timeout: 3000 });
+						} else {
+							mapIframe.src = mapIframe.dataset.src;
+							mapIframe.removeAttribute('data-src');
+						}
 					}
 				};
 				
-				// Load on scroll into view or user interaction
-				const observer = new IntersectionObserver((entries) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							loadMap();
-							observer.disconnect();
-						}
-					});
-				}, { rootMargin: '50px' });
-				
-				observer.observe(mapIframe);
+				// Load on scroll into view - större rootMargin för mobil
+				if ('IntersectionObserver' in window) {
+					const rootMargin = isDesktop ? '50px' : '100px';
+					const observer = new IntersectionObserver((entries) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								loadMap();
+								observer.disconnect();
+							}
+						});
+					}, { rootMargin });
+					
+					observer.observe(mapIframe);
+				}
 				
 				// Also load on user interaction as fallback
 				['click', 'touchstart', 'keydown'].forEach(event => {
