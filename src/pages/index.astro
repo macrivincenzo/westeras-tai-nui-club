@@ -553,29 +553,34 @@ import '../styles/global.css';
 			animationId = requestAnimationFrame(animateCarousel);
 			
 			// Load Google Maps iframe on interaction or after page load (mobil-optimerad)
-			// Definiera isMobileMap här för att säkerställa att den är korrekt
-			const isMobileMap = window.innerWidth <= 768;
-			const mapIframe = document.getElementById('google-map-iframe');
+			const loadGoogleMap = () => {
+				const mapIframe = document.getElementById('google-map-iframe');
+				if (mapIframe && mapIframe.dataset.src) {
+					mapIframe.src = mapIframe.dataset.src;
+					mapIframe.removeAttribute('data-src');
+				}
+			};
 			
-			if (mapIframe && mapIframe.dataset.src) {
-				const loadMap = () => {
-					if (mapIframe.dataset.src) {
-						mapIframe.src = mapIframe.dataset.src;
-						mapIframe.removeAttribute('data-src');
-					}
-				};
-				
-				// På mobil: ladda direkt efter sidan är klar (för att säkerställa att den syns)
-				if (isMobileMap) {
-					// Ladda direkt på mobil - ingen lazy loading
-					setTimeout(loadMap, 300);
+			// Kontrollera om mobil
+			const isMobileMap = window.innerWidth <= 768;
+			
+			if (isMobileMap) {
+				// På mobil: ladda direkt när DOM är klar
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', loadGoogleMap);
 				} else {
-					// Desktop: ladda när den blir synlig
+					// DOM är redan klar, ladda direkt
+					loadGoogleMap();
+				}
+			} else {
+				// Desktop: lazy load när den blir synlig
+				const mapIframe = document.getElementById('google-map-iframe');
+				if (mapIframe && mapIframe.dataset.src) {
 					if ('IntersectionObserver' in window) {
 						const observer = new IntersectionObserver((entries) => {
 							entries.forEach(entry => {
 								if (entry.isIntersecting) {
-									loadMap();
+									loadGoogleMap();
 									observer.disconnect();
 								}
 							});
@@ -584,15 +589,15 @@ import '../styles/global.css';
 						observer.observe(mapIframe);
 					} else {
 						// Fallback om IntersectionObserver inte stöds
-						loadMap();
+						loadGoogleMap();
 					}
 				}
-				
-				// Also load on user interaction as fallback
-				['click', 'touchstart', 'keydown'].forEach(event => {
-					document.addEventListener(event, loadMap, { once: true, passive: true });
-				});
 			}
+			
+			// Fallback: ladda vid användarinteraktion (för säkerhets skull)
+			['click', 'touchstart', 'scroll'].forEach(event => {
+				document.addEventListener(event, loadGoogleMap, { once: true, passive: true });
+			});
 		</script>
 		
 		<script type="application/ld+json" set:html={JSON.stringify({
