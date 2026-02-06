@@ -258,6 +258,15 @@
 				color: #1a1a1a;
 				text-align: center;
 			}
+			.form-success {
+				padding: 1rem 1.25rem;
+				margin-bottom: 1.5rem;
+				background: #dcfce7;
+				color: #166534;
+				border-radius: 8px;
+				font-weight: 600;
+				text-align: center;
+			}
 			
 			.form-group {
 				margin-bottom: 1.5rem;
@@ -529,7 +538,12 @@
 					
 					<div class="form-container">
 						<h2>Skicka Meddelande</h2>
+						<div id="form-success" class="form-success" role="alert" aria-live="polite" style="display: none;">
+							Tack för ditt meddelande! Vi återkommer snart.
+						</div>
 						<form action="https://formspree.io/f/maqdwzqo" method="POST">
+							<input type="hidden" name="_subject" value="Nytt meddelande från kungfu.nu" />
+							<input type="hidden" name="_next" value="https://www.kungfu.nu/contact?sent=1" />
 							<div class="form-group">
 								<label for="name">Namn *</label>
 								<input type="text" id="name" name="name" required>
@@ -642,6 +656,12 @@
 					navMenu.classList.remove('active');
 				});
 			});
+
+			// Visa tack-meddelande efter lyckad formulärskickning
+			if (window.location.search === '?sent=1') {
+				const successEl = document.getElementById('form-success');
+				if (successEl) successEl.style.display = 'block';
+			}
 		</script>
 		
 		<script type="application/ld+json">
