@@ -1,0 +1,264 @@
+---
+---
+<html lang="sv">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Fritidskortet hos Westeras Tai-Nui Club i Västerås. Betala medlems- och terminsavgift med Fritidskortet för barn 7–16 år. 550 kr årligen, upp till 2500 kr med bostadsbidrag. Organisationsnummer 878000-7798, bankgiro 350-7399." />
+		<meta name="keywords" content="fritidskortet Västerås, fritidskort förening Västerås, betala träning barn Västerås, Westeras Tai-Nui Club fritidskort, kampsport barn Västerås" />
+		<title>Fritidskortet – Westeras Tai-Nui Club Västerås | Betala med Fritidskortet</title>
+		<link rel="canonical" href="https://www.kungfu.nu/fritidskortet" />
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Fritidskortet – Westeras Tai-Nui Club Västerås" />
+		<meta property="og:description" content="Betala medlems- och terminsavgift med Fritidskortet. Barn 7–16 år. Organisationsnummer 878000-7798. Jakobsgatan 97, Västerås." />
+		<meta property="og:url" content="https://www.kungfu.nu/fritidskortet" />
+		<meta property="og:image" content="https://www.kungfu.nu/Images/fritidskortet-1.jpeg" />
+		<meta property="og:locale" content="sv_SE" />
+		<meta property="og:site_name" content="Westeras Tai-Nui Club" />
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Fritidskortet – Westeras Tai-Nui Club Västerås" />
+		<meta name="twitter:description" content="Betala med Fritidskortet hos oss. Barn 7–16 år. Västerås." />
+		<meta name="twitter:image" content="https://www.kungfu.nu/Images/fritidskortet-1.jpeg" />
+		<link rel="dns-prefetch" href="https://www.facebook.com" />
+		<style>
+			* { margin: 0; padding: 0; box-sizing: border-box; }
+			body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background-color: #fff; }
+			.header { background: #000; color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+			.nav-container { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+			.logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: white; }
+			.logo img { width: 80px; height: 80px; object-fit: contain; display: block; flex-shrink: 0; }
+			.logo-text { font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; }
+			.nav-links { display: flex; gap: 2rem; list-style: none; }
+			.nav-links a { color: white; text-decoration: none; font-weight: 600; transition: color 0.3s ease; }
+			.nav-links a:hover { color: #dc2626; }
+			.dropdown { position: relative; }
+			.dropdown-toggle { display: flex; align-items: center; gap: 0.5rem; }
+			.arrow { font-size: 0.8rem; transition: transform 0.3s ease; }
+			.dropdown:hover .arrow { transform: rotate(180deg); }
+			.dropdown-menu { position: absolute; top: 100%; left: 0; background: #1a1a1a; min-width: 200px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); border-radius: 5px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; z-index: 1000; list-style: none; padding: 0.5rem 0; margin: 0; }
+			.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+			.dropdown-menu li { margin: 0; }
+			.dropdown-menu a { display: block; padding: 0.75rem 1.5rem; color: white; text-decoration: none; transition: background 0.3s ease; }
+			.dropdown-menu a:hover { background: #dc2626; color: white; }
+			.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+			.hero { background: linear-gradient(135deg, #000 0%, #1a1a1a 100%); color: white; padding: 80px 0; text-align: center; }
+			.hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+			.hero p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+			.content-section { padding: 80px 0; background: #f8f9fa; }
+			.fritids-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; max-width: 1100px; margin: 0 auto; }
+			.fritids-image { border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+			.fritids-image img { width: 100%; height: auto; display: block; }
+			.fritids-content h2 { font-size: 2rem; margin-bottom: 1.5rem; color: #1a1a1a; }
+			.fritids-content p { font-size: 1.1rem; color: #444; margin-bottom: 1.25rem; }
+			.fritids-content h3 { font-size: 1.35rem; margin: 2rem 0 1rem; color: #1a1a1a; }
+			.fritids-steps { list-style: none; counter-reset: step; }
+			.fritids-steps li { position: relative; padding-left: 2.5rem; margin-bottom: 1rem; font-size: 1.05rem; color: #444; }
+			.fritids-steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; width: 1.75rem; height: 1.75rem; background: #dc2626; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+			.fritids-content a { color: #dc2626; font-weight: 600; text-decoration: none; }
+			.fritids-content a:hover { text-decoration: underline; }
+			.contact-cta { background: #1a1a1a; color: white; padding: 60px 0; text-align: center; }
+			.contact-cta h2 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
+			.contact-cta p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+			.cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+			.btn { padding: 15px 30px; border: none; border-radius: 5px; font-size: 1.1rem; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.3s ease; cursor: pointer; }
+			.btn-primary { background: #dc2626; color: white; }
+			.btn-primary:hover { background: #b91c1c; transform: translateY(-2px); }
+			.btn-secondary { background: transparent; color: white; border: 2px solid white; }
+			.btn-secondary:hover { background: white; color: black; }
+			.footer { background: #000; color: white; padding: 3rem 0; text-align: center; }
+			.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+			.footer h4 { margin-bottom: 1rem; color: #dc2626; }
+			.footer a { color: #e0e0e0; text-decoration: none; }
+			.footer a:hover { color: white; }
+			.mobile-menu-toggle { display: none; flex-direction: column; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 1001; }
+			.mobile-menu-toggle span { width: 25px; height: 3px; background: white; margin: 3px 0; transition: all 0.3s ease; border-radius: 3px; }
+			.mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+			.mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+			.mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+			@media (max-width: 768px) {
+				.mobile-menu-toggle { display: flex; }
+				.nav-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 400px; height: 100vh; background: #000; padding: 80px 20px 20px; transition: right 0.3s ease; overflow-y: auto; z-index: 1000; }
+				.nav-menu.active { right: 0; }
+				.nav-links { flex-direction: column; gap: 0; }
+				.nav-links > li { border-bottom: 1px solid #333; }
+				.nav-links > li > a { display: block; padding: 1rem 0; }
+				.dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; background: #1a1a1a; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; margin: 0; padding: 0; }
+				.dropdown.active .dropdown-menu { max-height: 500px; padding: 0.5rem 0; }
+				.dropdown-toggle { justify-content: space-between; width: 100%; }
+				.dropdown.active .arrow { transform: rotate(180deg); }
+				.nav-container { flex-direction: column; gap: 1rem; }
+				.hero h1 { font-size: 2.5rem; }
+				.fritids-grid { grid-template-columns: 1fr; gap: 2rem; }
+				.fritids-image { order: -1; }
+				.cta-buttons { flex-direction: column; align-items: center; }
+				.btn { width: 100%; max-width: 300px; }
+			}
+		</style>
+	</head>
+	<body>
+		<header class="header">
+			<div class="nav-container">
+				<a href="/" class="logo">
+					<img src="/logo.svg" alt="Westeras Tai-Nui Club Logo" />
+					<span class="logo-text">WESTERAS TAI-NUI CLUB</span>
+				</a>
+				<button class="mobile-menu-toggle" aria-label="Öppna meny">
+					<span></span><span></span><span></span>
+				</button>
+				<nav class="nav-menu">
+					<ul class="nav-links">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle">Träning <span class="arrow">▼</span></a>
+							<ul class="dropdown-menu">
+								<li><a href="/wushu-sanda">Wushu Sanda</a></li>
+								<li><a href="/submission-wrestling">Submission Wrestling</a></li>
+								<li><a href="/mma">MMA</a></li>
+								<li><a href="/traditionell-kungfu">Traditionell Kung-Fu</a></li>
+							</ul>
+						</li>
+						<li><a href="/aktuellt-tavling">Aktuellt/Tävling</a></li>
+						<li><a href="/historik-media">Historik & Media</a></li>
+						<li><a href="/tranare">Tränare</a></li>
+						<li><a href="/contact">Kontakt</a></li>
+						<li><a href="/schedule">Schema</a></li>
+						<li><a href="/fritidskortet">Fritidskortet</a></li>
+						<li><a href="tel:070-565-35-88">Ring Oss</a></li>
+						<li><a href="/forbunds-medlem">Förbunds Medlem</a></li>
+						<li><a href="/samarbete-med">Samarbete med</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<section class="hero">
+				<div class="container">
+					<h1>Fritidskortet</h1>
+					<p>Så använder du Fritidskortet hos Westeras Tai-Nui Club i Västerås</p>
+				</div>
+			</section>
+
+			<section class="content-section">
+				<div class="container">
+					<div class="fritids-grid">
+						<div class="fritids-image">
+							<img src="/Images/fritidskortet-1.jpeg" alt="Fritidskortet – betala träning för barn i Västerås" width="600" height="auto" loading="eager" />
+						</div>
+						<div class="fritids-content">
+							<h2>Fritidskortet</h2>
+							<p>Om du har barn mellan 7–16 år kan du använda dig av Fritidskortet för att betala medlems- och terminsavgift hos oss. Alla barn mellan 7 och 16 år får 550 kr årligen. Barn i hushåll som fick bostadsbidrag förra året kan få upp till 2500 kr. För föräldrar som inte bor ihop är det den förälder som barnet är folkbokfört hos som kan betala med Fritidskortet.</p>
+							<h3>Du gör på detta sätt:</h3>
+							<ol class="fritids-steps">
+								<li>Logga in i den digitala tjänsten Fritidskortet: <a href="https://fritidskortet.ehalsomyndigheten.se/" target="_blank" rel="noopener noreferrer">Fritidskortet inloggning</a>.</li>
+								<li>Ansök om pengar till barnets fritidskort. Du får svar direkt.</li>
+								<li>Sök efter föreningen; ange vårt organisationsnummer <strong>878000-7798</strong> och använd barnets Fritidskort för betalning till oss.</li>
+								<li>Resterande del av avgiften för fritidsaktiviteten behöver du göra en extra betalning till föreningens bankgiro <strong>350-7399</strong>. Viktigt! Skriv barnets namn + fritidskortet som referens, så att vi kan se att du betalat hela avgiften.</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="contact-cta">
+				<div class="container">
+					<h2>Frågor om Fritidskortet?</h2>
+					<p>Kontakta oss om du vill veta mer om hur du betalar med Fritidskortet hos oss.</p>
+					<div class="cta-buttons">
+						<a href="/contact" class="btn btn-primary">Kontakta Oss</a>
+						<a href="tel:070-565-35-88" class="btn btn-secondary">Ring: 070-565 35 88</a>
+					</div>
+				</div>
+			</section>
+
+			<footer class="footer">
+				<div class="container">
+					<div class="footer-logo">
+						<img src="/logo.svg" alt="Westeras Tai-Nui Club Logo" style="width: 100px; height: 100px; object-fit: contain; margin: 0 auto 1rem; display: block;" />
+						<h3 style="text-align: center; margin-bottom: 2rem; color: #dc2626;">WESTERAS TAI-NUI CLUB</h3>
+					</div>
+					<div class="footer-content">
+						<div>
+							<h4>Adress</h4>
+							<p>Jakobsgatan 97<br>724 64 Västerås</p>
+						</div>
+						<div>
+							<h4>Kontakt</h4>
+							<p>Telefon: 070-565 35 88<br>E-post: luciano@kungfu.nu</p>
+						</div>
+						<div>
+							<h4>Sociala Medier</h4>
+							<p><a href="https://www.facebook.com/westeras.tainui" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a></p>
+						</div>
+						<div>
+							<h4>Träningstider</h4>
+							<p><a href="/schedule">Se Schema</a></p>
+						</div>
+					</div>
+					<div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #555; opacity: 0.9;">
+						<p style="margin-bottom: 1rem;">© 2025 Westeras Tai-Nui Club. Alla rättigheter förbehållna.</p>
+						<p style="font-size: 0.9rem; line-height: 1.8; max-width: 900px; margin: 0 auto;">
+							<strong>Westeras Tai-Nui Club</strong> är Västerås äldsta kampsportsklubb, grundad 1976. Vi erbjuder professionell träning i <strong>Wushu Sanda</strong>, <strong>MMA</strong> och <strong>Submission Wrestling</strong> i hjärtat av Västerås. Välkommen att prova på gratis!
+						</p>
+					</div>
+				</div>
+			</footer>
+		</main>
+
+		<script defer>
+			const m = document.querySelector('.mobile-menu-toggle'), n = document.querySelector('.nav-menu');
+			m.addEventListener('click', () => { m.classList.toggle('active'); n.classList.toggle('active'); });
+			document.querySelectorAll('.dropdown-toggle').forEach(t => {
+				t.addEventListener('click', (e) => {
+					if (window.innerWidth <= 768) { e.preventDefault(); t.parentElement.classList.toggle('active'); }
+				});
+			});
+			document.addEventListener('click', (e) => {
+				if (!e.target.closest('.nav-container')) { m.classList.remove('active'); n.classList.remove('active'); }
+			});
+			document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(l => {
+				l.addEventListener('click', () => { m.classList.remove('active'); n.classList.remove('active'); });
+			});
+		</script>
+
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "HowTo",
+			"name": "Så använder du Fritidskortet hos Westeras Tai-Nui Club",
+			"description": "Steg-för-steg guide för att betala medlems- och terminsavgift med Fritidskortet för barn 7–16 år i Västerås.",
+			"totalTime": "PT10M",
+			"step": [
+				{ "@type": "HowToStep", "name": "Logga in", "text": "Logga in i den digitala tjänsten Fritidskortet på E-hälsomyndigheten." },
+				{ "@type": "HowToStep", "name": "Ansök om pengar", "text": "Ansök om pengar till barnets fritidskort. Du får svar direkt." },
+				{ "@type": "HowToStep", "name": "Betala till föreningen", "text": "Sök föreningen med organisationsnummer 878000-7798 och använd barnets Fritidskort för betalning." },
+				{ "@type": "HowToStep", "name": "Betala resterande avgift", "text": "Betala resterande del till bankgiro 350-7399. Skriv barnets namn och fritidskortet som referens." }
+			]
+		}
+		</script>
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{ "@type": "ListItem", "position": 1, "name": "Hem", "item": "https://www.kungfu.nu/" },
+				{ "@type": "ListItem", "position": 2, "name": "Fritidskortet", "item": "https://www.kungfu.nu/fritidskortet" }
+			]
+		}
+		</script>
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "SportsActivityLocation",
+			"name": "Westeras Tai-Nui Club",
+			"address": { "@type": "PostalAddress", "streetAddress": "Jakobsgatan 97", "addressLocality": "Västerås", "postalCode": "724 64", "addressRegion": "Västmanland", "addressCountry": "SE" },
+			"telephone": "+46705653588",
+			"email": "luciano@kungfu.nu",
+			"url": "https://www.kungfu.nu/fritidskortet"
+		}
+		</script>
+	</body>
+</html>
