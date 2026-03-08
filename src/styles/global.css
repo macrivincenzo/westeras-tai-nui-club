@@ -85,6 +85,12 @@ body {
 	opacity: 1;
 }
 
+.nav-links li:not(:first-child)::before {
+	content: "|";
+	color: #cc0000;
+	margin-right: 0.6rem;
+}
+
 /* Dropdown Navigation */
 .dropdown {
 	position: relative;
