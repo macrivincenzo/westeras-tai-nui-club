@@ -85,12 +85,6 @@ body {
 	opacity: 1;
 }
 
-.nav-links li:not(:first-child)::before {
-	content: "-";
-	color: rgba(255, 255, 255, 0.4);
-	margin-right: 0.6rem;
-}
-
 /* Dropdown Navigation */
 .dropdown {
 	position: relative;
@@ -635,11 +629,6 @@ body {
 		flex-wrap: nowrap;
 		gap: 0;
 	}
-	.nav-links li:not(:first-child)::before {
-		content: none;
-		margin-right: 0;
-	}
-	
 	.nav-links > li {
 		border-bottom: 1px solid #333;
 	}
