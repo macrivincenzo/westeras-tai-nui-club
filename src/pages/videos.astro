@@ -1,0 +1,204 @@
+---
+import '../styles/global.css';
+import VideoCard from '../components/VideoCard.astro';
+import { videos } from '../data/videos';
+---
+
+<html lang="sv">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Videor från Westeras Tai-Nui Club i Västerås. Wushu Sanda, MMA och Submission Wrestling." />
+		<title>Videor - Westeras Tai-Nui Club Västerås</title>
+		<link rel="canonical" href="https://www.kungfu.nu/videos" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Videor - Westeras Tai-Nui Club Västerås" />
+		<meta property="og:url" content="https://www.kungfu.nu/videos" />
+		<meta property="og:image" content="https://www.kungfu.nu/logo.svg" />
+		<meta property="og:locale" content="sv_SE" />
+	</head>
+	<body>
+		<header class="header">
+			<div class="nav-container">
+				<a href="/" class="logo" aria-label="Westeras Tai-Nui Club startsida">
+					<img src="/logo.svg" alt="Westeras Tai-Nui Club logotyp" width="80" height="80" decoding="async" loading="eager" />
+					<span class="logo-text">WESTERAS TAI-NUI CLUB</span>
+				</a>
+				<button class="mobile-menu-toggle" aria-label="Toggle menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<nav class="nav-menu" role="navigation" aria-label="Huvudnavigation">
+					<ul class="nav-links">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle">Träning <span class="arrow">▼</span></a>
+							<ul class="dropdown-menu">
+								<li><a href="/wushu-sanda">Wushu Sanda</a></li>
+								<li><a href="/submission-wrestling">Submission Wrestling</a></li>
+								<li><a href="/mma">MMA</a></li>
+								<li><a href="/traditionell-kungfu">Traditionell Kung-Fu</a></li>
+							</ul>
+						</li>
+						<li><a href="/aktuellt-tavling">Aktuellt/Tävling</a></li>
+						<li><a href="/historik-media">Historik & Media</a></li>
+						<li><a href="/videos">Videor</a></li>
+						<li><a href="/tranare">Tränare</a></li>
+						<li><a href="/contact">Kontakt</a></li>
+						<li><a href="/schedule">Schema</a></li>
+						<li><a href="/fritidskortet">Fritidskortet</a></li>
+						<li><a href="tel:070-565-35-88">Ring Oss</a></li>
+						<li><a href="/forbunds-medlem">Förbunds Medlem</a></li>
+						<li><a href="/samarbete-med">Samarbete med</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<section class="videos-hero">
+				<div class="container">
+					<h1>Videor</h1>
+					<p>Se filmer från Westeras Tai-Nui Club.</p>
+				</div>
+			</section>
+
+			<section class="videos-section">
+				<div class="container">
+					<div class="videos-grid" id="videos-grid">
+						{videos.map((video) => (
+							<VideoCard
+								videoId={video.videoId}
+								title={video.title}
+								description={video.description}
+							/>
+						))}
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-logo">
+					<img src="/logo.svg" alt="Westeras Tai-Nui Club logotyp" width="100" height="100" decoding="async" style="width: 100px; height: 100px; object-fit: contain; margin: 0 auto 1rem; display: block;" />
+					<h3 style="text-align: center; margin-bottom: 2rem; color: #dc2626;">WESTERAS TAI-NUI CLUB</h3>
+				</div>
+				<div class="footer-content">
+					<div>
+						<h4>Adress</h4>
+						<p>Jakobsgatan 97<br>724 64 Västerås</p>
+					</div>
+					<div>
+						<h4>Kontakt</h4>
+						<p>Telefon: 070-565 35 88<br>E-post: luciano@kungfu.nu</p>
+					</div>
+					<div>
+						<h4>Sociala Medier</h4>
+						<p><a href="https://www.facebook.com/westeras.tainui" target="_blank" rel="noopener noreferrer" aria-label="Besök vår Facebook-sida">Facebook</a></p>
+					</div>
+					<div>
+						<h4>Träningstider</h4>
+						<p><a href="/schedule" aria-label="Se träningstider och schema">Se Schema</a></p>
+					</div>
+				</div>
+				<div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #555; opacity: 0.9;">
+					<p style="margin-bottom: 1rem;">© 2026 Westeras Tai-Nui Club. Alla rättigheter förbehållna.</p>
+				</div>
+			</div>
+		</footer>
+
+		<script is:inline>
+			// Mobile menu (same as other pages)
+			(function() {
+				const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+				const navMenu = document.querySelector('.nav-menu');
+				if (mobileMenuToggle && navMenu) {
+					mobileMenuToggle.addEventListener('click', () => {
+						mobileMenuToggle.classList.toggle('active');
+						navMenu.classList.toggle('active');
+					});
+					document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+						toggle.addEventListener('click', (e) => {
+							if (window.innerWidth <= 768) {
+								e.preventDefault();
+								toggle.parentElement.classList.toggle('active');
+							}
+						});
+					});
+					document.addEventListener('click', (e) => {
+						if (!e.target.closest('.nav-container')) {
+							mobileMenuToggle.classList.remove('active');
+							navMenu.classList.remove('active');
+						}
+					});
+					document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => {
+						link.addEventListener('click', () => {
+							mobileMenuToggle.classList.remove('active');
+							navMenu.classList.remove('active');
+						});
+					});
+				}
+			})();
+
+			// Video card click: replace thumbnail with YouTube iframe
+			document.getElementById('videos-grid')?.addEventListener('click', (e) => {
+				const card = e.target.closest('.video-card');
+				if (!card || card.classList.contains('is-playing')) return;
+				const videoId = card.getAttribute('data-video-id');
+				if (!videoId) return;
+				const wrap = card.querySelector('.video-card-thumb-wrap');
+				if (!wrap) return;
+				card.classList.add('is-playing');
+				const iframe = document.createElement('iframe');
+				iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+				iframe.title = card.querySelector('.video-card-title')?.textContent || 'YouTube video';
+				iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+				iframe.allowFullscreen = true;
+				wrap.style.position = 'relative';
+				wrap.innerHTML = '';
+				wrap.appendChild(iframe);
+			});
+		</script>
+	</body>
+</html>
+
+<style>
+	.videos-hero {
+		background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+		color: white;
+		padding: 80px 0;
+		text-align: center;
+	}
+	.videos-hero h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin-bottom: 1rem;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	}
+	.videos-hero p {
+		font-size: 1.2rem;
+		opacity: 0.9;
+	}
+	.videos-section {
+		padding: 80px 0;
+		background: #f8f9fa;
+	}
+	.videos-grid {
+		display: grid;
+		gap: 1.5rem;
+		grid-template-columns: 1fr;
+	}
+	@media (min-width: 768px) {
+		.videos-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (min-width: 1024px) {
+		.videos-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+</style>
