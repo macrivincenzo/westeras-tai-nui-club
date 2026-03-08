@@ -55,6 +55,8 @@ body {
 
 .nav-links {
 	display: flex;
+	flex-direction: row;
+	align-items: center;
 	flex-wrap: nowrap;
 	gap: 1.25rem;
 	list-style: none;
@@ -83,10 +85,10 @@ body {
 	opacity: 1;
 }
 
-.nav-links li:not(:last-child)::after {
-	content: " - ";
+.nav-links li:not(:first-child)::before {
+	content: "-";
 	color: rgba(255, 255, 255, 0.4);
-	margin-left: 0.1rem;
+	margin-right: 0.6rem;
 }
 
 /* Dropdown Navigation */
@@ -632,6 +634,10 @@ body {
 		flex-direction: column;
 		flex-wrap: nowrap;
 		gap: 0;
+	}
+	.nav-links li:not(:first-child)::before {
+		content: none;
+		margin-right: 0;
 	}
 	
 	.nav-links > li {
